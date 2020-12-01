@@ -1,0 +1,22 @@
+<view class=" {{isIPhoneX?'safe-wrap':''}}">
+  <view class="base-info">
+      <view class="dl">
+        <view class="dt">姓名</view>
+        <view class="dd dd-flex dd-margin">
+          <input type="text" bindinput="bindKeyInput" value="{{userInfo.name}}" data-key="name"   placeholder="请输入姓名"/>
+        </view>
+      </view>
+
+      <view class="dl">
+        <view class="dt">手机</view>
+        <view class="dd dd-flex  dd-margin">
+          {{userInfo.mobile}}
+        </view>
+      </view>
+
+
+
+
+  </view>
+  <view class="save-btn" bindtap = "save">保存</view>
+</view>

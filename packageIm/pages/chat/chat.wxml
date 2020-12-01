@@ -1,0 +1,28 @@
+<scroll-view scroll-y="true" class="chat_list_wraper {{gotop? (isIPX? 'goTopX': 'goTop'): 'goback'}}" style="padding-bottom: {{ isIPX ? '270rpx':'226rpx'}}">
+
+    <view wx:for="{{ arr }}" wx:key="index" data-item="{{ item }}" catchtap='del_chat'>
+        <swipe-delete >
+            <view class="ul">
+                <view class="li" data-item="{{item}}" catchtap="imClickfun">
+                    <image src="{{item.headImg || '../../images/theme@2x.png' }}"></image>
+                    <view class="em-msgNum" wx:if="{{ item.unReadCount > 0 || item.unReadCount == '99+' }}">{{ item.unReadCount }}</view>
+                    <view class="content">
+                        <view class="name">{{item.name}}</view>
+                        <view class="desc" wx:if="{{ !item.msg.data[0].data &&  item.msg.type == 'txt' }}">[项目]</view>
+                        <view class="desc" wx:if="{{ item.msg.data[0].data }}">{{item.msg.data[0].data}}</view>
+                        <view class="desc" wx:if="{{ item.msg.type == 'img' }}">[图片]</view>
+                        <view class="desc" wx:if="{{ item.msg.type == 'audio' }}">[语音]</view>
+                        <view class="time">{{item.time}}</view>
+                    </view>
+                </view>
+            </view>
+        </swipe-delete>
+    </view>
+    <view wx:if="{{arr.length == 0}}" class="chat_noChat">
+        <view class='messagePic'>
+           <image src="/images/messageNo.png"></image>
+        </view>
+        当前没有历史聊天
+    </view>
+</scroll-view>
+<component-tab num-prop="3" count="{{count}}" />

@@ -1,0 +1,96 @@
+<view class=" {{isIPhoneX?'safe-wrap':''}}">
+  <view class="base-info">
+      <view class="dl dl144 dl-icon">
+        <view class="dt">头像</view>
+        <view class="dd dd-flex dd-margin upload" data-key="wxPhoto"  bindtap = "upload">
+          <image class="icon" src="{{userInfo.wxPhoto }}" ></image>
+        </view>
+        <view class="dd flex flex-arrow dl144"  bindtap = "upload"  data-key="wxPhoto">
+          <view class="flex-arrow-after" style="background-image:url({{imgServerUrl}}/xcx_images/{{projectName}}/icon_arrow_right_blue.png)"></view>
+        </view>
+      </view>
+
+      <view class="dl">
+        <view class="dt">姓名</view>
+        <view class="dd dd-flex dd-margin">
+          {{userInfo.name}}
+        </view>
+      </view>
+
+      <view class="dl">
+        <view class="dt">手机</view>
+        <view class="dd dd-flex  dd-margin">
+          {{userInfo.mobile}}
+        </view>
+      </view>
+
+      <view class="dl">
+        <view class="dt">所属团队</view>
+        <view class="dd dd-flex  dd-margin">
+          {{userInfo.teamName}}
+        </view>
+      </view>
+  </view>
+  <view class="hegiht20 gray"></view>
+  <view>
+      <view class="dl">
+        <view class="dt">微信账号</view>
+        <view class="dd dd-flex">
+          <input type="text" bindinput="bindKeyInput" value="{{userInfo.wxId}}" data-key="wxId"   placeholder="请输入微信账号" maxlength="50"/>
+        </view>
+      </view>
+
+
+      <view class="dl  dl-icon">
+        <view class="dt">微信二维码</view>
+        <view class="dd dd-flex">
+            <!-- <input type="text" bindinput="bindKeyInput" value="{{userInfo.wxQrCode}}" data-key="wxQrCode"   placeholder="请输入微信二维码"/> -->
+            <view class="dd dd-flex dd-margin upload wxQrCode" data-key="wxQrCode"  bindtap = "upload">
+            <image class="icon" src="{{userInfo.wxQrCode}}" ></image>
+          </view>
+        </view>
+        <view class="dd flex flex-arrow"  bindtap = "upload"  data-key="wxQrCode">
+        <view class="flex-arrow-after" style="background-image:url({{imgServerUrl}}/xcx_images/{{projectName}}/icon_arrow_right_blue.png)"></view>
+        </view>
+      </view>
+
+      <view class="dl">
+        <view class="dt">邮箱</view>
+        <view class="dd dd-flex">
+          <input type="text" bindinput="bindKeyInput" value="{{userInfo.mail}}" data-key="mail"   placeholder="请输入邮箱" maxlength="50"/>
+        </view>
+      </view>
+
+      <view class="dl">
+        <view class="dt">地址</view>
+        <view class="dd dd-flex">
+          <input type="text" bindinput="bindKeyInput" value="{{userInfo.location}}" data-key="location"   placeholder="请输入地址" maxlength="50"/>
+        </view>
+      </view>
+
+      <view class="dl">
+        <view class="dt">部门</view>
+        <view class="dd dd-flex">
+          <input type="text" bindinput="bindKeyInput" value="{{userInfo.department}}" data-key="department"   placeholder="请输入部门" maxlength="50"/>
+        </view>
+      </view>
+
+      <view class="dl">
+        <view class="dt">职称</view>
+        <view class="dd dd-flex">
+          <input type="text" bindinput="bindKeyInput" value="{{userInfo.job}}" data-key="job"   placeholder="请输入职称" maxlength="50"/>
+        </view>
+      </view>
+
+      <view class="dl dl-textarea">
+        <view class="dt">个人简介</view>
+        <view class="textarea">
+          <textarea type="text" bindinput="bindKeyInput" value="{{userInfo.personalProfile}}" data-key="personalProfile"   placeholder="请输入个人简介" maxlength="500"/>
+        </view>
+      </view>
+      
+
+  </view>
+
+  <view class="save-btn" bindtap = "save">保存</view>
+</view>

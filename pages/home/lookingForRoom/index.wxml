@@ -1,0 +1,19 @@
+<view class="condition">
+  <view class="condition-item">
+    <view class="title">请选择购房城市</view>
+    <view class="city" bindtap="goCity">
+      <text>{{cityNames}}</text>
+      <image src="/images/icon_arrow_right_blue.png" class="icon"></image>
+    </view>
+  </view>
+  <view class="condition-item" wx:for="{{returnData}}" wx:key="{{name}}">
+    <view class="title">{{item.name}}</view>
+    <view class="tabs">
+      <wxs module="helper">
+        module.exports.includes = function(arr, str){ return arr.indexOf(str)>=0 || (arr.length===0&&!str) }
+      </wxs>
+      <view wx:for="{{item.data}}" data-item="{{item}}" bindtap="itemHandleClickFun" class="{{helper.includes(params[item.qiuhao],item.val) ? 'active' : ''}}">{{item.name}}</view>
+    </view>
+  </view>
+  <view class="btn" bindtap="houseList">立即定制</view>
+</view>

@@ -1,0 +1,11 @@
+@import '/assets/css/common.wxss';
+.topSteps {
+  background: #FFFFFF;
+  padding-bottom: 20px;
+}
+
+.success_box {
+  background: #FFFFFF;
+  text-align: center;
+  padding-bottom: 100px;
+}

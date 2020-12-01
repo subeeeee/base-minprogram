@@ -1,0 +1,11 @@
+<view class="form_box">
+    <view class="form_item">
+        <view class="form_title">项目</view>
+        <view class="control">
+            <picker bindchange="bindPickerChange" range-key="referred" value="{{index}}" range="{{array}}">
+                <view class="picker">{{projectName}}</view>
+            </picker>
+        </view>
+    </view>
+</view>
+<view class="btn" bindtap="determine">确定</view>

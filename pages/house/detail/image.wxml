@@ -1,0 +1,81 @@
+<scroll-view scroll-y="{{true}}" scroll-into-view="{{tabActive}}" scroll-with-animation="{{true}}" class="container">
+  <view class="house-box" id="modelroom" wx:if="{{modelroom.length>0}}">
+    <view class="box-hd">
+      <view class="title">样板间图</view>
+    </view>
+    <view class="box-bd">
+      <view class="image-list">
+        <view class="image-item" wx:for="{{modelroom}}" wx:key="index">
+          <image lazy-load="{{true}}" src="{{item}}" mode="aspectFill" catchtap="previewImage" data-src="{{item}}" data-list="{{modelroom}}"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="house-box" id="effect" wx:if="{{effect.length>0}}">
+    <view class="box-hd">
+      <view class="title">效果图</view>
+    </view>
+    <view class="box-bd">
+      <view class="image-list">
+        <view class="image-item" wx:for="{{effect}}" wx:key="index">
+          <image lazy-load="{{true}}" src="{{item}}" mode="aspectFill" catchtap="previewImage" data-src="{{item}}" data-list="{{effect}}"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="house-box" wx:if="{{communitymatching.length>0}}">
+    <view class="box-hd">
+      <view class="title">小区配套图</view>
+    </view>
+    <view class="box-bd">
+      <view class="image-list">
+        <view class="image-item" wx:for="{{communitymatching}}" wx:key="index">
+          <image lazy-load="{{true}}" src="{{item}}" mode="aspectFill" catchtap="previewImage" data-src="{{item}}" data-list="{{communitymatching}}"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="house-box" id="realmap" wx:if="{{realmap.length>0}}">
+    <view class="box-hd">
+      <view class="title">实景图</view>
+    </view>
+    <view class="box-bd">
+      <view class="image-list">
+        <view class="image-item" wx:for="{{realmap}}" wx:key="index">
+          <image lazy-load="{{true}}" src="{{item}}" mode="aspectFill" catchtap="previewImage" data-src="{{item}}" data-list="{{realmap}}"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="house-box" wx:if="{{scene.length>0}}">
+    <view class="box-hd">
+      <view class="title">售楼处</view>
+    </view>
+    <view class="box-bd">
+      <view class="image-list">
+        <view class="image-item" wx:for="{{scene}}" wx:key="index">
+          <image lazy-load="{{true}}" src="{{item}}" mode="aspectFill" catchtap="previewImage" data-src="{{item}}" data-list="{{scene}}"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="house-box" wx:if="{{imageList.length>0}}">
+    <view class="box-hd">
+      <view class="title">项目图册</view>
+    </view>
+    <view class="box-bd">
+      <view class="image-list">
+        <view class="image-item" wx:for="{{imageList}}" wx:key="index">
+          <image lazy-load="{{true}}" src="{{item}}" mode="aspectFill" catchtap="previewImage" data-src="{{item}}" data-list="{{imageList}}"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+</scroll-view>
+<view class="btns">
+  <view bindtap="imClickfun "  class="{{globalData + '-btn-color'}}">在线咨询</view>
+  <view bindtap="telephone">电话咨询</view>
+</view>
+  <view wx:if="{{isUserAuth==1}}">
+      <component-user></component-user>
+  </view>

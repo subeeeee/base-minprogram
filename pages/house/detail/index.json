@@ -1,0 +1,11 @@
+{
+    "navigationBarTitleText": "楼盘详情",
+    "usingComponents": {
+        "my-map": "/components/house/map/map",
+        "component-user":"/components/login/auth/index",
+        "project-item":"/components/house/projectItem/index",
+        "component-phone":"/components/login/phone/index",
+        "component-share":"/components/share/share",
+        "house-item":"/components/house/house-item/index"
+    }
+}

@@ -1,0 +1,51 @@
+<view>
+    <swiper class='swiper' indicatorColor='#999' indicatorActiveColor='#333' circular>
+        <swiper-item wx:for="{{images}}" wx:key="index">
+            <image src="{{'https://yxf-bucket-01.oss-cn-beijing.aliyuncs.com/' + item.imageSrc + '?x-oss-process=image/resize,h_250'}}" mode="aspectFill"
+                   class='img'></image>
+        </swiper-item>
+    </swiper>
+    <view class="info">
+        <text class="title">{{projectInfo.name}}</text>
+        <text class="site">{{roomInfo.buildingInfo.name}}-{{roomInfo.viewUnitNumber}}-{{roomInfo.roomName}}</text>
+        <text class="price">¥{{roomInfo.presentTotalPrice}}</text>
+    </view>
+    <view class="form_box">
+        <view class="form_item">
+            <text class="t">类型</text>
+            <view class="control">
+                <text>{{modeName1}}</text>
+            </view>
+        </view>
+        <view class="form_item">
+            <text class="t">户型</text>
+            <view class="control">
+                <text>{{roomInfo.roomPatternName || '--'}}</text>
+            </view>
+        </view>
+        <view class="form_item">
+            <text class="t">建筑面积</text>
+            <view class="control">
+                {{roomInfo.outArea || '--'}}m²
+            </view>
+        </view>
+        <view class="form_item">
+            <text class="t">建筑单价</text>
+            <view class="control">
+                ¥{{roomInfo.presentOutPrice || '--'}}元/m²
+            </view>
+        </view>
+        <view class="form_item">
+            <text class="t">套内单价</text>
+            <view class="control">
+                ￥{{roomInfo.presentInnerPrice || '--'}}元/m²
+            </view>
+        </view>
+    </view>
+    <view class="ph50"></view>
+    <view class="ph50"></view>
+    <view class="botBtnBox">
+        <text bindtap="back">返回</text>
+        <text bindtap="ok">确定</text>
+    </view>
+</view>

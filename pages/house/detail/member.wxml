@@ -1,0 +1,17 @@
+<view class="container {{isIPhoneX?'safe-wrap':''}}">
+  <scroll-view scroll-y="{{true}}" class="tab-scroll" bindscrolltolower="onReachBottom">
+    <view class="list">
+      <view class="item" wx:for="{{memberList}}" wx:key="index">
+        <view class='name' bindtap="memberDetail" data-id="{{item.memberId}}">
+          <image src="{{item.headImgUrl}}" mode="aspectFill"
+                 class='img'></image>{{item.name}}
+        </view>
+        <image  src="{{imgServerUrl+'/xcx_images/'+globalProjectName+'/wxIcon.png'}}" class="wxIcon" bindtap="imClickfun" data-id="{{item.memberId}}"></image>
+        <image src="{{imgServerUrl+'/xcx_images/'+globalProjectName+'/telephone.png'}}" class="telephone" bindtap="telephone" data-phone="{{item.mobile}}"></image>
+      </view>
+    </view>
+  </scroll-view>
+</view>
+  <view wx:if="{{isUserAuth==1}}">
+      <component-user></component-user>
+  </view>

@@ -1,0 +1,33 @@
+<view>
+<view wx:if="{{radioItems}}" class="share-warp">
+    <view wx:if="{{radioItems.length>0}}" >
+          <scroll-view class="img-list" scroll-x="true">
+            <view class="img-item" wx:for="{{radioItems}}" wx:key="imageUrl" bindtap = "radioChange" data-url="{{item.imageUrl}}">
+              <image src="{{item.imageUrl}}" class="img" ></image>
+              <view wx:if="{{item.checked}}" class="active"
+              style="background-image:url({{imgServerUrl}}/xcx_images/{{projectName}}/selected.png)"
+              ></view>
+            </view>
+          </scroll-view>
+        <view class="canvas-view">
+          <view>
+            <image src="{{selectedImg}}" class="canvas-img" mode="widthFix"/>
+            <view class="qrcode-view">
+              <image src="{{xcxCodeUrl}}" class="qrcode-img"/>
+                <view  class="qrcode-text-container">
+                  <text class="qrcode-text" wx:for="{{posterInfo}}" wx:key="index">{{item}}</text>
+                </view>
+            </view>
+          </view>
+        </view>
+      <button class="save-btn" bind:tap="downloadImage">保存</button>
+      <canvas canvas-id="shareCanvas" class="share-canvas" ></canvas>
+    </view>	
+    <view class='my-no-data' wx:else>
+        <image lazy-load="{{true}}" src="https://yxf1.juzhouyun.com/xcx_images/no-poster.png" class="image"/>
+        <view class="text">该项目暂未配置海报</view>
+    </view>
+    </view>
+</view>
+
+

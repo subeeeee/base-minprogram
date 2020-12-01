@@ -1,0 +1,8 @@
+@import '/assets/css/common.wxss';
+
+.height20{
+    height: 20rpx;
+}
+.gray{
+    background:#f5f5f5;
+}

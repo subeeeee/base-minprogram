@@ -1,0 +1,33 @@
+<view>
+    <view class="topSteps">
+        <!-- 认购流程 填写信息 -->
+        <step options="{{stepsOptions}}" active="{{stepsNum}}"></step>
+    </view>
+    <view class="form_box">
+        <view class="form_item">
+            <view class="t">认购人姓名 <text>*</text></view>
+            <view class="control">
+                <input type="text" bindinput="bindKeyInput" value="{{info.customerName}}" data-key="customerName"  maxlength="20" />
+            </view>
+        </view>
+        <view class="form_item">
+            <view class="t">认购人手机号 <text>*</text></view>
+            <view class="control">
+                <input type="number" bindinput="bindKeyInput" value="{{info.mobile}}" data-key="mobile" maxlength="11" />
+            </view>
+        </view>
+        <view class="form_item">
+            <view class="t">认购人证件号 <text>*</text></view>
+            <view class="control">
+                <input type="idcard" bindinput="bindKeyInput" value="{{info.identityNo}}" data-key="identityNo" maxlength="18" />
+            </view>
+        </view>
+    </view>
+    <view class="tips">
+        温馨提示：认购客户请务必填写真实准确的姓名和证件（二代身份证）号，以及使用本人名下的实名手机号作为认购凭证。 否则无法完成认购。
+    </view>
+    <view class="botBtnBox">
+        <!-- <text @click="prevPage">上一步</text> -->
+        <text bindtap="nextPage">下一步</text>
+    </view>
+</view>

@@ -1,0 +1,114 @@
+<view>
+  <view>
+        <view class="dl" bindtap="showProjectList">
+          <view class="dt h2">推荐项目</view>
+          <view class="dd dd-flex"></view>
+          <view class="dd down" style="background-image:url({{imgServerUrl}}/xcx_images/{{styleProjectName}}/down.png)">
+                    {{projectName}}
+          </view>
+        </view>
+      <view class="dl">
+        <view class="dt">客户姓名</view>
+        <view class="dd dd-flex">
+           <input type="text" bindinput="bindKeyInput" value="{{ManagerForm.name}}" data-key="name"  maxlength="10" placeholder="请输入" bindblur="removeNonBmpUnicode"/>
+       </view>
+      </view>
+      <view class="dl" wx:for="{{ManagerForm.mobiles}}" wx:key="index">
+        <view class="dt">客户手机</view>
+        <view class="dd dd-flex">
+            <input type="text" bindinput="bindMobile" value="{{item}}" 
+            
+            data-idx="{{index}}"
+            
+            maxlength="11" placeholder="请输入"/>
+        </view>
+        <view class="dd flex">
+            <view class="icon iconfont icon-zengjia1"  wx-if="{{index === 0 && lookIco}}" bindtap="addMobile" style="background-image:url({{imgServerUrl}}/xcx_images/{{styleProjectName}}/add_tel.png)"></view>
+            <view class="icon iconfont icon-jianshao"  wx-if="{{index > 0 && index < 4}}" bindtap="delMobile" data-index="{{index}}"  style="background-image:url({{imgServerUrl}}/xcx_images/{{styleProjectName}}/minus_tel.png)"></view>
+
+            <view bindtap="lookPsw" class="icon iconfont look-ico look-open {{canHideMobile === 0?'is-click':''}}" wx-if="{{lookIco && index === 0}}"
+             style="background-image:url({{imgServerUrl}}/xcx_images/{{styleProjectName}}/quotes_open_c.png)"
+            ></view>
+            <view bindtap ="lookPsw" class="icon iconfont look-ico look-close" wx-if="{{!lookIco && index === 0}}"
+             style="background-image:url({{imgServerUrl}}/xcx_images/{{styleProjectName}}/quotes_close_c.png)"
+            ></view>
+        
+          </view>
+      </view>
+       <view class="dl">
+          <view class="dt">客户性别</view>
+          <view class="dd dd-flex">
+          
+          </view>
+          <view class="dd flex flex-align-item-center">
+            <view class="radio-btn {{ManagerForm.sex==item.value?'active':''}}" wx:for="{{sexData}}" wx:key="index" data-value="{{item.value}}" 
+            data-key="sex" bindtap="bindKeyInput">{{item.text}}</view>
+          </view>
+        </view>
+      <view class="dl">
+        <view class="dt">置业顾问</view>
+        <view class="dd dd-flex">
+           <input type="text" maxlength="20" disabled placeholder="不支持指定顾问"   wx-if="{{ManagerForm.projectId === '' || canChooseMember === 0 || !lookIco}}"/>
+           <input wx:else type="text" value="{{memberNameOrMobiles}}" data-key="memberNameOrMobiles" placeholder="请输入顾问手机号"
+           bindinput = "memberInput"  bindblur="removeNonBmpUnicode"
+           />
+        </view>
+      </view>
+      <view class="save-btn" bindtap = "save">推荐客户</view>
+  </view>
+</view>
+
+<van-popup show="{{ projectListShow }}" bind:close="closeProjectListShowPopup" custom-class="project-popup" z-index="1000" position="top">
+  <view class="dl" bindtap="closeProjectListShowPopup">
+      <view class="dt h2">推荐项目</view>
+      <view class="dd dd-flex"></view>
+      <view class="dd down up" style="background-image:url({{imgServerUrl}}/xcx_images/{{styleProjectName}}/up.png)">
+
+      </view>
+  </view>
+
+   <view class="ul">
+     <view class="li {{selectdProjectIdx==index?'active':''}}" wx:for="{{projectData}}" wx:key="index" bindtap = "changeSelected" data-idx="{{index}}" data-key="selectdProjectIdx">
+     {{item.label}}
+     </view>
+   </view>
+
+  <view class="save-btn" bindtap = "setProject">确定</view>
+</van-popup>
+
+<van-popup show="{{ CustomerShow }}" bind:close="closeCustomerShowPopup" custom-class="project-popup" z-index="1000" position="top"
+close-on-click-overlay="false"
+>
+   <view class="ul">
+     <view class="li {{index==selectdCustomerIdx?'active':''}}" wx:for="{{customersMembers}}" wx:key="index" bindtap = "changeSelected" data-idx="{{index}}"
+
+     data-key="selectdCustomerIdx"
+     >
+     {{item.name}}  {{item.mobile}}
+     </view>
+   </view>
+
+  <view class="save-btn" bindtap = "setCustomer">确定</view>
+</van-popup>
+<van-dialog id="van-dialog" />
+
+<van-dialog
+  use-slot
+  title="温馨提示"
+  show="{{ open201 }}"
+  show-cancel-button
+  confirm-button-text="补全操作"
+  cancel-button-text="放弃报备"
+  bind:close="onClose"
+  bind:confirm="onBasicConfirm201"
+>
+      <view class="basicDialogText">{{basicDialogText}}</view>
+        <view  class="splitMobiles">
+          <view class="dt">{{splitMobiles[0]}}</view>
+          <view class="dd">
+            <!-- <veiw class="span" wx:for="{{splitMobilesInputSpan}}" wx:key="index">{{item||''}}</veiw> -->
+            <input type="text" bindinput="changeSplitMobilesInput" value="{{splitMobilesInput}}" maxlength="4" class="input" bindblur="removeNonBmpUnicode"/>
+          </view>
+          <view class="dt">{{splitMobiles[1]}}</view>
+      </view>
+</van-dialog>

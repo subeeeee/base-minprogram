@@ -1,0 +1,11 @@
+<view class="openPhoneBox">
+    <view class="contentBox">
+        <view class="IconBox"><image class="icon"
+        src="{{imgServerUrl+'/xcx_images/'+projectName+'//logo@2x.png'}}"></image></view>
+        <view class="title1">欢迎使用{{miniprogramTitle}}</view>
+        <view class="title2">微信登录享受专属购房服务</view>
+        <view class="btns">
+            <button class="loginBtn" open-type="getUserInfo" bindgetuserinfo="getUserInfo">微信登录</button>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,27 @@
+<!--推广详情-->
+<view wx-if="{{listData}}">
+  <view class="container bottom-bar {{isIPhoneX?'safe-wrap':''}}">
+      <view class="list" wx:if="{{listData.length > 0}}">
+      <view class="item" data-id="{{item.customerId}}" wx:for="{{listData}}" wx:key="index">
+        <image class="photo" src="{{item.headImgUrl||'/images/theme@2x.png'}}" bindtap="gotoCard" data-id="{{item.memberId}}" data-projectid="{{item.projectId}}"></image>
+        <view class="content">
+          <view  bindtap="gotoCard" data-id="{{item.memberId}}"  data-projectid="{{item.projectId}}">
+              <view class="title ">
+                {{item.name}}
+              </view>
+              <view class="time">{{item.referred}}</view>
+            </view>
+            <view class="chat">
+                  <image  src="{{imgServerUrl+'/xcx_images/'+globalProjectName+'/telephone.png'}}"  class="icon telephone" bindtap="telephone" data-phone="{{item.mobile}}"></image>
+                  <image  src="{{imgServerUrl+'/xcx_images/'+globalProjectName+'/wxIcon.png'}}" bindtap="imClickfun" class="icon wxIcon" data-id="{{item.memberId}}" data-project-id="{{item.projectId}}"></image>
+            </view>
+        </view>
+    </view>
+        
+      </view>
+      <view class='my-no-data' wx:else>
+          <image lazy-load="{{true}}" src="http://test-block.oss-cn-beijing.aliyuncs.com/applet/2020/05/13/360_288_2f75be9b79272fa2b1c165e45e7f4d29.png" />
+          <view class="text">页面空空如也，去逛逛别的~</view>
+      </view>
+  </view>
+</view>

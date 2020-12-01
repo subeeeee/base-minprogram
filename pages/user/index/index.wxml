@@ -1,0 +1,106 @@
+<!--我的-->
+<view class="container bottom-bar {{isIPhoneX?'safe-wrap':''}}">
+<view class="header">
+    <button open-type="getUserInfo" class='user' bindgetuserinfo="getUserInfoLog"  wx:if="{{!nickName}}" >
+         <view class="headImg">
+            <image src="{{headImg}}"></image>
+        </view>
+        <view class="title">
+            <text class="nickname">{{userPhone ? (nickName||'未授权，请点击授权') : nickName||'登录/注册'}}</text>
+            <image  src="{{imgServerUrl+'/xcx_images/'+projectName+'/counselor@2x.png'}}" class="counselor" wx:if="{{userType=='1'||userType=='3'}}"></image>
+        </view>
+        <view class="desc" wx:if="{{userPhone}}">{{phoneNum}}</view>
+        <view class="desc" wx:if="{{!userPhone}}">立即登录，体验更多服务</view>
+    </button>
+    <button bindtap="showPhoneBox" wx:elif="{{!userPhone}}"  class='user'>
+           <view class="headImg">
+            <image src="{{headImg}}"></image>
+        </view>
+        <view class="title">
+             <text class="nickname">{{userPhone ? (nickName||'未授权，请点击授权') : nickName||'登录/注册'}}</text>
+             <image src="{{imgServerUrl+'/xcx_images/'+projectName+'/counselor@2x.png'}}"  class="counselor" wx:if="{{userType=='1'||userType=='3'}}"></image>
+        </view>
+        <view class="desc">立即登录，体验更多服务</view>
+    </button>
+    <view class="user" wx:else>
+        <view class="headImg">
+            <image src="{{headImg}}"></image>
+        </view>
+        <view class="title">
+            <text class="nickname">{{userPhone ?  (nickName||'未授权，请点击授权') : nickName||'登录/注册'}}</text>
+            <image src="{{imgServerUrl+'/xcx_images/'+projectName+'/counselor@2x.png'}}" class="counselor" wx:if="{{userType=='1'||userType=='3'}}"></image>
+        </view>
+        <view class="desc" wx:if="{{userPhone}}">{{phoneNum}}</view>
+        <!-- <view class="desc" wx:if="{{!userPhone}}">立即登录，体验更多服务</view> -->
+    </view>
+    <view class="next" bindtap = "gotoCard"  wx:if="{{userType=='1'||userType=='3'}}"></view>
+    </view>
+    <view class="service">
+        <view class="title">我的服务</view>
+        <view class="list">
+            <view class="item serviceIcon1" bindtap="menuClickHanleFun" data-type="buy">
+                <image src="/images/serviceIcon1.png"></image>
+                <view>我的认购</view>
+            </view>
+            <view class="item serviceIcon2" bindtap="menuClickHanleFun" data-type="appointment">
+                <image src="/images/serviceIcon2.png"></image>
+                <view>预约登记</view>
+            </view>
+            <view class="item serviceIcon3" bindtap="menuClickHanleFun" data-type="coupon">
+                <image src="/images/serviceIcon3.png"></image>
+                <view>优惠券</view>
+            </view>
+            <view class="item serviceIcon4" bindtap="menuClickHanleFun" data-type="activity">
+                <image src="/images/serviceIcon4.png"></image>
+                <view>优惠活动</view>
+            </view>
+            <view class="item serviceIcon5" bindtap="menuClickHanleFun" data-type="collection">
+                <image src="/images/serviceIcon5.png"></image>
+                <view>我的关注</view>
+            </view>
+        </view>
+        <view class="list list-last">
+                <view class="item serviceIcon6" bindtap="requestSubscribeMessage" data-type="promote"   wx:if="{{userType=='1'||userType=='2'||userType=='3'}}">
+                    <image src="/images/serviceIcon6.png"></image>
+                    <view>我的推广</view>
+                </view>
+                <!-- <button open-type="getUserInfo" bindgetuserinfo="getUserInfo" class="item" > -->
+                <view class="item serviceIcon7" bindtap="menuClickHanleFun" data-type="recommended">
+                    <image src="/images/serviceIcon7.png"></image>
+                    <view>我的客户</view>
+                </view>
+                <!-- </button> -->
+                <view class="item serviceIcon9" bindtap="menuClickHanleFun" data-type="consultant">
+                    <image src="/images/serviceIcon9.png"></image>
+                    <view>专属顾问</view>
+                </view>
+                <view class="item serviceIcon10" bindtap="couponVerify" data-type="coupon" wx:if="{{couponConfirmPermissions && nickName}}">
+                    <image src="/images/serviceIcon10.png"></image>
+                    <view>扫码核销</view>
+                </view>
+            </view>
+    </view>
+    <view class="Ulist">
+        <!-- <view class="Uitem">
+            <image class="icon" src="{{imgServerUrl+'/xcx_images/'+projectName+'/Uicon2.png'}}></image>
+            <view class="l">客服电话</view>
+            <view class="r" bindtap="telephone" data-phone="400-820-0588">400-820-0588</view>
+        </view> -->
+        <view class="Uitem" data-url="{{'https://yxf1.juzhouyun.com/online/mobile1/aboutUs.html?tenantId=' + tenantId}}" data-title="关于我们" bindtap="getWebFun">
+            <image class="icon" src="{{imgServerUrl+'/xcx_images/'+projectName+'/Uicon3.png'}}"></image>
+            <view class="l">关于我们</view>
+            <image class="rIcon" src="{{imgServerUrl+'/xcx_images/'+projectName+'/icon_arrow_right_blue.png'}}"></image>
+        </view>
+    </view>
+    <view wx:if="{{isPhoneAuth==1}}">
+        <component-phone bind:parentEvent="closePhoneBox"></component-phone>
+    </view>
+</view>
+<view class="outBtn" wx:if="{{userPhone}}" bindtap="logout">退出登录</view>
+<component-tab num-prop="4" count="{{count}}"></component-tab>
+
+<!-- 授权页面html start -->
+<view wx:if="{{isPhoneAuth==1||isPhoneAuth==2}}">
+    <component-phone bind:parentEvent="closePhoneBox" bind:callback="phoneCallback" hasCallBack="true"></component-phone>
+</view>
+<!-- 授权页面html end -->

@@ -1,0 +1,1 @@
+ <my-map wx:if="{{houseData.referred}}" mapOption="{{systemFacilityList}}" localName="{{houseData.referred || '--'}}" location="{{houseData}}" type="big"  activeSearchId="{{activeSearchId}}"></my-map>

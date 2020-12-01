@@ -1,0 +1,34 @@
+@import '/assets/css/common.wxss';
+.success_box {
+  background: #FFFFFF;
+  text-align: center;
+  padding: 50px;
+}
+
+.bot {
+  background: #FFFFFF;
+  border-top: 1px solid #ebebeb;
+  padding: 40px;
+  font-size: 12px;
+  color: #4A4A4A;
+  line-height: 30px;
+}
+.bot > text {
+  display: block;
+  height: 46px;
+  line-height: 46px;
+}
+
+.bigBtn {
+  width: 50%;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  color: #FFFFFF;
+  background: var(--dark-color);
+  border-radius: 4px;
+  display: block;
+  font-size: 14px;
+  margin: 50px auto;
+
+}

@@ -1,0 +1,6 @@
+<view>
+    <view class="topSteps">
+        <step options="{{stepsOptions}}" active="5"></step>
+        <text class="bigBtn" bindtap="toSignInputInfo">我要认购</text>
+    </view>
+</view>

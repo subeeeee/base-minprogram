@@ -1,0 +1,18 @@
+<!--我的认购-->
+<view class="container bottom-bar {{isIPhoneX?'safe-wrap':''}}">
+    <view class="list" wx:if="{{signsData.length > 0}}">
+        <view class="item" wx:for="{{signsData}}" bindtap="goDetail" wx:key="index" data-id="{{item.id}}">
+            <view class="minIcon {{item.subscribeStatusName === '认购中' ? 'rengouzhong' : item.subscribeStatusName === '已完成' ? 'yiwancheng' : item.subscribeStatusName === '未认购' ? 'weirengou' : 'yiquxiao'}}">{{item.subscribeStatusName}}</view>
+            <image src="{{item.img}}"></image>
+            <view class="content">
+                <view class="title">{{item.projectName || '--'}}</view>
+                <view>房源：{{item.roomName || '--'}}</view>
+                <view>面积：{{item.outArea || '--'}}m²</view>
+            </view>
+        </view>
+    </view>
+    <view class='my-no-data' wx:else>
+        <image lazy-load="{{true}}" src="http://test-block.oss-cn-beijing.aliyuncs.com/applet/2020/05/13/360_288_2f75be9b79272fa2b1c165e45e7f4d29.png" />
+        <view class="text">页面空空如也，去逛逛别的~</view>
+    </view>
+</view>

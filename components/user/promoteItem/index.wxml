@@ -1,0 +1,18 @@
+<view class="item" bindtap = "gotoDetail" data-id="{{item.customerId}}">
+    <image class="photo" src="{{item.headImgUrl||'/images/theme@2x.png'}}"></image>
+    <view class="content">
+        <view class="{{type=='detail'?'':'width100'}}">
+            <view class="title {{item.phoneNo&&type=='detail'?'titile-detail':''}}">
+            <view>{{item.nickName||'新客户'}}</view>
+            <view wx:if="{{item.phoneNo&&type=='detail'}}" class="phoneNoText">{{item.phoneNo}}</view>
+            <view    class="{{type=='detail'?'status-detail':'status'}}">{{item.reportStatus==1?'已报备':(item.reportStatus==4?'已分配':'')}}</view>
+            </view>
+        
+            <view class="time">首次获客：{{item.createTime}}</view>
+            <view class="time">最近活跃：{{item.lastEventTime}}</view>
+        </view>
+        <view wx:if="{{item.phoneNo&&type=='detail'}}" class="phoneNo"> 
+            <image src="/images/telephone.png" class="telephone" bindtap="telephone" data-phone="{{item.phoneNo}}"></image>
+        </view>
+    </view>
+</view>

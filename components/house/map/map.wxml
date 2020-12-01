@@ -1,0 +1,37 @@
+<view class="{{type=='big'?'container-big':''}}">
+    <map id="myMap" markers="{{markers}}" scale="{{type=='big'?17:13}}" class="myMap" longitude="{{centerLongitude}}" latitude="{{centerLatitude}}" bindtap = "mapclick"
+    bindmarkertap="markertap"
+    bindpoitap="poitap"
+    ></map>
+    <view class="{{type=='big'?'fixed':''}}">
+    <view class="search_list_icon " >
+        <view class="{{searchId == 0 ? 'active' : ''}} search_item search_item1" bindtap="search" data-type="地铁"  wx:if="{{obj.isdt}}">
+            <image class="search_image" src="/images/ditie.png"></image>
+            <view class="search_text">地铁</view>
+        </view>
+        <view class="{{searchId == 1 ? 'active' : ''}} search_item search_item2" bindtap="search" data-type="公交" wx:if="{{obj.isgj}}">
+            <image class="search_image" src="/images/gongjiao.png"></image>
+            <view class="search_text">公交</view>
+        </view>
+        <view class="{{searchId == 2 ? 'active' : ''}} search_item search_item3" bindtap="search" data-type="医疗"  wx:if="{{obj.isyl}}">
+            <image class="search_image" src="/images/yiliao.png"></image>
+            <view class="search_text">医疗</view>
+        </view>
+        <view class="{{searchId == 3 ? 'active' : ''}} search_item search_item4" bindtap="search" data-type="学校"  wx:if="{{obj.isxx}}">
+            <image class="search_image" src="/images/xuexiao.png"></image>
+            <view class="search_text">学校</view>
+        </view>
+        <view class="{{searchId == 4 ? 'active' : ''}} search_item search_item5" bindtap="search" data-type="银行" wx:if="{{obj.isyh}}">
+            <image class="search_image" src="/images/yinhang.png"></image>
+            <view class="search_text">银行</view>
+        </view>
+        <view class="{{searchId == 5 ? 'active' : ''}} search_item search_item6" bindtap="search" data-type="购物"  wx:if="{{obj.isgw}}">
+            <image class="search_image" src="/images/gouwu.png"></image>
+            <view class="search_text">购物</view>
+        </view>
+    </view>
+    <view class="areaList ">
+        <view wx:for="{{areaList}}" wx:key="index" class="areaItem" bindtap = "moveToMarks" data-item="{{item}}"><text class="m">[{{item._distance}}米]</text><text class="t">{{item.title}}</text></view>
+    </view>
+    </view>
+</view>

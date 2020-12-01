@@ -1,0 +1,13 @@
+<view class="checkBox">
+	<view class="title">是否核销此优惠券</view>
+	<view class="tbBox">
+		<view class="line"><view class="tit">活动名称</view><view class="desp">{{couponName}}</view></view>
+		<view class="line"><view class="tit">优惠券名称</view><view class="desp">{{activityName}}</view></view>
+		<view class="line"><view class="tit">优惠券金额</view><view class="desp">{{price}}元</view></view>
+		<view class="line"><view class="tit">券码信息</view><view class="desp">{{obj.couponCode}}</view></view>
+	</view>
+	<view class="checkBtn">
+		<view class="cancel" bindtap="closePage">取消</view>
+		<view class="submit" bindtap="submitFun">确认核销</view>
+	</view>
+</view>

@@ -1,0 +1,7 @@
+
+<chat
+	id="chat"
+	username="{{ username }}"
+	houseid="{{ houseid }}"
+	chatType="singleChat"></chat>
+

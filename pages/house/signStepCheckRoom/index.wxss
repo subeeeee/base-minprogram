@@ -1,0 +1,119 @@
+@import '/assets/css/common.wxss';
+.floor_box {
+  height: calc(100vh - 174px);
+}
+.floor > .title {
+  height: 40px;
+  line-height: 40px;
+  padding-left: 15px;
+  font-size: 14px;
+  color: #4a4a4a;
+}
+
+.floor > .room {
+  display: flex;
+  flex-wrap: wrap;
+}
+.room > text {
+  background: #FFFFFF;
+  width: 25%;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  font-size: 14px;
+  border-right: 1px solid #D8D8D8;
+  box-sizing: border-box;
+  border-top: 1px solid #D8D8D8;
+}
+.room > text:nth-child(1),
+.room > text:nth-child(2),
+.room > text:nth-child(3),
+.room > text:nth-child(4) {
+   border-top: none;
+ }
+
+.room > text:nth-child(4n),
+.room > text:last-child {
+   border-right: none;
+ }
+
+.room > text.on {
+   background: var(--dark-color);
+   color: #FFFFFF;
+ }
+.building_box {
+  background: #FFFFFF;
+  margin-top: 10px;
+  padding: 0 10px;
+}
+.building_box > .building {
+  white-space: nowrap;
+  font-size: 14px;
+  height: 50px;
+  line-height: 50px;
+  border-bottom: 1px solid #ebebeb;
+}
+.building > text {
+  display: inline-block;
+  padding: 0 15px;
+}
+.building > text.on {
+  color: var(--dark-color);
+}
+.building_box > .unit {
+  white-space: nowrap;
+  font-size: 12px;
+  height: 50px;
+  padding-top: 15px;
+  box-sizing: border-box;
+}
+.unit > text {
+  display: inline-block;
+  font-size: 12px;
+  height: 18px;
+  line-height: 18px;
+  padding: 0 4px;
+  border: 1px solid #9B9B9B;
+  color: #4A4A4A;
+  border-radius: 4px;
+  margin: 0 12px;
+}
+.unit > text.on {
+  border-color: var(--dark-color);
+  color: var(--dark-color);
+}
+
+.ctrl {
+  background: #FFFFFF;
+  font-size: 12px;
+  padding: 20px 15px;
+}
+.ctrl > .see {
+  float: right;
+  background: #F6F6F6;
+  padding: 4px 13px;
+  border-radius: 4px;
+  color: #9B9B9B;
+}
+.ctrl > .see.on{
+  background: var(--dark-color);
+  color: #FFF;
+}
+.ctrl > .see > .jzy-icon {
+  padding-right: 4px;
+}
+
+.ctrl > .btn {
+  display: inline-block;
+  padding: 2px 13px;
+  border: 1px solid #9B9B9B;
+  border-radius: 4px;
+  margin-left: 10px;
+  color: #9B9B9B;
+  background: #FFFFFF;
+}
+.ctrl > .btn.on {
+  border-color: var(--dark-color);
+  background: var(--dark-color);
+  color: #FFFFFF;
+}

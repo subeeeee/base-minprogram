@@ -1,0 +1,42 @@
+<view>
+    <view class="topSteps">
+        <!-- 认购流程 填写信息 -->
+        <step options="{{stepsOptions}}" active="{{stepsNum}}"></step>
+    </view>
+    <view class="form_box">
+        <view class="form_item">
+            <text class="t">认购项目</text>
+            <view class="control">
+                <input type="text" value="{{projectInfo.name}}" disabled />
+            </view>
+        </view>
+        <view class="form_item">
+            <view class="t">认购房源 <text>*</text></view>
+            <view class="control">
+                <input type="text" placeholder="点击选择房源" value="{{roomInfo.name}}" bindtap="checkRoom" disabled />
+            </view>
+        </view>
+        <view class="form_item">
+            <view class="t">房源面积</view>
+            <view class="control">
+                <input type="text" disabled value="{{roomInfo.outArea ? (roomInfo.outArea + 'm²') : ''}}" />
+            </view>
+        </view>
+        <view class="form_item">
+            <view class="t">房源总价</view>
+            <view class="control">
+                <input type="text" disabled value="{{roomInfo.presentTotalPrice ? ('¥ ' + roomInfo.presentTotalPrice) : ''}}" />
+            </view>
+        </view>
+        <view class="form_item" wx:if="{{isFee}}">
+            <text class="t">认购费用</text>
+            <view class="control">
+                <input type="text" disabled value="{{'¥ ' + payAmount + '元'}}" />
+            </view>
+        </view>
+    </view>
+    <view class="botBtnBox">
+        <text bindtap="prevPage" wx:if="{{showPrevBtn}}">上一步</text>
+        <text bindtap="nextPage">下一步</text>
+    </view>
+</view>

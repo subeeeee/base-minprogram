@@ -1,0 +1,108 @@
+<!-- 项目详情 -->
+<view>
+    <!-- 标题 -->
+    <view class='detailsBlock detailsTitle'>
+        <text class='titleText'>{{houseData.referred || '--'}}</text>
+        <view class='label'>
+            <text class="{{2 === houseData.status ? 'onSale' : 1 === houseData.status ? 'forSale' : 3 === houseData.status ? 'forSaled' : 0 === houseData.status ? 'forNoSaled' : ''}}">{{houseData.status === 0 ? '暂无' : houseData.status === 1 ? '待售' : houseData.status === 2 ? '在售' : houseData.status === 3 ? '售罄' : ''}}</text>
+            <text wx:for="{{houseData.sellPoint || []}}" wx:key="index">{{item}}</text>
+        </view>
+    </view>
+    <view class='detailsBlock apartmentLayout'>
+        <view class='cont'>
+            <view class="form_item">
+                <text class="t">楼盘均价：</text>
+                <view class="control">{{houseData.averagePrice ? houseData.averagePrice + '元/m²' : '--'}}</view>
+            </view>
+            <view class="form_item">
+                <text class="t">楼盘类型：</text>
+                <view class="control">{{houseData.projectType || '--'}}</view>
+            </view>
+            <view class="form_item">
+                <text class="t">装修情况：</text>
+                <view class="control">{{houseData.decorateType || '--'}}</view>
+            </view>
+            <view class="form_item">
+                <text class="t">产权年限：</text>
+                <view class="control">{{houseData.propertyRight ? houseData.propertyRight + '年' : '--'}}</view>
+            </view>
+            <view class="form_item">
+                <text class="t">开发商：</text>
+                <view class="control">{{houseData.developers || '--'}}</view>
+            </view>
+            <view class="form_item">
+                <text class="t">项目城市：</text>
+                <view class="control">{{houseData.city || '--'}}</view>
+            </view>
+            <view class="form_item" style="position: relative" bindtap="goMapFun">
+                <text class="t">详细地址：</text>
+                <view class="control">{{houseData.address || '--'}}</view>
+                <image class="weizhi" src="/images/weizhi.png"></image>
+            </view>
+        </view>
+    </view>
+    <view class='detailsBlock apartmentLayout'>
+        <view class='cont'>
+            <view class="form_item">
+                <text class="t">售楼处地址：</text>
+                <view class="control">{{houseData.showroomAddress || '--'}}</view>
+            </view>
+            <view class="form_item">
+                <text class="t">售卖户型：</text>
+                <view class="control">{{houseData.roomPatterns}}种户型</view>
+            </view>
+            <view class="form_item">
+                <text class="t">预计开盘时间：</text>
+                <view class="control">{{houseData.openTime}}</view>
+            </view>
+            <view class="form_item">
+                <text class="t">最新开盘：</text>
+                <view class="control">{{houseData.lastOpenTime}}</view>
+            </view>
+            <view class="form_item">
+                <text class="t">交房日期：</text>
+                <view class="control">{{houseData.deliveryTime}}</view>
+            </view>
+        </view>
+    </view>
+    <view class='detailsBlock apartmentLayout'>
+        <view class='cont'>
+            <view class="form_item">
+                <text class="t">物业公司：</text>
+                <view class="control">{{houseData.propertyCompanyName || '--'}}</view>
+            </view>
+            <view class="form_item">
+                <text class="t">占地面积：</text>
+                <view class="control">{{houseData.floorSpace ? houseData.floorSpace + '平' : '--'}}</view>
+            </view>
+            <view class="form_item">
+                <text class="t">容积率：</text>
+                <view class="control">{{houseData.plotRate || '--'}}</view>
+            </view>
+            <view class="form_item">
+                <text class="t">绿化率：</text>
+                <view class="control">{{houseData.greeningRate || '--'}}%</view>
+            </view>
+            <view class="form_item">
+                <text class="t">停车数量：</text>
+                <view class="control">{{houseData.numberCarport || '--'}}</view>
+            </view>
+            <view class="form_item">
+                <text class="t">总户数：</text>
+                <view class="control">{{houseData.numberRoom || '--'}}</view>
+            </view>
+            <view class="form_item">
+                <text class="t">物业费：</text>
+                <view class="control">{{houseData.propertyFee ? houseData.propertyFee : '--'}}</view>
+            </view>
+        </view>
+    </view>
+    <view style="height: 70px"></view>
+    <view class="btns">
+        <view bindtap="imClickfun" class="{{globalData + '-btn-color'}}">在线咨询</view>
+        <view bindtap="telephone" data-phone="{{houseData.telephone}}">电话咨询</view>
+    </view>
+    <view wx:if="{{isUserAuth==1}}">
+          <component-user></component-user>
+      </view>
+</view>

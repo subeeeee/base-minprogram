@@ -1,0 +1,21 @@
+<!-- 长房 房源列表 -->
+<view class="recommend-item" wx:for="{{recommend}}" wx:key="index" bindtap="goHouse" data-houseid="{{item.projectId}}">
+  <!-- <image src="{{item.imageUrls ?  cdnUrl+ item.projectFirstUrls + '?x-oss-process=image/resize,h_250' : ''}}"></image> -->
+
+      <image src="{{item.projectFirstUrls ? cdnUrl+ item.projectFirstUrls + '?x-oss-process=image/resize,h_250' : imgServerUrl+'/xcx_images/no-cover.png'}}"></image>
+      <!--  wx:if="{{item.projectFirstUrls }}" -->
+    <!-- <image wx:else src="{{item.imageUrls ?  cdnUrl+ item.imageUrls[0] + '?x-oss-process=image/resize,h_250' : ''}}"></image> -->
+
+<!-- no-cover -->
+  <view class='vrHouse vrHouse1' wx:if="{{item.vrUrl}}"><image src="/images/vrHouse.png" mode="widthFix"></image></view>
+  <view class="name">{{item.referred}}</view>
+  <view class="price">{{!item.averagePrice || isNaN(item.averagePrice) ? '价格待定' : item.averagePrice + '元/m²'}}</view>
+  <view class="desc">{{item.city ? item.city + ' | ' : ''}}建面{{item.minArea && item.maxArea ? item.minArea +'-'+ item.maxArea + 'm²' : item.minArea ? item.minArea : item.maxArea ? item.maxArea + 'm²' : ''}}</view>
+  <view class="tabs">
+    <view class="status zanwu" wx:if="{{item.status === 0}}">暂无</view>
+    <view class="status waitFor" wx:if="{{item.status === 1}}">待售</view>
+    <view class="status" wx:if="{{item.status === 2}}">在售</view>
+    <view class="status shouqing" wx:if="{{item.status === 3}}">售罄</view>
+      <view wx:for="{{item.sellPoint}}" wx:for-item="name" class="tag"  wx:key="index" wx:if="{{name}}">{{name}}</view>
+  </view>
+</view>

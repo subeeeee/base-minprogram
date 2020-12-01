@@ -1,0 +1,44 @@
+<view class="mask" bindtap = "hide">
+  <view class="mask-content" catchtap = "prevent">
+     <!-- <view class="mask-white">
+            <view class="card-userinfo">
+            <view class="userInfo">
+                <image class="headImg" src="{{item.headImgUrl}}"></image>
+            </view>
+            <view class="ul">
+                <view class="li">
+                    <view class="name">{{item.name}}</view>
+                    <view class="zhiwu" wx:if="{{item.job}}">{{item.job}}</view>
+                </view>
+                <view class="li" >
+                    <view class="label">
+                        <image src="/images/card-canvas-tel.png"></image>
+                    </view>
+                    <view class="text">{{item.mobile}}</view>
+                </view>
+            </view>
+        </view>
+        <view class="qrcode-view">
+            <image class="qrcode-img" src="data:image/png;base64,{{qrcodeBase64}}" />
+            <view class="qrcode-text">
+                <view>长按识别我的专属码</view>
+                <view>查看更多楼盘信息</view>
+            </view>
+        </view>
+     </view> -->
+
+     <image mode="widthFix" src="{{sharePath}}" class="share-image" />
+    <view class="mask-btns" wx:if="{{sharePath}}">
+       <button open-type="share" class="share-btn">
+       <view class="share-btn-before" style="background-image:url({{imgServerUrl}}/xcx_images/{{projectName}}/card-share-icon.png)"></view>
+          <view class="btn">转发好友</view>
+        </button>
+        <view class="btn save-img" bind:tap = "downloadImage">
+        <view class="save-img-before"  style="background-image:url({{imgServerUrl}}/xcx_images/{{projectName}}/save-img.png)"></view>
+        保存图片</view>
+    </view>
+  </view>
+</view>
+   <canvas canvas-id="shareCanvas" class="share-canvas" ></canvas>	
+
+   <painter style="position: absolute; top: -9999rpx;" palette="{{imgDraw}}" bind:imgOK="onImgOK" />

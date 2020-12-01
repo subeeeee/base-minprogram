@@ -1,0 +1,108 @@
+.flex{
+  display: flex;
+}
+.flex-align-item-center{
+  align-items: center;
+}
+
+.height100{
+  height:100rpx;
+}
+.container .height60{height:60rpx}
+.font-big .van-cell__title {
+  font-size: 30rpx;
+}
+
+.radio-btn{
+  margin-left:30rpx;
+  width: 80rpx;
+  height: 42rpx;
+  line-height: 42rpx;
+  text-align:center;
+  background:#fff;
+  border-radius: 6px;
+  font-size: 24rpx;
+  color: var(--dark-color);
+  border:1rpx solid var(--dark-color);
+}
+.radio-btn.active{
+  background: var(--dark-color);
+  color: #FFFFFF;
+}
+.disabled .radio-btn{
+  color: #bdbdbd;
+  border:1rpx solid #bdbdbd;
+}
+.disabled .radio-btn.active{
+  background: #bdbdbd;
+  color: #FFFFFF;
+}
+.color{
+  color: var(--dark-color);
+}
+.agreement{
+  margin:30rpx 0rpx 30rpx 30rpx;
+  font-size: 28rpx;
+
+}
+.save-btn{
+  margin:100rpx auto 0;
+  width: 600rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  background-image: linear-gradient(270deg, var(--light-color) 2%, var(--dark-color) 100%);
+  border-radius: 10rpx;
+  color: #fff;
+  font-size: 28rpx;
+  text-align:center;
+}
+.h2{
+  /* font-size: 36rpx; */
+  color: #4A4A4A;
+}
+
+  .iconfont{
+margin-left:40rpx;
+  }
+
+
+  .width100{
+    width: 100%;
+  }
+
+  .project-popup{
+    height: 100%;
+  }
+
+
+.flex-justify-end{
+  justify-content: flex-end;
+}
+
+.lineheight100{
+  line-height: 100rpx;
+}
+.container .van-cell {
+  padding-top:0;
+  padding-bottom:0;
+}
+.height100 .van-cell{
+  padding:0
+}
+
+.van-cell .value-width{
+  flex:2
+}
+
+.margin-left-20{
+  margin-left: 20rpx;
+}
+
+.title-class{
+  color: gray;
+}
+
+.reportStatusHis .title-class,.reportStatusHis .value-width{
+  color: #323232;
+}
+

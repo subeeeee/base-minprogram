@@ -1,0 +1,108 @@
+@import '/assets/fontcustom/stylesheet.wxss';
+@import '/assets/fontcustom/fontcustom.wxss';
+/* 筛选 */
+/* 楼盘列表 */
+
+.recommend-item{
+  width: calc(100% - 2px);
+  position: relative;
+  border: 2rpx solid #eee;
+  margin-bottom: 30rpx;
+  border-radius: 8rpx;
+}
+.recommend-item:nth-child(even) {
+  margin-right: 20rpx;
+}
+.recommend-item image{
+  width: 100%;
+  height: 290rpx;
+  margin-bottom: 12rpx;
+  border-radius: 8rpx 8rpx 0 0;
+}
+.recommend-item .name{
+  height: 52rpx;
+  width: 100%;
+  line-height: 52rpx;
+  font-size: 32rpx;
+  color: #fff;
+  font-weight: 500;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  background: rgba(0, 0, 0, .6);
+  position: absolute;
+  top:240rpx;
+  text-indent: 20rpx;
+}
+.recommend-item .desc{
+  height: 40rpx;
+  line-height: 40rpx;
+  font-size: 28rpx;
+  color: #7D7D7D;
+  font-weight: 400;
+  text-indent: 20rpx;
+}
+.recommend-item .price{
+  /* height: 44rpx; */
+  line-height: 44rpx;
+  font-size: 32rpx;
+  color: #D0021B;
+  font-weight: 500;
+  /* text-indent: 20rpx; */
+  margin-bottom: 10rpx;
+  padding: 0 20rpx;
+  text-align: justify;
+}
+
+.recommend-item .tabs{
+  margin-bottom: 10rpx;
+  overflow: hidden;
+  font-weight: 400;
+  font-size: 24rpx;
+  height: 37rpx;
+}
+.recommend-item .tabs{
+  margin:10rpx 0 10rpx 20rpx;
+}
+.recommend-item .tabs .tag,.recommend-item .tabs .status{
+  float: left;
+  color: #9B9B9B;
+  /* border: 2rpx solid #9B9B9B; */
+  background: #F6F6F6;
+  padding: 2rpx 8rpx;
+  border-radius: 4rpx;
+  margin-right: 10rpx;
+  height: 32rpx;
+  line-height: 32rpx;
+  margin-bottom: 10rpx;
+}
+
+.recommend-item .tabs .status{
+  color: #fff;
+  background: var(--dark-color);
+}
+.recommend-item .tabs .status.waitFor{
+  background: #ffac24;
+
+}
+.recommend-item .tabs .status.shouqing{
+  background: #f94641;
+
+}
+.recommend-item .tabs .status.zanwu{
+  background: #9b9b9b;
+}
+
+.vrHouse1{
+  left:47% !important;
+  top:108rpx !important;
+}
+.vrHouse{
+   position : absolute;
+   left:95rpx;
+   top:60rpx;
+   z-index:10;
+}
+.vrHouse image{
+   width:80rpx !important;
+}

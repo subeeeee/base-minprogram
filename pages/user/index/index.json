@@ -1,0 +1,8 @@
+{
+    "navigationBarTitleText": "我的",
+    "usingComponents": {
+        "component-tab": "/components/tab/tab",
+        "component-phone":"/components/login/phone/index",
+        "van-popup":"/components/vant/popup/index"
+    }
+}

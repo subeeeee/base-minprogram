@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText": "周边配套详情",
+    "usingComponents": {
+        "my-map": "/components/house/map/map"
+    }
+}

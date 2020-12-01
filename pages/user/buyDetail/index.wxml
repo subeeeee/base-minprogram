@@ -1,0 +1,43 @@
+<!--我的认购-->
+<view class="container bottom-bar {{isIPhoneX?'safe-wrap':''}}">
+    <view class="top">
+        <image src="{{info.img}}"></image>
+        <view class="minIcon {{info.subscribeStatusName === '认购中' ? 'rengouzhong' : info.subscribeStatusName === '已完成' ? 'yiwancheng' : info.subscribeStatusName === '未认购' ? 'weirengou' : 'yiquxiao'}}">{{info.subscribeStatusName}}</view>
+        <view class="content">
+            <view class="title">{{info.projectName || '--'}}</view>
+            <view>房源：{{info.roomName || '--'}}</view>
+            <view>面积：{{info.outArea || '--'}}m²</view>
+        </view>
+    </view>
+    <view class="list" wx:if="{{info.isOpen}}">
+        <view class="item">
+            <view class="title">认购人</view>
+            <view class="text">{{info.customerName || ''}}</view>
+        </view>
+        <view class="item">
+            <view class="title">手机号码</view>
+            <view class="text">{{info.mobile || ''}}</view>
+        </view>
+        <view class="item">
+            <view class="title">证件号码</view>
+            <view class="text">{{info.identityNo || ''}}</view>
+        </view>
+        <view class="item">
+            <view class="title">认购时间</view>
+            <view class="text">{{info.createTime || ''}}</view>
+        </view>
+        <view class="item" wx:if="{{info.payStatus == 1}}">
+            <view class="title">定金金额</view>
+            <view class="text">{{info.payAmount || ''}}</view>
+        </view>
+        <view class="item" wx:if="{{info.payStatus == 1}}">
+            <view class="title">交易时间</view>
+            <view class="text">{{info.lastModifyTime || ''}}</view>
+        </view>
+        <view class="item" wx:if="{{info.signStatus == 1}}">
+            <view class="title">认购协议</view>
+            <view class="text" bindtap="goAgreement">点击查看</view>
+        </view>
+    </view>
+    <view class="btn" bindtap="goOn" wx:if="{{info.isOpen && info.showTime && 5 != info.subscribeStatus}}">继续认购</view>
+</view>

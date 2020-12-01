@@ -1,0 +1,3 @@
+<view wx:if="{{isUserAuth==1}}">
+    <component-user></component-user>
+</view>

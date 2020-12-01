@@ -1,0 +1,140 @@
+@import './assets/fontcustom/stylesheet.wxss';
+@import './assets/fontcustom/fontcustom.wxss';
+@import './assets/css/var.wxss';
+/*@import './components/weui/weui-wxss/dist/style/weui.wxss';*/
+view ,text ,input ,image ,textarea ,button {
+  margin : 0rpx;
+  padding : 0rpx;
+}
+image {
+  width : 0rpx;
+  height : 0rpx;
+}
+/**app.wxss**/
+.center {
+  display : flex;
+  align-items : center;
+  flex-direction : column;
+}
+.centers {
+  display : flex;
+  align-items : center;
+  flex-direction : column;
+}
+.clearfix:after {
+  display : block;
+  visibility : hidden;
+  clear : both;
+  height : 0;
+  content : '';
+}
+view::-webkit-scrollbar {
+  width : 0;
+  height : 0;
+  color : transparent;
+}
+::-webkit-scrollbar {
+  display : none;
+}
+.ellipsis {
+  overflow : hidden;
+  white-space : nowrap;
+  text-overflow : ellipsis;
+}
+.ellipsis2 {
+  display : -webkit-box;
+  overflow : hidden;
+  -webkit-box-orient : vertical;
+  text-overflow : ellipsis;
+  word-break : break-all;
+  font-size : 32rpx;
+
+  -webkit-line-clamp : 2;
+}
+.ellipsis4 {
+  display : -webkit-box;
+  overflow : hidden;
+  -webkit-box-orient : vertical;
+  text-overflow : ellipsis;
+  word-break : break-all;
+  font-size : 32rpx;
+
+  -webkit-line-clamp : 4;
+}
+button::after {
+  border : none;
+}
+::-webkit-scrollbar {
+  display : none;
+}
+/* 弹框的提示遮罩层 */
+#maskTatol {
+  width : 750rpx;
+  height : 100%;
+  opacity : .6;
+  background : #000;
+  position : fixed;
+  z-index : 10000;
+  top : 0;
+  left : 0;
+}
+/* 遮罩层 */
+#mask {
+  width : 750rpx;
+  height : 100%;
+  opacity : .4;
+  background : #000;
+  position : fixed;
+  z-index : 100;
+  top : 0;
+  left : 0;
+}
+.fl {
+  float : left;
+}
+.fr {
+  float : right;
+}
+.clear {
+  clear : both;
+}
+/* //跳转首页 */
+.goBtns {
+  width : 60rpx;
+  padding : 41rpx 17rpx;
+  border : 1px solid #EAEAEA;
+  border-radius : 48px;
+  background : #FFF;
+  box-shadow : 0 0 15px 0 rgba(0, 0, 0, .12);
+  position : fixed;
+  z-index : 9999;
+  right : 32rpx;
+  bottom : 100rpx;
+}
+.goBtns .goHomeIcon {
+  width : 100%;
+  margin-bottom : 30rpx;
+  text-align : center;
+}
+.goBtns button.goHomeIcon {
+  background : none;
+}
+.goBtns button.goHomeIcon:after {
+  display : none;
+}
+.goBtns .goHomeIcon:last-child {
+  margin-bottom : 0;
+}
+.goHomeIcon image {
+  display : block;
+  width : 40rpx;
+  height : 40rpx;
+  margin : 0 auto;
+}
+.goHomeIcon text {
+  display : block;
+  height : 35rpx;
+  color : #333;
+  font-size : 20rpx;
+  line-height : 35rpx;
+}

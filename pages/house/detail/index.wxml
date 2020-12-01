@@ -1,0 +1,361 @@
+<scroll-view class="container bottom-bar {{isIPhoneX?'safe-wrap':''}}" scroll-y="{{!showRuleModal}}" style="padding-bottom: 80px;">
+    <!-- banner -->
+    <view class="detailsTopBlock" wx:if="{{null != topType}}">
+        <view wx:if='{{1 === topType}}' class="overView" style="position: relative;">
+            <view bindtap="openOverView">
+                <image src="/images/overView.png"></image>
+            </view>
+            <image src="{{cdnUrl + ((houseData.imageList && houseData.imageList[houseData.imageList.length-1]) + '?x-oss-process=image/resize,h_250' || '')}}"
+                   mode="aspectFill" class='img'></image>
+        </view>
+        <view wx:if='{{2 === topType}}' class="videoBox">
+            <video objectFit="fill" id="myVideo" style="height: 400rpx" src="{{cdnUrl + houseData.videoUrl }}" controls></video>
+        </view>
+        <!-- 轮播 -->
+        <swiper wx:if='{{3 === topType}}' class='swiper' indicatorColor='#999' indicatorActiveColor='#333' circular catchtap="goPageFun" data-type="image" data-item="{{houseData}}">
+            <swiper-item wx:for="{{houseData.imageList || []}}" wx:key="index">
+                <image src="{{cdnUrl + (item || '') + '?x-oss-process=image/resize,h_400'}}"
+                       mode="aspectFill" class='img'></image>
+            </swiper-item>
+        </swiper>
+        <view class='swiperLabel'>
+            <text wx:if="{{houseData.vrUrl}}" bindtap="topTypeChange" data-type="1" class="{{topType === 1 ? 'selectItem' : ''}}">VR</text>
+            <text wx:if="{{houseData.videoUrl}}" bindtap="topTypeChange" data-type="2" class="{{topType === 2 ? 'selectItem' : ''}}">视频</text>
+            <text wx:if="{{houseData.imageList.length}}" bindtap="topTypeChange" data-type="3" class="{{topType === 3 ? 'selectItem' : ''}}">图片</text>
+        </view>
+    </view>
+    <!-- 楼盘详情 -->
+    <view class='detailsBlock detailsTitle'>
+        <text class='titleText'>{{houseData.referred || '--'}}</text>
+        <view class='label'>
+            <text class="{{2 === houseData.status ? 'onSale' : 1 === houseData.status ? 'forSale' : 3 === houseData.status ? 'forSaled' : 0 === houseData.status ? 'forNoSaled' : ''}}">{{houseData.status === 0 ? '暂无' : houseData.status === 1 ? '待售' : houseData.status === 2 ? '在售' : houseData.status === 3 ? '售罄' : ''}}</text>
+            <text wx:for="{{houseData.sellPoint || []}}" wx:key="index">{{item}}</text>
+        </view>
+        <view class="money">{{!houseData.averagePrice || isNaN(houseData.averagePrice) ? '价格待定' : houseData.averagePrice + '元/m²'}}</view>
+        <view class="onlookers" wx:if="{{onlookersList.length > 0}}">
+            <view class="item" wx:for="{{onlookersList}}" wx:key="index">
+                <image src="{{item.head_img_url || '/images/group@2x.png'}}"></image>
+            </view>
+            <view class="text">
+                <text>{{onlookersNum}}</text>人围观
+            </view>
+        </view>
+        <view class='detail'>
+            <text class="t">类型：</text>
+            <view class="control">{{houseData.projectType || '--'}}</view>
+            <view class="goUrl" bindtap="goDetail">详情 <text class="icon-right-single"></text></view>
+        </view>
+        <view class='detail'>
+            <text class="t">建面：</text>
+            <view class="control">{{houseData.minArea && houseData.maxArea ? houseData.minArea +'-'+ houseData.maxArea + 'm²' : houseData.minArea ? houseData.minArea : houseData.maxArea ? houseData.maxArea + 'm²' : '--'}}</view>
+        </view>
+        <view class='detail'>
+            <text class="t">开盘：</text>
+            <view class="control">{{houseData.openTime || '待定'}}</view>
+        </view>
+        <view class='detail address' bindtap="goMapFun">
+            <text class="t">地址：</text>
+            <view class="control">{{houseData.address || '--'}}</view>
+            <image class="weizhi"
+            src="{{imgServerUrl+'/xcx_images/'+globalProjectName+'/weizhi.png'}}"
+            ></image>
+        </view>
+        <view class='ad'>
+            <button open-type="getPhoneNumber" bindgetphonenumber="changePriceTap" wx:if="{{!userPhone}}" class="ad-new-btn">
+                <view class='adItem w96' data-type="1" bindtap="{{isPrice === '0' ? 'remindShow' : 'showModal'}}" data-text="变价">
+                    <image
+                     src="{{imgServerUrl+'/xcx_images/'+globalProjectName+'/changePrice.png'}}"
+                     style="width: 16px;height: 14px;"></image>{{isPrice === '1' ? '已订阅变价' : '变价提醒我'}}
+                </view>
+            </button>
+            <block wx:else>
+                <view class='adItem' data-type="1" bindtap="{{isPrice === '0' ? 'remindShow' : 'showModal'}}" data-text="变价">
+                    <image src="{{imgServerUrl+'/xcx_images/'+globalProjectName+'/changePrice.png'}}" style="width: 16px;height: 14px;"></image>{{isPrice === '1' ? '已订阅变价' : '变价提醒我'}}
+                </view>
+            </block>
+             <button open-type="getPhoneNumber" bindgetphonenumber="quotationTap" wx:if="{{!userPhone}}" class="ad-new-btn">
+                <view class='adItem w96' data-type="2" bindtap="{{isOpen === '0' ? 'remindShow' : 'showModal'}}" data-text="开盘">
+                    <image
+                    src="{{imgServerUrl+'/xcx_images/'+globalProjectName+'/openDisc.png'}}" style="width: 14px;height: 14px;"></image>{{isOpen === '1' ? '已订阅开盘' : '开盘提醒我'}}
+                </view>
+            </button>
+            <block wx:else>
+                <view class='adItem' data-type="2" bindtap="{{isOpen === '0' ? 'remindShow' : 'showModal'}}" data-text="开盘">
+                    <image src="{{imgServerUrl+'/xcx_images/'+globalProjectName+'/openDisc.png'}}"  style="width: 14px;height: 14px;"></image>{{isOpen === '1' ? '已订阅开盘' : '开盘提醒我'}}
+                </view>
+            </block>
+        </view>
+        <view class="call" wx:if="{{houseData.telephone}}">
+            <view class="phone">{{houseData.telephone}}</view>
+            <view class="desc">致电售楼处，了解优惠</view>
+            <view class="image">
+              <image
+              src="{{imgServerUrl+'/xcx_images/'+globalProjectName+'/coustomerTel.png'}}"
+              bindtap="telephone" data-phone="{{houseData.telephone}}"></image>
+            </view>
+        </view>
+        <!-- <view class="seeRoom" wx:if="{{isVerify == 1 && isVipShow}}">
+            <view class="title">VIP服务</view>
+            <view class="desc">享VIP专属特权</view>
+            <view class="btn" wx:if="{{userPhone}}" data-Type="1" bindtap="kanfang">Vip登记</view>
+            <button class="btn" open-type="getPhoneNumber" bindgetphonenumber="vipHouse" wx:if="{{!userPhone}}" style="box-sizing: content-box;">Vip登记</button>
+        </view> -->
+        <view class="seeRoom">
+            <view class="title">随时看房</view>
+            <view class="desc">立享优惠</view>
+            <view class="btn" wx:if="{{userPhone}}" data-Type="2" bindtap="kanfang">预约看房</view>
+            <button class="btn" open-type="getPhoneNumber" bindgetphonenumber="orderHouse" wx:if="{{!userPhone}}" style="box-sizing: content-box;">预约看房</button>
+        </view>
+        <view class="subscription">
+            <view class="title">房源认购</view>
+            <view class="desc">快速锁定房源</view>
+            <view class="btn" wx:if="{{userPhone}}" bindtap="goBuy">我要认购</view>
+            <button class="btn" open-type="getPhoneNumber" bindgetphonenumber="buyHouse" wx:if="{{!userPhone}}" style="box-sizing: content-box;">我要认购</button>
+        </view>
+    </view>
+    <!-- 优惠券 -->
+    <!-- <view class="discount" wx:if="{{couponList.length > 0}}">
+        <view class="cardTitle">购房优惠</view>
+        <view class="discount-item {{'1' != item.isReceive ? '' : 'greyCoupon'}}" wx:for="{{couponList}}" wx:key="index">
+            <view class="title">{{item.couponName}}</view>
+            <view class="date">{{houseData.referred}}</view>
+            <view class="date">有效期至：{{item.couponEnd}}</view>
+            <view class="date" data-rule="{{item.rule}}" bindtap="showRule">使用规则 ></view>
+            <view wx:if="{{item.isReceive === 1}}"  class="btn">已领取</view>
+            <button wx:if="{{!item.isReceive&&!userPhone}}" open-type="getPhoneNumber" bindgetphonenumber="receive" class="btn" data-id="{{item.id}}" >立即领取</button>
+            <button wx:if="{{!item.isReceive&&userPhone}}" bindtap="setReceive" class="btn" data-id="{{item.id}}" >立即领取</button>
+
+        </view>
+    </view> -->
+        <!-- 优惠券 -->
+    <view class="discount" wx:if="{{couponList.length > 0}}">
+        <view class="cardTitle">购房优惠</view>
+        <view class="discount-item {{'1' != item.isReceive ? '' : 'greyCoupon'}}" wx:for="{{couponList}}" wx:key="index" >
+            <view class="title">{{item.couponName}}</view>
+            <view class="date">{{houseData.referred}}</view>
+            <view class="date">有效期至：{{item.couponEnd}}</view>
+            <view class="date" data-rule="{{item.rule}}" bindtap="showRule">使用规则 ></view>
+            <!-- <view class="btn" data-id="{{item.id}}" data-type="{{item.receiveType}}" bindtap="{{item.isReceive === 1 ? '' : 'receive'}}">{{item.isReceive === 1 ? '已领取' : '立即领取'}}</view> -->
+
+             <view wx:if="{{item.isReceive === 1}}"  class="btn">已领取</view>
+            <button wx:if="{{!item.isReceive&&!userPhone}}" open-type="getPhoneNumber" bindgetphonenumber="receive" class="btn" data-id="{{item.id}}" data-type="{{item.receiveType}}" >立即领取</button>
+            <button wx:if="{{!item.isReceive&&userPhone}}" bindtap="setReceive" class="btn" data-id="{{item.id}}" data-type="{{item.receiveType}}" >立即领取</button>
+        </view>
+    </view>
+    <!-- 精彩资讯 -->
+    <view class="topic" wx:if="{{topicList.length > 0}}">
+        <view class="top">
+            <view class="title">精彩资讯</view>
+            <view class="goAll" wx:if="{{topicList.length > 2}}" data-type="topic" catchtap="goPageFun">查看全部<text class="icon-right-single"></text></view>
+        </view>
+        <view class="topic-item" wx:for="{{topicList}}" wx:key="index" bindtap="goNexts" data-url="{{item.linkUrl}}">
+            <view class="left">
+                <view class="title">{{item.title}}</view>
+                <view class="desc">{{item.topicDesc}}</view>
+                <view class="date">{{item.createtime}}</view>
+            </view>
+            <view class="right">
+                <image src="{{item.bgUrl}}"></image>
+            </view>
+        </view>
+    </view>
+    <!-- 特价房源 -->
+    <view class="room" wx:if="{{roomList.length > 0}}">
+        <view class="top">
+            <view class="title">特价房源</view>
+        </view>
+        <view style="color: var(--dark-color);font-size: 28rpx;line-height: 40rpx;margin-bottom: 30rpx;">特惠房源限时抢购中！</view>
+        <view class="content">
+            <view wx:for="{{roomList}}" wx:key="index" bindtap="roomDetail" data-item="{{item}}">
+                 <view wx:if="{{item.imageSrcs}}">
+                    <image src="{{cdnUrl+ item.imageSrcs + '?x-oss-process=image/resize,h_250'}}"></image>
+                </view>
+                <view wx:else>
+                    <image src="{{imgServerUrl+'/xcx_images/'+globalProjectName+'/room@2x.png'}}"></image>
+                </view>
+                <view>{{item.buildingName + item.viewUnitNumber + item.roomName}}</view>
+            </view>
+        </view>
+    </view>
+    <!-- 项目户型 -->
+    <view class="pattern" wx:if="{{patternList.length > 0}}">
+        <view class="top">
+            <view class="title">项目户型</view>
+            <view data-type="allPattern" wx:if="{{patternList.length > 2}}" class="more" style="text-align: right;" catchtap="goPageFun" data-houseid="{{houseid}}">全部户型({{patternList.length}})<text class="icon-right-single"></text></view>
+        </view>
+        <view class="content">
+            <view wx:for="{{patternList}}" wx:if="{{index < 2}}" wx:key="index" bindtap="showPreview" data-src="{{item.imageSrcs}}">
+                <view wx:if="{{item.imageSrcs}}">
+                    <image src="{{cdnUrl + item.imageSrcs + '?x-oss-process=image/resize,h_250'}}"></image>
+                </view>
+                <view wx:else>
+                    <image
+                    src="{{imgServerUrl+'/xcx_images/'+globalProjectName+'/room@2x.png'}}"
+                    ></image>
+                </view>
+                <view class="name">{{item.roomPatternName || '--'}}</view>
+                <view class="desc">{{item.outterArea ? '建筑面积' + item.outterArea + '㎡' : '--'}}</view>
+                <!--<view class="price">{{item.totalPrice ? item.totalPrice + '元' : '价格待定'}}</view>-->
+            </view>
+        </view>
+    </view>
+    <!-- 周边配套 -->
+    <!-- <view class="house-box map-wrap">
+        <view class="box-hd">
+            <view class="title">周边配套</view>
+        </view>
+        <view class="box-bd">
+            <view class="box-attr-list">
+                <view class="attr-item">
+                    <view class="attr-name">地址：</view>
+                    <view class="attr-value">{{houseData.address}}</view>
+                </view>
+            </view>
+            <view class="map">
+                <my-map localName="{{houseData.referred || '--'}}" location="{{houseData}}"></my-map>
+            </view>
+        </view>
+    </view> -->
+    <view class="house-box map-wrap" wx:if="{{systemFacilityStatus||customFacilityStatus}}">
+        <view class="box-hd">
+            <view class="title">亮点及周边</view>
+            <!--<view class="more" catchtap="goPageFun" data-type="map-all" data-item="{{house}}">全部配套<text class="icon-right-single"></text></view>-->
+        </view>
+        <view class="box-bd">
+            <view class="box-attr-list" wx:if="{{houseData.address}}">
+                <view class="attr-item">
+                    <view class="attr-name">地址：</view>
+                    <view class="attr-value">{{houseData.address}}</view>
+                </view>
+            </view>
+            <view class="assort" wx:if="{{customFacilityStatus==1}}">
+                <view wx:for="{{customFacilityList}}" wx:key="index">
+                    <view class="mb30">
+                        <view class="title"><image
+                         src="{{imgServerUrl+'/xcx_images/'+globalProjectName+'/zb.png'}}"
+                        class="zbImg"></image>{{item.title}}</view>
+                        <view class="desp" wx:for="{{item.description}}" wx:for-item="name">
+                           {{name}};
+                        </view>
+                    </view>
+                </view>
+            </view>
+
+            <view class="map" wx:if="{{systemFacilityStatus}}" >
+                <my-map mapOption="{{systemFacilityList}}" localName="{{houseData.referred || '--'}}" location="{{houseData}}" class="mymap" bindmapclick="gotoMap"></my-map>
+                <!-- <view bind:tap="gotoMap">查看地图详情</view> -->
+                 <!-- <van-button color="#FC5289" custom-class="map-button" bindtap = "gotoMap">查看地图详情</van-button> -->
+            </view>
+        </view>
+    </view>
+    <!-- 置业顾问 -->
+    <view class="house-box consultant-wrap" wx:if="{{memberList.length > 0}}">
+        <view class="box-hd" style="margin-bottom: 25px;">
+            <view class="title">金牌顾问</view>
+            <view wx:if="{{ memberList.length > 4}}" class="more" catchtap="goPageFun" data-type="member" data-houseid="{{houseid}}">查看全部<text class="icon-right-single" ></text></view>
+        </view>
+        <view class="box-bd">
+            <view class='adviserItem' wx:for="{{memberList}}" wx:if="{{index < 4}}">
+                <view class='name' bindtap="memberDetail" data-id="{{item.memberId}}">
+                    <image src="{{item.headImgUrl}}" mode="aspectFill"
+                           class='img'></image>{{item.name}}
+                </view>
+                <image
+                 src="{{imgServerUrl+'/xcx_images/'+globalProjectName+'/wxIcon.png'}}"
+                bindtap="imClickfun" class="wxIcon" data-id="{{item.memberId}}"></image>
+                <image class="telephone" bindtap="telephone"
+                 src="{{imgServerUrl+'/xcx_images/'+globalProjectName+'/telephone.png'}}"
+
+                 data-phone="{{item.mobile}}"></image>
+            </view>
+        </view>
+    </view>
+    <!-- 猜你喜欢 -->
+    <view class="house-box like-wrap" wx:if="{{likelist.length>0}}">
+        <view class="box-hd">
+            <view class="title">猜你喜欢</view>
+        </view>
+        <view class="box-bd">
+            <view class="like-list">
+            <project-item project-data="{{likelist}}" />
+                 <!-- <project-item project-data="{{likelist}}" wx:if="{{globalProjectName=='yangguangjun'}}"/>
+                 <house-item project-data="{{likelist}}"  wx:if="{{globalProjectName=='haikuotong'}}"/> -->
+            </view>
+        </view>
+    </view>
+    <view class="disclaimer">
+        <span><image src="/images/disclaimer.png"></image>免责声明：</span>小程序中有关商品房的销售广告和宣传资料均为要约邀请，相关楼盘及活动信息仅供参考，买卖双方的权利义务以购房合同约定为准。本网展示的交通、商业、学校、医疗、娱乐、旅游等信息并非合同附件，不作为要约，不构成销售承诺，相关信息以政府部门审批核准内容为准。房源信息（包括但不限于价格、户型等）、优惠动态资讯等可能实时调整，具体信息详询线下售楼处，请及时关注信息更新，恕不另行通知。
+    </view>
+</scroll-view>
+<!-- 底部按钮 -->
+<view class="{{isIPhoneX?'safe-wrap':''}}">
+    <view class="my-bottom-ctrl-wrap">
+    <!-- bindtap='showShareDialog' -->
+        <button  class="shareIcon"  open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" wx:if="{{!userPhone}}">
+            <image
+             src="{{imgServerUrl+'/xcx_images/'+globalProjectName+'/shareIcon.png'}}"
+             style="margin-bottom: 0"></image>
+            分享
+        </button>
+        <button  class="shareIcon"  bindtap="showShareDialog" wx:if="{{userPhone}}">
+            <image src="{{imgServerUrl+'/xcx_images/'+globalProjectName+'/shareIcon.png'}}" style="margin-bottom: 0"></image>
+            分享
+        </button>
+
+        <button  class="followIcon"  open-type="getPhoneNumber" bindgetphonenumber="changeUserCollection" wx:if="{{!userPhone}}" data-type="3">
+            <image  wx:if="{{isLike === '1'}}"
+                src="{{imgServerUrl+'/xcx_images/'+globalProjectName+'/followIconA.png'}}"
+            ></image>
+            <image wx:else
+                src="{{imgServerUrl+'/xcx_images/'+globalProjectName+'/followIcon.png'}}"
+            ></image>
+            关注
+        </button>
+        <button  class="followIcon" bindtap ="userCollection" wx:if="{{userPhone}}" data-type="3">
+            <image  wx:if="{{isLike === '1'}}"  src="{{imgServerUrl+'/xcx_images/'+globalProjectName+'/followIconA.png'}}"></image>
+            <image  src="{{imgServerUrl+'/xcx_images/'+globalProjectName+'/followIcon.png'}}" wx:else></image>
+            关注
+        </button>
+        <view class="btn {{globalData + '-btn-color'}}" style="margin-right: 10px;margin-left: 23px;" bindtap="imClickfun">在线咨询</view>
+        <view class="btn" data-phone="{{houseData.telephone}}" bindtap="telephone">电话咨询</view>
+    </view>
+</view>
+<!-- 分享弹框 -->
+  <block wx:if="{{showShareDialogFlag}}">
+    <component-share houseid="{{yuyueInfo.projectId}}" bind:hideShareDialog="hideShareDialog"></component-share>
+  </block>
+<!-- 规则弹框 -->
+<image class="close" src="/images/close2.png" bindtap="closeRule" hidden="{{rule}}"></image>
+<view class="ruleModal" hidden="{{rule}}">
+    <view class="title">使用规则</view>
+    <view class="desc">{{ruleText}}</view>
+</view>
+<!-- 提醒的弹框 -->
+<view class="mask" bindtap="remindHide" hidden="{{remind && rule}}"></view>
+<view class="remind" hidden="{{remind}}">
+    <view class="title">订阅{{remindText}}提醒</view>
+    <view class="desc">{{remindText}}我们将第一时间提醒您</view>
+    <view class="remindInput" style="border-bottom: 2rpx solid #BBBBBB;">
+        <input type="text" maxlength="11" value="{{phone}}" placeholder="请输入手机号" bindinput="valChange"  />
+    </view>
+    <view class="remindInput">
+        <input type="text" bindinput="codeChange" placeholder="请输入短信验证码" value="{{code}}" />
+        <view class="getCode" bindtap="getCode">{{codeMsg}}</view>
+    </view>
+    <view class="btn" bindtap="userCollection" data-type="{{remindText === '变价' ? 1 : 2}}">立即订阅</view>
+</view>
+  <view wx:if="{{isUserAuth==1}}">
+      <component-user></component-user>
+  </view>
+
+    <view wx:if="{{isPhoneAuth==1}}">
+        <component-phone bind:parentEvent="closePhoneBox" bind:callback="closePhoneBox" hasCallBack="true"></component-phone>
+    </view>
+
+<!--公众号-->
+<view class="Official_s" bindtap="openOfficial" wx:if="{{wxPidUrls}}">
+    <image
+     src="{{imgServerUrl+'/xcx_images/'+globalProjectName+'/Official_s.png'}}"
+     mode="widthFit"></image>
+    <image src="{{wxPidUrls ? cdnUrl + wxPidUrls + '?x-oss-process=image/resize,h_250' : ''}}" mode="widthFit" class="wchat_s"></image>
+</view>

@@ -1,0 +1,261 @@
+
+.line-20 {
+  height : 20rpx;
+  background : #eee;
+}
+.line-20.white {
+  background-color : #fff;
+}
+.mgt-40 {
+  margin-top : 40rpx;
+}
+.vh-100 {
+  height : 100vh;
+}
+.link-color {
+  color : #60b8f0!important;
+}
+.container {
+  font-size : 28rpx;
+  position : relative;
+  overflow-x : hidden;
+  width : 100%;
+}
+.container.safe-wrap {
+  padding-bottom : 60rpx;
+}
+.container.bottom-bar {
+  padding-bottom : 95rpx;
+}
+.container.bottom-bar.safe-wrap {
+  padding-bottom : 155rpx;
+}
+/* 搜索 */
+
+.my-search-bar {
+  display : flex;
+}
+.my-search-bar .search-input-wrap {
+  position : relative;
+  flex : 1;
+  height : 56rpx;
+  padding-left : 70rpx;
+  border-radius : 10rpx;
+  background : #f4f4f4;
+}
+.my-search-bar .icon-search {
+  font-size : 28rpx;
+  line-height : 36rpx;
+  position : absolute;
+  top : 10rpx;
+  left : 20rpx;
+  height : 36rpx;
+  color : #959595;
+}
+.my-search-bar .search-input {
+  font-size : 28rpx;
+  line-height : 56rpx;
+  height : 56rpx;
+}
+.my-search-bar .search-text {
+  margin-left : 30rpx;
+}
+.my-search-bar .search-text .btn {
+  line-height : 56rpx;
+  display : inline-block;
+  color : #676767;
+}
+.my-search-bar .search-text button {
+  line-height : 56rpx;
+  height : 56rpx;
+  background-color : transparent;
+}
+.my-search-bar .search-text .icon-share {
+  font-size : 36rpx;
+  line-height : 56rpx;
+  display : inline-block;
+}
+.my-search-bar.black .icon-search {
+  color : #fff;
+}
+.my-search-bar.black .search-input-wrap {
+  background-color : rgba(255, 255, 255, .2);
+}
+.my-search-bar.black .search-input {
+  color : #fff;
+}
+.my-search-bar.black .search-text .icon-share {
+  color : #fff;
+}
+/* 无数据 */
+
+.my-no-data {
+  padding-top : 150rpx;
+}
+.my-no-data .text {
+  font-size : 32rpx;
+  margin-top : 30rpx;
+  text-align : center;
+  color : #666;
+}
+.my-no-data image {
+  display : block;
+  width : 405rpx;
+  height : 315rpx;
+  margin : 0 auto;
+}
+/* 底部按钮 */
+
+.safe-wrap .my-bottom-ctrl-wrap {
+  padding-bottom : 60rpx;
+}
+.my-bottom-ctrl-wrap {
+  position : fixed;
+  z-index : 100;
+  right : 0;
+  bottom : 0;
+  left : 0;
+  display : flex;
+  background-color : #fff;
+  box-shadow : 0 0 12rpx 0 rgba(0, 0, 0, .20);
+}
+.my-bottom-ctrl-wrap .bottom-btn {
+  font-size : 32rpx;
+  line-height : 92rpx;
+  display : flex;
+  align-items : center;
+  flex : 1;
+  justify-content : center;
+  height : 92rpx;
+  color : #fff;
+  background-image : linear-gradient(90deg, #f98c4b 0%, #f7650f 100%);
+}
+.my-bottom-ctrl-wrap .bottom-btn [class*='icon-'] {
+  font-size : 36rpx;
+  margin-right : 20rpx;
+}
+.my-bottom-ctrl-wrap .bottom-btn.default {
+  color : #333;
+  background-image : none;
+}
+.my-bottom-ctrl-wrap .bottom-btn.default button {
+  font-size : 32rpx;
+  color : #333;
+  background-color : transparent;
+}
+.my-bottom-ctrl-wrap .bottom-btn.default [class*='icon-'] {
+  color : #f78c53;
+}
+.my-bottom-ctrl-wrap .bottom-btn.default + .bottom-btn.default {
+  position : relative;
+}
+.my-bottom-ctrl-wrap .bottom-btn.default + .bottom-btn.default:before {
+  position : absolute;
+  top : 21rpx;
+  left : 0;
+  width : 0;
+  height : 50rpx;
+  content : '';
+  border-left : 2rpx solid #ebebeb;
+}
+.my-bottom-ctrl-wrap .bottom-small {
+  flex : 1;
+  padding : 20rpx 10rpx;
+}
+.my-bottom-ctrl-wrap .bottom-small:first-child {
+  padding-left : 20rpx;
+}
+.my-bottom-ctrl-wrap .bottom-small:last-child {
+  padding-right : 20rpx;
+}
+.my-bottom-ctrl-wrap .bottom-small .button-inner {
+  line-height : 78rpx;
+  display : flex;
+  justify-content : center;
+  height : 78rpx;
+  text-align : center;
+  color : #fff;
+  border-radius : 4rpx;
+  background-image : linear-gradient(90deg, #f76f2e 0%, #f76e2c 100%);
+}
+.my-bottom-ctrl-wrap .bottom-small.green .button-inner {
+  background-image : linear-gradient(90deg, #52c362 0%, #52c264 100%);
+}
+.my-bottom-ctrl-wrap .bottom-small .button-inner [class*='icon-'] {
+  font-size : 38rpx;
+  margin-right : 10rpx;
+}
+/* button */
+
+.my-button {
+  font-size : 36rpx;
+  line-height : 88rpx;
+  height : 88rpx;
+  text-align : center;
+  border-radius : 4rpx;
+}
+.my-button [class*='icon-'] {
+  font-size : 30rpx;
+  margin-right : 10rpx;
+}
+.my-button.small {
+  font-size : 32rpx;
+  line-height : 76rpx;
+  height : 76rpx;
+}
+.my-button.ssmall {
+  font-size : 28rpx;
+  line-height : 68rpx;
+  height : 68rpx;
+}
+.my-button-primary {
+  color : #fff;
+  background-image : linear-gradient(90deg, #f98c4b 0%, #f7650f 100%);
+}
+.my-button-default {
+  color : #f7650f;
+  background-color : #f6f6f6;
+}
+.my-button-whitebg {
+  font-size : 26rpx;
+  color : #f7650f;
+  border : 1px solid #f3f3f3;
+  background : #fff;
+  box-shadow : 0 0 16px 0 rgba(216, 223, 230, .40);
+}
+.my-button-orangebg {
+  color : #f7650f;
+  background : #ffe6d7;
+}
+/* attr list */
+
+.my-box-attr-list {
+  font-size : 28rpx;
+  line-height : 42rpx;
+}
+.my-box-attr-list .attr-item {
+  display : flex;
+  padding : 8rpx 0;
+}
+.my-box-attr-list .attr-item .attr-name {
+  min-width : 140rpx;
+  color : #9f9f9f;
+}
+.my-box-attr-list .attr-item .attr-value {
+  flex : 1;
+  color : #666;
+}
+.my-box-attr-list .attr-item .attr-value.ofh {
+  overflow : hidden;
+  white-space : nowrap;
+  text-overflow : ellipsis;
+}
+.my-box-attr-list .attr-list-item {
+  display : flex;
+}
+.my-box-attr-list .attr-list-item .attr-item {
+  width : 50%;
+}
+.my-box-attr-list .attr-list-item .attr-item + .attr-item {
+  margin-left : 20rpx;
+}

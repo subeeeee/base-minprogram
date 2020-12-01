@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "van-popup":"/components/vant/popup/index",
+    "van-search": "/components/vant/search/index"
+  },
+  "enablePullDownRefresh": true
+}

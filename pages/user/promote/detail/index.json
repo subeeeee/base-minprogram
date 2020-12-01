@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText": "推广详情",
+    "usingComponents":{
+        "Item":"/components/user/promoteItem/index"
+    }
+}

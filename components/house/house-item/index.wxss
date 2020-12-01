@@ -1,0 +1,80 @@
+ .project-item {
+  width: 100%;
+  padding-bottom: 30rpx;
+  margin-bottom: 30rpx;
+  border-bottom: 2rpx solid #F5F5F5;
+  overflow: hidden;
+  position: relative;
+}
+
+ .project-item .project-img{
+  float: left;
+  width: 270rpx;
+  height: 200rpx;
+  margin-right: 34rpx;
+  border-radius: 12rpx;
+}
+ .project-item .content{
+  float: left;
+  /* width: 350rpx; */
+  width: calc(100% - 305rpx);
+}
+.project-item .contentShowTel{
+  width: calc(100% - 350rpx);
+}
+.project-item .content .name{
+  color: #4A4A4A;
+  font-size: 36rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  margin-bottom: 6rpx;
+  font-weight: 500;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.project-item .content .desc{
+  color: #7D7D7D;
+  font-size: 28rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  font-weight: 400;
+  margin-bottom: 18rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.project-item .content .tabs{
+  margin-bottom: 10rpx;
+  overflow: hidden;
+  font-weight: 400;
+  font-size: 24rpx;
+  height: 37rpx;
+}
+
+.project-item .content .price{
+  font-size: 32rpx;
+  color: #D0021B;
+  height: 44rpx;
+  line-height: 44rpx;
+  font-weight: 500;
+}
+
+.project-item .telephone{
+  width: 60rpx;
+  height: 60rpx;
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin-right: 0;
+}
+
+.vrHouse{
+   position : absolute;
+   left:95rpx;
+   top:60rpx;
+   z-index:10;
+}
+.vrHouse .vrImg{
+   width:80rpx;
+}

@@ -1,0 +1,20 @@
+<view class='commn'>
+    <view class='cityIp'>
+        <view class='cityIpbox'>
+            <view class='title'>默认城市</view>
+            <view class='iconAdrees'>
+                <view bindtap='goBacks' data-codeC='{{codeC_dw}}' data-cityName='{{cityName_dw}}' class='leftA'>
+                    <!--<text class="icon-location"></text>-->
+                    <text>{{cityName_dw}} </text>
+                </view>
+            </view>
+        </view>
+        <view class='clear'></view>
+    </view>
+    <view class='clear'></view>
+    <view class='listCitysBox'>
+        <view class='list'>
+            <text wx:for='{{list}}' wx:key='item.codeC' bindtap='goBacks' data-codeC='{{item.codeC}}' data-cityname='{{item.name}}'>{{item.name}}</text>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "van-popup":"/components/vant/popup/index",
+    "van-dialog": "/components/vant/dialog/index",
+    "van-field": "/components/vant/field/index",
+    "van-cell-group":"/components/vant/cell-group/index",
+    "van-cell":"/components/vant/cell/index",
+    "van-checkbox": "/components/vant/checkbox/index"
+}
+}

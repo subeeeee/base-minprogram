@@ -1,0 +1,40 @@
+.list{
+   padding: 56rpx 40rpx 40rpx 60rpx;
+}
+.item {
+    display: flex;
+    margin-bottom: 68rpx;
+    position: relative;
+}
+.item > image{
+    position: absolute;
+    width: 60rpx;
+    height: 60rpx;
+}
+.item > .telephone{
+    right: 0;
+    top: 0;
+}
+.item > .wxIcon{
+    right: 100rpx;
+    top: 0;
+}
+.item > .name {
+    font-size: 32rpx;
+    color: #4A4A4A;
+    flex: 1;
+    display: flex;
+    line-height: 80rpx;
+}
+.item > .name > Image {
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 50%;
+    vertical-align: middle;
+    margin-right: 40rpx;
+}
+.item > .cz {
+    text-align: right;
+    font-size: 60rpx;
+    color: var(--dark-color);
+}

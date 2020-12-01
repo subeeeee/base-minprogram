@@ -1,0 +1,120 @@
+
+
+page{
+  box-sizing: border-box;
+  padding:36rpx;
+}
+.img-list{
+  height: 100rpx;
+  line-height: 100rpx;
+  white-space: nowrap;
+}
+.img-item{
+  display: inline-block;
+  position: relative;
+  margin-right: 30rpx;
+  width: 80rpx;
+  height: 80rpx;
+}
+.img-item:last-child{
+  margin-right: 0;
+}
+
+.img-item .img{
+  width: 80rpx;
+  height: 80rpx;
+}
+.img-item .active{
+   position: absolute;
+   width: 20rpx;
+   height: 20rpx;
+   right:10rpx;
+   top:10rpx;
+   background-position: left top;
+   background-repeat: no-repeat;
+   background-size:20rpx ;
+}
+.canvas-view{
+  margin-top:20rpx;
+  width: 375rpx;
+  height: calc(75vh);
+  border: 1rpx solid #F5F5F5;
+  background: #f5f5f5;
+  padding:20rpx 152rpx;
+  margin-bottom: 100rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.canvas-img{
+  width: 375rpx;
+}
+
+.qrcode-view{
+  padding: 35rpx 0;
+  display: flex;
+  background: #fff;
+}
+.qrcode-img{
+  margin-left:35rpx;
+  width: 100rpx;
+  height: 100rpx;
+  flex: 0 0 100rpx;
+}
+.qrcode-text-container{
+  margin-top:24rpx;
+  padding-left: 17rpx;
+  font-size: 20rpx;
+  color: #4A4A4A;
+}
+.qrcode-text-container .qrcode-text{
+  display: block;
+}
+.qrcode-text-container .qrcode-text:last-child{
+  font-size: 16rpx;
+}
+.qrcode-text-container .qrcode-text:first-child{
+  font-size: 20rpx;
+}
+.save-btn{
+  margin-top:54rpx;
+  width: 680rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  background-image: linear-gradient(-270deg, var(--light-color) 2%, var(--dark-color) 100%);
+  border-radius: 10rpx;
+  color: #fff;
+  font-size: 28rpx;
+  position: fixed;
+  bottom: 50rpx;
+}
+
+
+.share-canvas {
+  position: absolute;
+  left: 0;
+  top: -99999rpx;
+  width: 2250rpx;
+  /* height: 1680rpx; */
+  /* height: 3040rpx; */
+  height: 4872rpx;
+  z-index: -1;
+  transform: translate3d(0, 0, -1000rpx);
+}
+
+.my-no-data{
+  border:1rpx solid #f5f5f5;
+}
+.my-no-data .image{
+  display: block;
+  width: 680rpx;
+  height: 680rpx;
+}
+
+.my-no-data .text{
+  font-size: 28rpx;
+color: #9B9B9B;
+line-height: 160rpx;
+text-align:center;
+}

@@ -1,0 +1,46 @@
+.checkBox{
+	padding:30rpx;
+	color:#333333;
+}
+.title{
+	font-size:32rpx;
+	color:#1486ee;
+	text-align:center;
+	height: 100rpx;
+	line-height: 100rpx;
+}
+.tbBox{
+	width:100%;
+	min-height:300rpx;
+	border:2rpx solid #f2f2f2;
+}
+.checkBtn{
+	padding: 40rpx;
+display: flex;
+height: 80rpx;
+line-height: 80rpx;
+text-align: center;
+}
+.checkBtn view{
+	flex:1;
+	border-radius: 6rpx;
+	background:#e4e4e4;
+	margin: 0 20rpx;
+	color:#fff;
+}
+.checkBtn .submit{
+	background: #1486ee;
+}
+.tbBox .line{
+	border-top:2rpx solid #f2f2f2;
+	min-height:100rpx;
+	line-height:100rpx;
+	margin:0 30rpx;
+}
+.tbBox .line:first-child{
+	border-top:none;
+}
+.line view{
+	display:inline-block;
+}
+.line .tit{margin-right:20rpx;}

@@ -1,0 +1,154 @@
+<view class="container bottom-bar bottom-bar-member {{isIPhoneX?'safe-wrap':''}}">
+        <block wx:if="{{type=='my'}}">
+            <view class="dl  dl-icon" bindtap="showProjectList" >
+              <view class="dt h2">我的项目</view>
+              <view class="dd flex"></view>
+              <view class="dd flex-arrow">
+                        {{referred}}
+                        <view class=" flex-arrow-after"
+                         style="background-image:url({{imgServerUrl}}/xcx_images/{{projectName}}/icon_arrow_right_blue.png)"
+                        ></view>
+              </view>
+            </view>
+            <view class="height20 gray"></view>
+        </block>
+
+        <view class="top-bar-box">
+            <view class="card">
+              <view class="card-userinfo">
+                 <view class="card-userinfo-before"
+                               style="background-image:url({{imgServerUrl}}/xcx_images/{{projectName}}/userinfo_x.png)"
+                  ></view>
+                <view class="userInfo"   style="background-image:url({{imgServerUrl}}/xcx_images/{{projectName}}/userinfo-bg.png)">
+                    <view class="userInfo-before" style="background-image:url({{imgServerUrl}}/xcx_images/{{projectName}}/userinfo-icon.png)"></view>
+                    <image class="headImg" src="{{obj.headImgUrl}}"></image>
+                </view>
+                <view class="ul">
+                    <view class="li">
+                        <view class="name">{{obj.name}}</view>
+                        <view class="zhiwu" wx:if="{{obj.job}}">{{obj.job}}</view>
+                        <view class="gotoEdit" bindtap = "gotoEdit" wx:if="{{isMyself}}"
+                        style="background-image:url({{imgServerUrl}}/xcx_images/{{projectName}}/card_edit.png)"
+                        
+                        ></view>
+                     </view>
+
+                    <view class="li" >
+                        <view class="label">
+                            <image src="{{imgServerUrl+'/xcx_images/'+projectName+'/userinfo-tel.png'}}" 
+                            ></image>
+                        </view>
+                        <view class="text">{{obj.mobile}}</view>
+                    </view>
+                    <view class="li" wx:if="{{obj.wxId}}">
+                        <view class="label">
+                            <image src="{{imgServerUrl+'/xcx_images/'+projectName+'/userinfo-wx.png'}}" ></image>
+                        </view>
+                        <view class="text">{{obj.wxId}}</view>
+                      </view>
+                    <view class="li" wx:if="{{obj.location}}">
+                        <view class="label">
+                            <image src="{{imgServerUrl+'/xcx_images/'+projectName+'/userinfo-loc.png'}}" ></image>
+                        </view>
+                        <view class="text">{{obj.location}}</view>
+                    </view>
+                </view>
+              </view>
+              <view class="interests-list">
+                 <view  class="interests-item"><image class="img" src="/images/yh.png" /><text class="txt">独家优惠</text></view>
+                 <view  class="interests-item"><image class="img" src="/images/qw.png" /><text class="txt">权威信息</text></view>
+                 <view  class="interests-item"><image class="img" src="/images/kf.png" /><text class="txt">在线看房</text></view>
+                 <view  class="interests-item"><image class="img" src="/images/zx.png" /><text class="txt">免费咨询</text></view>
+              </view>
+            </view>
+            <view class="switch-show-hide" bindtap = "switch"><text class="text"
+            style="background-image:url({{imgServerUrl}}/xcx_images/{{projectName}}/{{showMoreMessage?'up':'down'}}.png)"
+            >{{showMoreMessage?'收起':'展开'}}更多名片信息</text></view>
+        </view>
+    
+        <view class="userinfo-up" wx-if="{{showMoreMessage}}">
+          <view class="dl"><view class="dt">电话</view><view class="dd dd-flex">{{obj.mobile}}</view><view class="dd userinfo-up-btn" bindtap="baocun">保存至通讯录</view></view>
+          <view class="dl" wx:if="{{obj.wxId || obj.wxQrCode}}"><view class="dt">微信</view><view class="dd dd-flex">{{obj.wxId||''}}</view><view class="dd userinfo-up-btn margin-right-50" bindtap="wxQrCode"   wx:if="{{obj.wxQrCode}}">查看二维码</view><view class="dd userinfo-up-btn" bindtap = "copyWX">复制</view></view>
+
+          <view class="dl" wx:if="{{obj.department}}">
+            <view class="dt">部门</view>
+            <view class="dd dd-flex">{{obj.department}}</view>
+            <view class="dd userinfo-up-btn" bindtap = "copyDepartment">复制</view>
+          </view>
+          <view class="dl" wx:if="{{obj.mail}}">
+            <view class="dt">邮箱</view>
+            <view class="dd dd-flex">{{obj.mail}}</view>
+            <view class="dd userinfo-up-btn" bindtap = "copyEmail">复制</view>
+          </view>
+          <view class="dl" wx:if="{{obj.location}}"><view class="dt">地址</view><view class="dd dd-flex">{{obj.location}}</view><view class="dd userinfo-up-btn" bindtap="copyAddress">复制</view></view>
+          <block  wx:if="{{obj.personalProfile}}">
+              <view class="dl dl-no-border"><view class="dt">个人简介</view></view>
+              <view class="introduction">{{obj.personalProfile}}</view>
+          </block>
+
+        </view> 
+
+       <view class="height20 gray"></view>
+
+      <view class="recommended" >
+        <view class="title">推荐项目</view>
+        <!-- <component-house-item wx:for="{{houseList}}" item="{{item}}"  wx:key="index"/> --> 
+         <project-item project-data="{{houseList}}" />
+        <!-- <project-item project-data="{{houseList}}" wx:if="{{projectName=='yangguangjun'}}"/>
+        <house-item project-data="{{houseList}}"  wx:if="{{projectName=='haikuotong'}}"/>-->
+     </view> 
+
+
+     <!-- 底部按钮 -->
+    <view class="{{isIPhoneX?'safe-wrap':''}}"  wx:if="{{type=='project'}}">
+        <view class="my-bottom-ctrl-wrap">
+            <button class="shareIcon" open-type="getPhoneNumber" bindgetphonenumber="getUserPhone" wx:if="{{!phoneNo}}">
+                <image src="{{imgServerUrl+'/xcx_images/'+projectName+'/shareIcon.png'}}" style="margin-bottom: 0"></image>
+                分享名片
+            </button>
+            <button class="shareIcon" bindtap="showShareDialog" wx:if="{{phoneNo}}">
+                <image src="{{imgServerUrl+'/xcx_images/'+projectName+'/shareIcon.png'}}" style="margin-bottom: 0"></image>
+                分享名片
+            </button>
+            <view class="btn btn-margin" bindtap="imClickfun">在线咨询</view>
+            <view class="btn" data-phone="{{obj.mobile}}" bindtap="telephone">电话咨询</view>
+        </view>
+    </view>
+    <!--底部按钮结束-->
+
+        <view class="{{isIPhoneX?'safe-wrap':''}}"  wx:if="{{type=='my'}}">
+            <button bindtap='showShareDialog' class="card_share_btn">
+                <image class="img" src= "{{imgServerUrl+'/xcx_images/'+projectName+'/card_share_btn.png'}}" style="margin-bottom: 0"></image>
+            </button>
+    </view>
+</view>
+<!-- 分享名片弹层 -->
+<view wx:if="{{showShareDialogFlag}}">
+<component-card-share bind:hideShareDialog="hideShareDialog" item="{{obj}}"  selectdProjectId="{{selectdProjectId}}" type="{{type}}"></component-card-share>
+</view>
+
+  <view wx:if="{{isUserAuth==1}}">
+      <component-user></component-user>
+  </view>
+
+  <van-popup show="{{ projectListShow }}" bind:close="closeProjectListShowPopup" custom-class="project-popup" z-index="1000" position="top" >
+  <view class="dl" bindtap="closeProjectListShowPopup">
+      <view class="dt h2">我的项目</view>
+      <view class="dd flex"></view>
+      <view class="dd down up" style="background-image:url({{imgServerUrl}}/xcx_images/{{projectName}}/up.png)">
+
+      </view>
+  </view>
+
+   <view class="project-ul">
+     <view class="project-li {{selectdProjectIdx==index?'active':''}}" wx:for="{{houseList}}" wx:key="index" bindtap = "changeSelected" data-idx="{{index}}" data-key="selectdProjectIdx">
+     {{item.referred}}
+     </view>
+   </view>
+
+  <view class="save-btn" bindtap = "setProject">确定</view>
+</van-popup>
+
+    <view wx:if="{{isPhoneAuth==1}}">
+        <component-phone bind:parentEvent="closePhoneBox" bind:callback="closePhoneBox" hasCallBack="true"></component-phone>
+    </view>

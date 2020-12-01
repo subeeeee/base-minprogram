@@ -1,0 +1,58 @@
+.container{
+    overflow-x: hidden;
+}
+
+.height20{
+    height: 20rpx;
+}
+.gray{
+    background:#f5f5f5;
+}
+
+.record{
+    margin-top:36rpx;
+    margin-left:48rpx;
+  font-size:24rpx;
+  color:#4a4a4a;
+  line-height: 34rpx;
+}
+.record-item{
+    position: relative;
+
+  padding-left:28rpx;
+  padding-bottom:100rpx;
+}
+.record-item::before{
+    position: absolute;
+    width: 1rpx;
+    height:100%;
+    background:#ddd;
+    content:'';
+    left:0;
+    top:15rpx;
+
+}
+.record-item:last-child::before{
+    width:0;
+}
+.record-item .title{
+position: relative;
+}
+.record-item .title:before{
+    position: absolute;
+    content:'';
+    width:12rpx;
+    height:12rpx;
+    background:var(--dark-color);
+    border-radius: 50%;
+    left:-32rpx;
+    top:10rpx;
+}
+.record-item .time{
+    margin-top:8rpx;
+ color:#9b9b9b;
+}
+.color{
+    padding-left: 10rpx;
+    color: var(--dark-color);
+}

@@ -1,0 +1,75 @@
+<view class="container">
+  <view>
+        <view class="height60"></view>
+        <van-cell-group border="{{false}}">
+          <van-cell title="基础信息" border="{{ false }}" custom-class="font-big" center>
+            <van-button color="var(--dark-color)" custom-class="height60" bindtap = "editCustomerRegister">{{isEdit?'保存信息':'修改信息'}}</van-button>
+           </van-cell>
+          <van-cell title="客户姓名" custom-class="height100" center>
+              <van-field type="text" bind:change="bindKeyInput" value="{{customerRegister.name}}" maxlength="10" placeholder="请输入"  border="{{false}}"  input-align="right"  data-key="name" class="cont1"  disabled="{{nameDisabled}}" label-class="label" wx:if="{{isEdit}}"/>
+              <view wx:else>
+                {{customers.name }}  ({{customers.reportStatusName}})
+              </view>
+           </van-cell>
+       
+          <van-cell title="客户性别" center  custom-class="height100">
+              <view class="flex flex-align-item-center flex-justify-end {{isEdit?'':'disabled'}}">
+                <view class="radio-btn {{customerRegister.sex==item.value?'active':''}}" wx:for="{{sexData}}" wx:key="index" data-value="{{item.value}}" data-text="{{item.text}}" bindtap="setSex">{{item.text}}</view>
+              </view>
+          </van-cell>
+          <van-cell title="手机号码"  value="{{mobile}}" custom-class="height100" center border="{{false}}">
+                  {{customers.mobile }}
+           </van-cell>
+          <view class="height60"></view>
+
+          <van-cell title="报备信息" border="{{ false }}" custom-class="font-big" center>
+            <van-button color="var(--dark-color)" wx:if="{{customers && (customers.reportStatus === 2 && customers.hideMobile === 0 || customers.reportStatus === 1 || customers.reportStatus === 3 )}}" custom-class="height60" bindtap ="getCustomersCustomerRegisterRecover">重新报备</van-button>
+           </van-cell>
+          <van-cell title="登记项目"  value="{{customers.projectName }}" custom-class="height100" center></van-cell>
+          <van-cell title="客户来源"  value="{{customers.reportSourceName }}" custom-class="height100" center></van-cell>
+          <van-cell title="置业顾问"  value="{{customers.memberName }}" custom-class="height100" center></van-cell>
+          <van-cell title="登记时间"  value="{{customers.reportTime }}" custom-class="height100" center></van-cell>
+          <van-cell title="到访保护期"  value="{{customers.effectiveReportTime }}" custom-class="height100" center></van-cell>
+          <van-cell title="成交保护期"  value="{{customers.dealProtectTime }}" custom-class="height100" center></van-cell>
+          <van-cell title="其他号码"  value="{{customers.otherMobiles }}" custom-class="height100" center></van-cell>
+<view class="height60"></view>
+          <van-cell title="成交进度" border="{{ false }}" custom-class="font-big">
+            <!-- <view class="subscribeMessages" bindtap = "subscribeMessages">
+              <i class="icon iconfont icon-shouzhi"></i>订阅状态消息
+            </view> -->
+           </van-cell>
+
+           <van-cell wx:for="{{customersReportHistory}}" title="{{item.operateName}}"   wx:key="index" title-class="title-class" value-class="value-width" custom-class="height100 {{index==0?'reportStatusHis':''}}" center>
+           {{item.operateTimeName}}:<text class="margin-left-20">{{item.operateTime}}</text>
+           </van-cell>
+
+<!-- 客户报备  待补充 -->
+       </van-cell-group>
+  </view>
+</view>
+
+<!-- <van-popup show="{{ projectListShow }}" bind:close="closeProjectListShowPopup" custom-class="project-popup" z-index="1000" position="right">
+   <view class="ul">
+     <view class="li {{selectdProjectId==item.projectId?'active':''}}" wx:for="{{projectData}}" wx:key="index" bindtap = "changeSelected" data-id="{{item.projectId}}" data-key="projectId"
+     data-name="project"
+      data-value="{{item.projectName}}"
+     >
+     {{item.projectName}}
+     </view>
+   </view>
+</van-popup>
+
+<van-popup show="{{ identityShow }}" bind:close="closeIdentityShowPopup" custom-class="project-popup" z-index="1000" position="right"
+close-on-click-overlay="false"
+>
+   <view class="ul">
+     <view class="li {{item.identity==identity?'active':''}}" wx:for="{{identityList}}" wx:key="index" bindtap = "changeSelectedIdentity" data-id="{{item.identity}}"
+    data-option="{{item}}"
+     data-key="identity"
+     data-name="identity"
+     data-value="{{item.identityName}}"
+     > {{item.identityName}}
+     </view>
+   </view>
+</van-popup>
+<van-dialog id="van-dialog" /> -->

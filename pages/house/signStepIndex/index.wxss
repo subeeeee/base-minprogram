@@ -1,0 +1,28 @@
+.bigBtn {
+  width: 50%;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  color: #FFFFFF;
+  background: var(--dark-color);
+  border-radius: 4px;
+  display: block;
+  font-size: 14px;
+  margin: 0 auto;
+}
+
+.history_box {
+  padding: 15px;
+  margin-top: 10px;
+  background: #FFFFFF;
+}
+
+.title {
+  display: block;
+  font-size: 16px;
+  color: #4a4a4a;
+}
+.topSteps {
+  background: #FFFFFF;
+  padding-bottom: 20px;
+}

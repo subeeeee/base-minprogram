@@ -1,0 +1,53 @@
+.recommend-item{
+  float: left;
+  width: var(--recommend-item-width);
+  position: relative;
+  margin-bottom: 30rpx;
+}
+.recommend-item:nth-child(2n+1) {
+  margin-right: 20rpx;
+}
+.recommend-item image{
+  width: var(--recommend-item-width);
+  height: var(--recommend-item-height);
+  margin-bottom: 12rpx;
+  border-radius: 12rpx;
+}
+.recommend-item .name{
+  height: 50rpx;
+  line-height: 50rpx;
+  font-size: 36rpx;
+  color: #4A4A4A;
+  font-weight: 500;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.recommend-item .desc{
+  height: 40rpx;
+  line-height: 40rpx;
+  font-size: 28rpx;
+  color: #7D7D7D;
+  font-weight: 400;
+}
+.recommend-item .price{
+  height: 44rpx;
+  line-height: 44rpx;
+  font-size: 32rpx;
+  color: #D0021B;
+  font-weight: 500;
+}
+
+.vrHouse1{
+  left:125rpx !important;
+  top:70rpx !important;
+}
+.vrHouse{
+   position : absolute;
+   left:95rpx;
+   top:60rpx;
+   z-index:10;
+}
+.vrHouse image{
+   width:80rpx !important;
+}

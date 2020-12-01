@@ -1,0 +1,16 @@
+<view class="jzy_steps">
+  <view class="numsList">
+    <block wx:for="{{options}}">
+      <view wx:key="index" class="line {{index <= active - 1 ? 'lineActive' : ''}}"></view>
+      <view wx:key="index" class="flag {{index <= active - 1 ? 'flagActive' : ''}}">
+        <text>{{item.keyNum || (index + 1)}}</text>
+      </view>
+      <view wx:key="index" class="line {{index < active - 1 ? 'lineActive' : ''}}"></view>
+    </block>
+  </view>
+  <view class="textList">
+    <view class="item" wx:for="{{options}}" wx:key="index">
+      <text>{{item.title}}</text>
+    </view>
+  </view>
+</view>

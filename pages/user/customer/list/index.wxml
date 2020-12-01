@@ -1,0 +1,97 @@
+<view class="container">
+  <van-search value="{{ searchForm.nameOrMobile }}" placeholder="客户姓名或手机号码" bind:search="searchCustomersList"/>
+  <view class="height20 gray"></view>
+    <view class="ul screen">
+      <view class="li" bindtap ="showPopUp" data-type="one" ><text>{{projectName}}</text></view>
+      <view class="li" bindtap="showPopUp" data-type="three"><text>{{reportStatus}}</text></view>
+      <view class="li" bindtap="showPopUp" data-type="two"><text>{{customerStatus}}</text></view>
+      <view class="li" bindtap="showPopUp"  data-type="four" wx:if="{{roleType == 0}}"><text>{{level}}</text></view>
+      <!-- <view class="li" bindtap="showPopUp"  data-type="four" wx:if="{{roleType == 0}}"><text>{{level}}</text></view> -->
+    </view>
+    <view class="height20 gray"></view>
+
+
+      <view class="list" wx:if="{{listData && listData.length}}">
+
+        <view class="sortType"><text bindtap="clickSortType">报备时间：{{sortType}}</text></view>
+
+        <view class="ul" wx:for="{{listData}}" wx:key="index" bindtap = "gotodetail" data-id="{{item.registerId}}">
+          <view class="li">
+            <view class="span" bindtap ="toPage" data-item="{{item}}">
+              <view  class="i icon iconfont icon-youxiao" wx:if="{{item.reportStatus === 0}}"></view>
+              <view class="i icon iconfont icon-wuxiao" wx:if="{{item.reportStatus === 1}}"></view>
+              <view  class="i icon iconfont icon-daofangyuqi" wx:if="{{item.reportStatus === 2}}"></view>
+              <view class="i icon iconfont icon-yibaobei" wx:if="{{item.reportStatus === -1}}"></view>
+              <view class="i icon iconfont icon-chengjiaoyuqi" wx:if="{{item.reportStatus === 3}}"></view>
+              {{item.name}} {{item.mobile}}
+            </view>
+             <view class="width160">
+              <view class=" icon-erweima" catchtap="lockQRcode" data-item="{{item}}"></view>
+              <view class="{{'type' + item.status}}" wx:if="{{item.reportStatus !== 1 && item.reportStatus !== 3}}">{{item.statusName||''}}</view>
+              </view>
+          </view>
+          <view class="li">
+            <view class="span">推荐时间 {{item.reportTime}}</view>
+            <view class="span">报备人 {{item.reporterName}}</view>
+          </view>
+        </view>
+      </view>
+
+
+<van-popup show="{{ QrcodePop }}" bind:close="hidePopUp"    custom-class="QrcodePop" overlay-style="background:#fff">
+<view class="close-btn" bindtap = "hidePopUp">关闭</view>
+  <canvas class="canvas-code"canvas-id="myQrcode" style="background:#fff;width: 300px;height: 300px;"/>
+</van-popup>
+
+
+<van-popup show="{{ isPopupShow.one }}" bind:close="hidePopUp" custom-class="popup" z-index="1000" position="right" close-on-click-overlay="false">
+   <view class="ul">
+     <view class="li {{item.value==searchForm.projectId?'active':''}}" wx:for="{{projectData}}" wx:key="index" bindtap = "changeSelectedProject" data-id="{{item.value}}"
+    data-option="{{item}}"
+     data-key="project"
+     data-name="project"
+     data-value="{{item.label}}"
+     > {{item.label}}
+     </view>
+   </view>
+</van-popup>
+
+<van-popup show="{{ isPopupShow.two }}" bind:close="hidePopUp" custom-class="popup" z-index="1000" position="right" close-on-click-overlay="false">
+   <view class="ul">
+     <view class="li {{item.value==searchForm.status?'active':''}}" wx:for="{{customerStatusData}}" wx:key="index" bindtap = "changeCustomerStatus" data-id="{{item.value}}"
+    data-option="{{item}}"
+     data-key="project"
+     data-name="project"
+     data-value="{{item.label}}"
+     > {{item.label}}
+     </view>
+   </view>
+</van-popup>
+
+
+<van-popup show="{{ isPopupShow.three }}" bind:close="hidePopUp" custom-class="popup" z-index="1000" position="right" close-on-click-overlay="false">
+   <view class="ul">
+     <view class="li {{item.value==searchForm.reportStatus?'active':''}}" wx:for="{{reportStatusData}}" wx:key="index" bindtap = "changeReportStatus" data-id="{{item.value}}"
+    data-option="{{item}}"
+     data-key="project"
+     data-name="project"
+     data-value="{{item.label}}"
+     > {{item.label}}
+     </view>
+   </view>
+</van-popup>
+
+
+
+<van-popup show="{{ isPopupShow.four }}" bind:close="hidePopUp" custom-class="popup" z-index="1000" position="right" close-on-click-overlay="false">
+   <view class="ul">
+     <view class="li {{item.value==searchForm.level?'active':''}}" wx:for="{{levelData}}" wx:key="index" bindtap = "changeLevel" data-id="{{item.value}}"
+    data-option="{{item}}"
+     data-key="project"
+     data-name="project"
+     data-value="{{item.label}}"
+     > {{item.label}}
+     </view>
+   </view>
+</van-popup>
+</view>

@@ -1,0 +1,50 @@
+.jzy_steps{
+  padding: 56rpx;
+}
+.jzy_steps>.textList{
+  display: flex;
+  padding-top: 12rpx;
+}
+.jzy_steps>.textList>.item{
+  width: 100%;
+  font-size: 24rpx;
+  text-align: center;
+}
+.jzy_steps>.numsList{
+  display: flex;
+
+}
+.jzy_steps>.numsList>view{
+  position: relative;
+}
+view.line{
+  height: 2rpx;
+  background: #D8D8D8;
+  position: absolute;
+  top: 26rpx;
+  width: 100%;
+}
+
+.line.lineActive{
+   background: var(--dark-color);
+ }
+.line:first-child{height: 0; overflow: hidden;}
+.line:last-child{height: 0; overflow: hidden;}
+view.flag{
+  width: 52rpx;
+  height: 52rpx;
+  text-align: center;
+  line-height: 52rpx;
+  background: #f4f4f4;
+  border: 4rpx solid #EEEEEE;
+  color: #9B9B9B;
+  border-radius: 100%;
+  flex-grow: 0;
+  flex-shrink: 0;
+  margin:0 20rpx;
+}
+.flag.flagActive{
+  background: var(--dark-color);
+  border: 2rpx solid var(--dark-color);
+  color: #FFFFFF;
+}

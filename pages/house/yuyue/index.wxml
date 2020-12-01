@@ -1,0 +1,93 @@
+<view class="form_box">
+    <view class="label">预约信息</view>
+   <view class="form_item">
+       <view class="form_title">预约项目</view>
+       <view class="control">
+           <view class="picker">{{obj.projectName}}</view>
+       </view>
+   </view>
+    <view class="form_item">
+       <view class="form_title">手机号码</view>
+       <view class="control">
+           <input type="text" placeholder="手机号码" value="{{obj.mobile}}" bindinput="mobileChange" />
+       </view>
+   </view>
+    <view class="form_item">
+       <view class="form_title">姓名</view>
+       <view class="control">
+           <input type="text" placeholder="姓名" value="{{obj.name}}" bindinput="nameChange" />
+       </view>
+   </view>
+    <view class="form_item">
+       <view class="form_title">性别</view>
+       <view class="control">
+           <picker bindchange="bindPickerChange" value="{{index}}" range="{{gender}}">
+               <view class="picker">{{gender[obj.sex]}}</view>
+           </picker>
+       </view>
+   </view>
+    <view class="form_item">
+       <view class="form_title">到访时间</view>
+       <view class="control">
+           <picker mode="date" value="{{obj.appointmentDate}}" start="{{start}}" bindchange="bindDateChange">
+               <view class="picker">
+                   {{obj.appointmentDate}}
+               </view>
+           </picker>
+           <image src="{{imgServerUrl+'/xcx_images/'+globalProjectName+'/date_icon.png'}}"
+           
+           style="width:18px;height: 18px;right: 0;top: 20px;"></image>
+       </view>
+   </view>
+</view>
+<view class="form_box" style="padding: 20rpx 24rpx 40rpx 24rpx;" wx:if="{{isVerify == 1}}">
+    <view class="label">证明文件</view>
+    <view class="item">
+        <view class="lTitle">购房资格</view>
+        <view class="division"></view>
+        <view class="rText">上传相关政府审批结果证明</view>
+    </view>
+    <view class="uploadList" style="margin-bottom: 20rpx">
+        <view wx:for="{{imgs1}}" wx:key="index">
+            <image src="{{item}}" class="upload" style="border: 2rpx solid #ccc;"></image>
+            <image bindtap="removeImg" data-index="{{index}}" src="/images/removeIcon.png" class="removeIcon" data-key="imgs1"></image>
+        </view>
+        <view bindtap="upload" data-key="imgs1">
+            <image src="/images/uploadIcon.png" class="upload"></image>
+        </view>
+    </view>
+    <view style="clear: both"></view>
+    <view class="item" style="margin-bottom: 60rpx">
+        <view class="lTitle">流动资产</view>
+        <view class="division"></view>
+        <view class="rText">请上传流动资产证明</view>
+    </view>
+    <view class="uploadList">
+        <view wx:for="{{imgs}}" wx:key="index">
+            <image src="{{item}}" class="upload" style="border: 2rpx solid #ccc;"></image>
+            <image bindtap="removeImg" data-index="{{index}}" src="/images/removeIcon.png" class="removeIcon" data-key="imgs"></image>
+        </view>
+        <view bindtap="upload" data-key="imgs">
+            <image src="/images/uploadIcon.png" class="upload"></image>
+        </view>
+    </view>
+    <view style="clear: both"></view>
+    <view class="msg">
+        注：流动资产证明主要指银行存款、短期理财等，不包括股票，投资等，该资料仅作为预约看房验资所用。
+    </view>
+    <view class="btn" bindtap="yuyueSubmit" style="margin-top: 0;">确认预约</view>
+</view>
+<view class="btn" bindtap="yuyueSubmit" wx:if="{{isVerify != 1}}">确认预约</view>
+
+<view class="mask" wx:if="{{isVerify == 1 && isShow}}"></view>
+<view class="modal" wx:if="{{isVerify == 1 && isShow}}">
+    <view class="title">是否接受预约验资看房</view>
+    <view class="desc">该项目需要验资方可预约看房，流动资产200万以上有购房资格即可获得VIP专属特权：</view>
+    <view class="desc">1、项目信息优先获知；</view>
+    <view class="desc">2、专人VIP服务；</view>
+    <view class="desc">3、看房免预约等。</view>
+    <view class="bottom">
+        <view class="l" bindtap="back">我再想想</view>
+        <view class="r" bindtap="showChange">立即预约</view>
+    </view>
+</view>

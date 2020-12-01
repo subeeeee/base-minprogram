@@ -1,0 +1,31 @@
+<view>
+    <view>
+        <view class="ctrl">
+            <view class="see {{isOnlyUnChecked ? 'on' : ''}}" bindtap="changeType">
+                <!--<text class="jzy-icon">&#xe684;</text>-->
+                只看未选
+            </view>
+            <text class="btn on">已选</text>
+            <text class="btn">未选</text>
+        </view>
+        <view class="building_box">
+            <scroll-view class="building" scroll-x="true">
+                <text bindtap="changeBuilding" data-item="{{item}}" class="{{item.buildingId === activeBuilding.buildingId ? 'on' : ''}}" wx:for="{{buildingList}}"
+                      wx:key="index">{{item.name}}</text>
+            </scroll-view>
+            <scroll-view class="unit" scroll-x="true">
+                <text bindtap="changeUnit" data-item="{{item.unitId}}" class="{{item.unitId === activeUnitId ? 'on' : ''}}" wx:for="{{unitList}}" wx:key="{{index}}">{{item.name}}</text>
+            </scroll-view>
+        </view>
+
+        <scroll-view class="floor_box" scroll-y="true" bindscroll="scroll" scroll-top="{{floorScrollTop}}">
+            <view class="floor" wx:for="{{floorList}}" wx:key="{{index}}">
+                <!--<text class="jzy-icon title">&#xe683; {{item.floorNumber}}层</text>-->
+                <text class="jzy-icon title">{{item.floorNumber}}层</text>
+                <view class="room">
+                    <text wx:if="{{(isOnlyUnChecked && 0 === room.roomStatus) || !isOnlyUnChecked}}" class="{{0 !== room.roomStatus ? 'on' : ''}}" bindtap="openRoomInfo" data-item="{{room}}" wx:for="{{item.rooms}}" wx:for-index="rIndex" wx:for-item="room" wx:key="{{rIndex}}">{{room.roomName}}</text>
+                </view>
+            </view>
+        </scroll-view>
+    </view>
+</view>

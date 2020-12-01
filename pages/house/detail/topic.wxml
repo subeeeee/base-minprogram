@@ -1,0 +1,23 @@
+<view class="container {{isIPhoneX?'safe-wrap':''}}">
+  <scroll-view scroll-y="{{true}}" class="tab-scroll" bindscrolltolower="onReachBottom">
+    <view class="list">
+      <view class="topic-item" wx:for="{{topicList}}" wx:key="index" bindtap="goNexts" data-id="{{item.id}}"  data-url="{{item.linkUrl}}" data-type="2">
+        <view class="left">
+          <view class="title">{{item.title}}</view>
+          <view class="desc">{{item.topicDesc}}</view>
+          <view class="date">{{item.createtime}}</view>
+        </view>
+        <view class="right">
+          <image src="{{item.bgUrl}}"></image>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+  <view class="btns">
+    <view bindtap="imClickfun">在线咨询</view>
+    <view bindtap="telephone">电话咨询</view>
+  </view>
+</view>
+  <view wx:if="{{isUserAuth==1}}">
+      <component-user></component-user>
+  </view>

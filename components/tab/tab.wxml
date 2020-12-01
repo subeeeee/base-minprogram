@@ -1,0 +1,7 @@
+<view class="{{isIphoneX?'tab-box safe-wrap':'tab-box'}}">
+  <view bindtap='tabTapFun' data-sortnum="{{item.sortnum}}" class="{{item.sortnum===num?'tab active':'tab'}}" wx:for="{{navigationList}}" wx:key="sortnum">
+    <image class='image' src="{{item.sortnum===num ? item.acIcon : item.icon}}"></image>
+    <view class="text">{{navigationList[item.sortnum-1].title}}</view>
+    <view class="icon" wx:if="{{item.sortnum === 3 && count > 0}}"></view>
+  </view>
+</view>

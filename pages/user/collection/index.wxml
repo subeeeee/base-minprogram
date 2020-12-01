@@ -1,0 +1,48 @@
+<!--我的认购-->
+<view class="container bottom-bar {{isIPhoneX?'safe-wrap':''}}">
+    <view class="tabs">
+        <view data-type="1" bindtap="indChange">
+            <text class="{{ind === 1 ? 'active' : ''}}">项目</text>
+        </view>
+        <view data-type="2" bindtap="indChange">
+            <text class="{{ind === 2 ? 'active' : ''}}">活动</text>
+        </view>
+    </view>
+    <view class="house-list-wrap" wx:if="{{list1 && list1.length > 0 && ind === 1}}">
+        <view class="houst-list">
+        <project-item project-data="{{list1}}" />
+        <!-- <project-item project-data="{{list1}}" wx:if="{{globalProjectName=='yangguangjun'}}"/>
+        <house-item project-data="{{list1}}"  wx:if="{{globalProjectName=='haikuotong'}}"/> -->
+            <!-- <view class="project-item" wx:for="{{list1}}" bindtap="goDetail" data-houseid="{{item.projectId}}">
+                <image src="{{item.projectFirstUrls ? 'https://yxf-bucket-01.oss-cn-beijing.aliyuncs.com/' + item.projectFirstUrls + '?x-oss-process=image/resize,h_250' : ''}}" wx:if="{{item.projectFirstUrls }}"></image>
+                <image wx:else src="{{item.imageUrls ? 'https://yxf-bucket-01.oss-cn-beijing.aliyuncs.com/' + item.imageUrls[0] + '?x-oss-process=image/resize,h_250' : ''}}"></image>
+                <view class="content">
+                    <view class="name">{{item.referred}}</view>
+                    <view class="desc">建面{{item.minArea && item.maxArea ? item.minArea +'-'+ item.maxArea + 'm²' : item.minArea ? item.minArea : item.maxArea ? item.maxArea + 'm²' : ''}}</view>
+                    <view class="tabs">
+                        <view class="status zanwu" wx:if="{{item.status === 0}}">暂无</view>
+                        <view class="status waitFor" wx:if="{{item.status === 1}}">待售</view>
+                        <view class="status" wx:if="{{item.status === 2}}">在售</view>
+                        <view class="status shouqing" wx:if="{{item.status === 3}}">售罄</view>
+                        <view wx:for="{{item.sellPoint}}" wx:for-item="name">{{name}}</view>
+                    </view>
+                    <view class="price">{{!item.averagePrice || isNaN(item.averagePrice) ? '价格待定' : item.averagePrice + '元/m²'}}</view>
+                </view>
+            </view> -->
+        </view>
+    </view>
+    <view class="list" wx:if="{{ind === 2 && list2.length > 0}}">
+        <view class="item" wx:for="{{list2}}" wx:key="index" data-url="{{item.linkUrl}}" bindtap="goDetail1">
+            <image src="{{item.bgUrl}}"></image>
+            <view class="content">
+                <view class="title">{{item.title || '--'}}</view>
+                <view>{{item.topicDesc || '--'}}</view>
+            </view>
+        </view>
+    </view>
+    <view class='my-no-data' wx:if="{{ind === 1 && list1.length === 0 ? true : ind === 2 && list2.length === 0 ? true : false }}">
+        <image lazy-load="{{true}}" src="http://test-block.oss-cn-beijing.aliyuncs.com/applet/2020/05/13/360_288_2f75be9b79272fa2b1c165e45e7f4d29.png" />
+        <view class="text">页面空空如也，去逛逛别的~</view>
+    </view>
+
+</view>

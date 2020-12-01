@@ -1,0 +1,25 @@
+<!--我的预约-->
+<view class="container bottom-bar {{isIPhoneX?'safe-wrap':''}}">
+    <view class="list" wx:if="{{listData.length > 0}}">
+        <view class="item" wx:for="{{listData}}">
+            <image class="stateImg" src="/images/weitongguo.png" wx:if="{{item.verificationState === 2}}"></image>
+            <image class="stateImg" src="/images/yitongguo.png" wx:if="{{item.verificationState === 1}}"></image>
+            <image class="stateImg" 
+            
+            src="{{imgServerUrl+'/xcx_images/'+globalProjectName+'/shenhe.png'}}"
+            wx:if="{{item.verificationState === 0}}"></image>
+            <image src="{{item.img}}"></image>
+            <view class="content">
+                <view class="title">{{item.projectName}}</view>
+                <view>{{item.name || '--'}} | {{item.sex == 1 ? '男' : '女'}} | {{item.mobile || ''}}</view>
+                <view wx:if="{{item.verificationState !== 2}}">预计 {{item.appointmentDate || ''}} 到访</view>
+                <view wx:if="{{item.verificationState === 2}}">未通过原因：{{item.rejectDesc}}</view>
+            </view>
+            <view class="btn" bindtap="yuyue" wx:if="{{item.verificationState === 2}}" data-id="{{item.projectId}}">再次预约</view>
+        </view>
+    </view>
+    <view class='my-no-data' wx:else>
+        <image lazy-load="{{true}}" src="http://test-block.oss-cn-beijing.aliyuncs.com/applet/2020/05/13/360_288_2f75be9b79272fa2b1c165e45e7f4d29.png" />
+        <view class="text">页面空空如也，去逛逛别的~</view>
+    </view>
+</view>

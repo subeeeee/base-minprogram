@@ -1,0 +1,29 @@
+<!--我的认购-->
+<view class="container bottom-bar {{isIPhoneX?'safe-wrap':''}}">
+    <view class="list" wx:if="{{listData.length > 0}}">
+        <view  wx:for="{{listData}}" class="discount-item {{'未使用' == item.state ? '' : 'greyCoupon'}}" wx:key="index" data-rule="{{item.rule}}" data-code="{{item}}" data-name="{{item.couponName}}" bindtap="showRule">
+            <view class="title">{{item.couponName}}</view>
+            <view class="date" wx:if="{{item.projectName}}">{{item.projectName}}</view>
+            <view class="date">有效期至：{{item.couponEnd}}</view>
+            <view class="date">使用规则 ></view>
+            <view class="btn" data-id="{{item.id}}">{{item.state}}</view>
+        </view>
+    </view>
+    <view class='my-no-data' wx:else>
+        <image lazy-load="{{true}}" src="http://test-block.oss-cn-beijing.aliyuncs.com/applet/2020/05/13/360_288_2f75be9b79272fa2b1c165e45e7f4d29.png" />
+        <view class="text">页面空空如也，去逛逛别的~</view>
+    </view>
+</view>
+<!-- 规则弹框 -->
+<image class="close" src="/images/close2.png" bindtap="closeRule" hidden="{{rule}}"></image>
+<view class="ruleModal" hidden="{{rule}}">
+    <view class="qrcode" wx:if="{{ruleCode}}">   
+    <canvas canvas-id="myQrcode" width="200" height="200"></canvas>
+    </view>
+    <view class="title" wx:if="{{ruleCode}}">{{couponName}}</view>
+    <view class="couponName" wx:if="{{ruleCode}}">券码信息：{{ruleCode}}</view>
+    <view class="descTit">使用规则:</view>
+    <view class="desc">{{ruleText}}</view>
+</view>
+<!-- 提醒的弹框 -->
+<view class="mask" bindtap="remindHide" hidden="{{rule}}"></view>

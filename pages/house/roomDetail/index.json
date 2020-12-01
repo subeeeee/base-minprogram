@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText": "特价房源",
+     "usingComponents": {
+        "component-user":"/components/login/auth/index"
+    }
+}

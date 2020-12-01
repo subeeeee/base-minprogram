@@ -1,0 +1,24 @@
+<!--推广详情-->
+<view class="container">
+  <Item wx:for="{{userDetail}}" item="{{item}}" bind:gotoDetail = "gotoDetail" wx:key="index" type="detail"/>
+  <view class="height20 gray"></view>
+  <view class="record">
+    <view class="record-item" wx:for="{{listData}}" item="{{item}}" wx:key="index">
+      <view class="title">{{item.operateActionName}}
+      <text class="color" wx-if="{{linkObj[item.operateObjectType]&&item.operateObjectName}}" data-type="{{item.operateObjectType}}" 
+      data-id="{{item.operateObjectId}}" 
+      data-projectid="{{item.projectId}}" 
+      bindtap = "gotoOther">{{item.operateObjectName}}</text>
+      </view>
+      <view class="time">{{item.lastModifyTime}}</view>
+    </view>
+     <!-- <view class="record-item">
+      <view class="title">查看楼盘：<text class="color">公园壹号</text></view>
+      <view class="time">2020-8-24  22:47</view>
+    </view>
+     <view class="record-item">
+      <view class="title">查看楼盘：<text class="color">公园壹号</text></view>
+      <view class="time">2020-8-24  22:47</view>
+    </view> -->
+  </view>
+</view>

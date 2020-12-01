@@ -1,0 +1,39 @@
+@import '/assets/css/common.wxss';
+
+/* 页面专属样式 */
+
+.service{
+  padding: 26rpx 0 40rpx 0;
+  box-sizing: border-box;
+  background: #fff;
+}
+.title{
+  font-size: 36rpx;
+  color: #4A4A4A;
+  font-weight: 500;
+  height: 50rpx;
+  line-height: 50rpx;
+  margin-bottom: 52rpx;
+  margin-left: 26rpx;
+}
+.tabs{
+  overflow: hidden;
+}
+.tabs .item-tab{
+  width: 33.33%;
+  float: left;
+  text-align: center;
+  color: #4A4A4A;
+  font-size: 32rpx;
+  font-weight: 400;
+}
+.item-tab image{
+  width: 72rpx;
+  height: 72rpx;
+  margin: 0 auto 16rpx auto;
+  display: block;
+}
+.item-tab view{
+  height: 44rpx;
+  line-height: 44rpx;
+}

@@ -1,0 +1,75 @@
+<view class="container">
+  <view>
+        <image wx:if="{{registerPics}}" class="banner"  src="{{registerPics}}" />
+          <van-cell-group >
+           <van-cell title="手机号"  value="{{mobile}}" custom-class="height100" center>
+             <!-- <van-field type="text" bind:change="bindKeyInput" value="{{mobile}}" maxlength="11" placeholder="请输入"  label="手机号" border="{{false}}"  input-align="right"  data-key="mobile" disabled label-class="label"/> -->
+           </van-cell>
+   
+        <van-cell title="姓名" custom-class="height100" required center>
+           <van-field type="text" bind:change="bindKeyInput" value="{{name}}" maxlength="50" placeholder="请输入"  border="{{false}}"  input-align="right"  data-key="name" class="cont1"  disabled="{{nameDisabled}}" label-class="label"/>
+           </van-cell>
+       
+          <van-cell required title="性别" center  custom-class="height100">
+              <view class="flex flex-align-item-center flex-justify-end">
+                <view class="radio-btn {{sex==item.value?'active':''}}" wx:for="{{sexData}}" wx:key="index" data-value="{{item.value}}" data-key="sex" bindtap="bindKeyInputNative">{{item.text}}</view>
+              </view>
+          </van-cell>
+   
+        <van-cell is-link bind:tap="showIdentityShowPopup" center custom-class="height100" required title="身份">
+          <van-field type="text" value="{{identityName}}" maxlength="50" placeholder="请选择"    border="{{false}}"  disabled input-align="right"  label-class="label"/>
+        </van-cell>
+
+        <van-cell is-link bind:tap="showProjectList" title="注册来源" custom-class="height100" required="{{projectMust}}" center>
+          <van-field type="text" value="{{projectName}}" maxlength="50" placeholder="请选择"   border="{{false}}" disabled input-align="right" label-class="label"/>
+        </van-cell>
+
+       <van-cell title="身份证号" custom-class="height100" required="{{idCardMust}}" border="{{false}}" center>
+           <view wx:if="{{idCardDisabled}}">{{idCard}}</view>
+           <van-field type="text" bind:change="bindKeyInput" value="{{idCard}}" maxlength="18" placeholder="请输入" border="{{false}}"  input-align="right"  data-key="idCard" label-class="label" wx:if="{{!idCardDisabled}}"/>
+           </van-cell>
+       </van-cell-group>
+
+    <!-- <div class="agreement">
+      <span @click="agreementTab">
+        <i class="agreement-icon" :class="agreement ? '' : 'not-select'"></i>点击注册，即表示同意
+      </span>
+      <span class="agreement-label" @click="isPopupShow.agreementPop = true">《注册协议》</span>
+    </div> -->
+
+
+  <view class="flex">
+      <van-checkbox value="{{ agreement }}" bind:change="agreementTab" name="1"  custom-class="agreement" checked-color="var(--dark-color)">点击注册，即表示同意</van-checkbox>
+      <text class="color agreement-text" bindtap="goH5" data-type="1" data-url="{{h5DoMain}}/admin-channel/#/Agreement" data-title="注册协议"
+      >《注册协议》</text>
+  </view>
+
+      <view class="save-btn" bindtap = "submit">注册</view>
+  </view>
+</view>
+
+<van-popup show="{{ projectListShow }}" bind:close="closeProjectListShowPopup" custom-class="project-popup" z-index="1000" position="right">
+   <view class="ul">
+     <view class="li {{selectdProjectId==item.projectId?'active':''}}" wx:for="{{projectData}}" wx:key="index" bindtap = "changeSelected" data-id="{{item.projectId}}" data-key="projectId"
+     data-name="project"
+      data-value="{{item.projectName}}"
+     >
+     {{item.projectName}}
+     </view>
+   </view>
+</van-popup>
+
+<van-popup show="{{ identityShow }}" bind:close="closeIdentityShowPopup" custom-class="project-popup" z-index="1000" position="right"
+close-on-click-overlay="false"
+>
+   <view class="ul">
+     <view class="li {{item.identity==identity?'active':''}}" wx:for="{{identityList}}" wx:key="index" bindtap = "changeSelectedIdentity" data-id="{{item.identity}}"
+    data-option="{{item}}"
+     data-key="identity"
+     data-name="identity"
+     data-value="{{item.identityName}}"
+     > {{item.identityName}}
+     </view>
+   </view>
+</van-popup>
+<van-dialog id="van-dialog" />

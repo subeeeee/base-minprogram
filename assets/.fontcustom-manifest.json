@@ -1,0 +1,281 @@
+{
+  "checksum": {
+    "previous": "eaf4681372ecc8ee2b92931195692052dde5a7652a2224685eb11719411d0a1a",
+    "current": "eaf4681372ecc8ee2b92931195692052dde5a7652a2224685eb11719411d0a1a"
+  },
+  "fonts": [
+    "fontcustom/fontcustom_eaf4681372ecc8ee2b92931195692052.ttf",
+    "fontcustom/fontcustom_eaf4681372ecc8ee2b92931195692052.svg",
+    "fontcustom/fontcustom_eaf4681372ecc8ee2b92931195692052.woff",
+    "fontcustom/fontcustom_eaf4681372ecc8ee2b92931195692052.eot",
+    "fontcustom/fontcustom_eaf4681372ecc8ee2b92931195692052.woff2"
+  ],
+  "glyphs": {
+    "arrow-down": {
+      "codepoint": 61696,
+      "source": "font/arrow-down.svg"
+    },
+    "brand": {
+      "codepoint": 61697,
+      "source": "font/brand.svg"
+    },
+    "calc": {
+      "codepoint": 61729,
+      "source": "font/calc.svg"
+    },
+    "chart": {
+      "codepoint": 61730,
+      "source": "font/chart.svg"
+    },
+    "checked": {
+      "codepoint": 61752,
+      "source": "font/checked.svg"
+    },
+    "close": {
+      "codepoint": 61698,
+      "source": "font/close.svg"
+    },
+    "close-back": {
+      "codepoint": 61699,
+      "source": "font/close-back.svg"
+    },
+    "close-other": {
+      "codepoint": 61700,
+      "source": "font/close-other.svg"
+    },
+    "code": {
+      "codepoint": 61701,
+      "source": "font/code.svg"
+    },
+    "cooperate": {
+      "codepoint": 61702,
+      "source": "font/cooperate.svg"
+    },
+    "discount": {
+      "codepoint": 61720,
+      "source": "font/discount.svg"
+    },
+    "discount-other": {
+      "codepoint": 61741,
+      "source": "font/discount-other.svg"
+    },
+    "download": {
+      "codepoint": 61721,
+      "source": "font/download.svg"
+    },
+    "download-other": {
+      "codepoint": 61743,
+      "source": "font/download-other.svg"
+    },
+    "edit": {
+      "codepoint": 61703,
+      "source": "font/edit.svg"
+    },
+    "favorite": {
+      "codepoint": 61704,
+      "source": "font/favorite.svg"
+    },
+    "favorite-active": {
+      "codepoint": 61705,
+      "source": "font/favorite-active.svg"
+    },
+    "follow": {
+      "codepoint": 61706,
+      "source": "font/follow.svg"
+    },
+    "follow-add": {
+      "codepoint": 61751,
+      "source": "font/follow-add.svg"
+    },
+    "gold": {
+      "codepoint": 61722,
+      "source": "font/gold.svg"
+    },
+    "home": {
+      "codepoint": 61723,
+      "source": "font/home.svg"
+    },
+    "home-other": {
+      "codepoint": 61731,
+      "source": "font/home-other.svg"
+    },
+    "hot": {
+      "codepoint": 61724,
+      "source": "font/hot.svg"
+    },
+    "house": {
+      "codepoint": 61708,
+      "source": "font/house.svg"
+    },
+    "image": {
+      "codepoint": 61744,
+      "source": "font/image.svg"
+    },
+    "link": {
+      "codepoint": 61745,
+      "source": "font/link.svg"
+    },
+    "location": {
+      "codepoint": 61725,
+      "source": "font/location.svg"
+    },
+    "map": {
+      "codepoint": 61728,
+      "source": "font/map.svg"
+    },
+    "map-bank": {
+      "codepoint": 61737,
+      "source": "font/map-bank.svg"
+    },
+    "map-bus": {
+      "codepoint": 61732,
+      "source": "font/map-bus.svg"
+    },
+    "map-business": {
+      "codepoint": 61733,
+      "source": "font/map-business.svg"
+    },
+    "map-hospital": {
+      "codepoint": 61734,
+      "source": "font/map-hospital.svg"
+    },
+    "map-ms": {
+      "codepoint": 61738,
+      "source": "font/map-ms.svg"
+    },
+    "map-school": {
+      "codepoint": 61735,
+      "source": "font/map-school.svg"
+    },
+    "map-yd": {
+      "codepoint": 61739,
+      "source": "font/map-yd.svg"
+    },
+    "map-yl": {
+      "codepoint": 61740,
+      "source": "font/map-yl.svg"
+    },
+    "message": {
+      "codepoint": 61746,
+      "source": "font/message.svg"
+    },
+    "mobile": {
+      "codepoint": 61747,
+      "source": "font/mobile.svg"
+    },
+    "money": {
+      "codepoint": 61709,
+      "source": "font/money.svg"
+    },
+    "money-other": {
+      "codepoint": 61753,
+      "source": "font/money-other.svg"
+    },
+    "phone": {
+      "codepoint": 61710,
+      "source": "font/phone.svg"
+    },
+    "photo": {
+      "codepoint": 61711,
+      "source": "font/photo.svg"
+    },
+    "purse": {
+      "codepoint": 61712,
+      "source": "font/purse.svg"
+    },
+    "qualified": {
+      "codepoint": 61736,
+      "source": "font/qualified.svg"
+    },
+    "question": {
+      "codepoint": 61726,
+      "source": "font/question.svg"
+    },
+    "recommend": {
+      "codepoint": 61748,
+      "source": "font/recommend.svg"
+    },
+    "refresh": {
+      "codepoint": 61727,
+      "source": "font/refresh.svg"
+    },
+    "right": {
+      "codepoint": 61713,
+      "source": "font/right.svg"
+    },
+    "right-double": {
+      "codepoint": 61714,
+      "source": "font/right-double.svg"
+    },
+    "right-single": {
+      "codepoint": 61715,
+      "source": "font/right-single.svg"
+    },
+    "safe": {
+      "codepoint": 61742,
+      "source": "font/safe.svg"
+    },
+    "search": {
+      "codepoint": 61716,
+      "source": "font/search.svg"
+    },
+    "share": {
+      "codepoint": 61717,
+      "source": "font/share.svg"
+    },
+    "share-other": {
+      "codepoint": 61754,
+      "source": "font/share-other.svg"
+    },
+    "sort": {
+      "codepoint": 61718,
+      "source": "font/sort.svg"
+    },
+    "tel": {
+      "codepoint": 61749,
+      "source": "font/tel.svg"
+    },
+    "time": {
+      "codepoint": 61719,
+      "source": "font/time.svg"
+    },
+    "wechat": {
+      "codepoint": 61750,
+      "source": "font/wechat.svg"
+    }
+  },
+  "options": {
+    "autowidth": false,
+    "config": false,
+    "copyright": "",
+    "css3": false,
+    "css_selector": ".icon-{{glyph}}",
+    "debug": false,
+    "font_ascent": 448,
+    "font_descent": 64,
+    "font_design_size": 16,
+    "font_em": 512,
+    "font_name": "fontcustom",
+    "force": false,
+    "input": {
+      "templates": "font",
+      "vectors": "font"
+    },
+    "no_hash": false,
+    "output": {
+      "css": "fontcustom",
+      "fonts": "fontcustom",
+      "preview": "fontcustom"
+    },
+    "preprocessor_path": null,
+    "quiet": false,
+    "templates": [
+      "css",
+      "preview"
+    ]
+  },
+  "templates": [
+    "fontcustom/fontcustom.css",
+    "fontcustom/fontcustom-preview.html"
+  ]
+}

@@ -1,0 +1,83 @@
+<view class="mcp-filter-wrap">
+    <view class="mcp-filter-inner">
+        <view class="filter-item" wx:for="{{tabs}}" wx:key="index" data-type="setOne" data-index="{{index}}" catchtap="setLevelHandleClickFun">
+            <text class="text">{{item}}</text>
+            <text class="icon-arrow-down"></text>
+        </view>
+    </view>
+    <view class="mcp-filter-content" wx:if="{{showFilter&&returnData&&returnData.length>0}}">
+        <view class="filter-content-bd">
+            <view class="filter-sort-list" wx:if="{{filterOne===0&&showCity}}">
+                <scroll-view scroll-y="{{true}}" class="sort-content">
+                    <view class="list-item left {{params[item.qiuhao]===item.val?'active':''}}" wx:for="{{returnData[filterOne][filterTwo].data}}" wx:key="name" data-index="{{index}}" data-item="{{item}}" catchtap="itemHandleClickFun" data-run="{{true}}">
+                        {{item.name}}
+                    </view>
+                </scroll-view>
+            </view>
+            <view class="filter-caser-select" wx:if="{{(filterOne===0&&!showCity)||filterOne===0}}">
+                <scroll-view scroll-y="{{true}}" class="select-left">
+                    <view class="left-item {{filterTwo===leftindex?'active':''}}" wx:for="{{returnData[filterOne]}}" wx:key="name" wx:for-index="leftindex" wx:for-item="leftitem" data-type="setTwo" data-index="{{leftindex}}" catchtap="setLevelHandleClickFun">{{leftitem.name}}</view>
+                </scroll-view>
+                <scroll-view scroll-y="{true}" class="select-right">
+                    <view class="right-item {{params[rightitem.qiuhao]===rightitem.val?'active':''}}" wx:for="{{returnData[filterOne][filterTwo].data}}" wx:key="name" wx:for-index="rightindex" wx:for-item="rightitem" data-item="{{rightitem}}" catchtap="itemHandleClickFun">{{rightitem.name}}</view>
+                </scroll-view>
+            </view>
+            <view class="filter-sort-list" wx:if="{{filterOne===1}}">
+                <scroll-view scroll-y="{{true}}" class="sort-content">
+                    <view class="list-item {{item.name===priceName?'active':''}}" wx:for="{{returnData[filterOne][filterTwo].data}}" wx:key="name" data-item="{{item}}" catchtap="priceHandleClickFun">
+                        {{item.name}}
+                    </view>
+                </scroll-view>
+            </view>
+            <view class="filter-multi-select" wx:if="{{filterOne===2}}">
+                <scroll-view scroll-y="{{true}}" class="select-content">
+                    <view class="select-item {{params[item.qiuhao].includes(item.val)?'active':''}}" wx:for="{{returnData[filterOne][filterTwo].data}}" wx:key="name" data-item="{{item}}" data-multi="{{returnData[filterOne][filterTwo].multi}}" catchtap="itemHandleClickFun">
+                        <wxs module="helper">
+                            module.exports.includes = function(arr, str){ return arr.indexOf(str)>=0 ||(arr.length===0&&!str) }
+                        </wxs>
+                        <text>{{item.name}}</text>
+                        <checkbox checked="{{helper.includes(params[item.qiuhao],item.val)}}" color="#f7650f" />
+                    </view>
+                </scroll-view>
+            </view>
+            <view class="filter-multi-list" wx:if="{{filterOne===3}}">
+                <scroll-view scroll-y="{{true}}" class="list-content">
+                    <view class="list-box" wx:for="{{returnData[filterOne]}}" wx:key="type">
+                        <view class="box-hd">{{item.name}}</view>
+                        <view class="box-bd">
+                            <view class="box-item {{helper.includes(params[boxitem.qiuhao],boxitem.val)?'active':''}}" wx:for="{{item.data}}" wx:key="name" wx:for-index="boxindex" wx:for-item="boxitem" data-item="{{boxitem}}" data-multi="{{item.multi}}" catchtap="itemHandleClickFun">
+                                <text>{{boxitem.name}}</text> </view>
+                        </view>
+                    </view>
+                </scroll-view>
+            </view>
+            <view class="filter-sort-list" wx:if="{{filterOne===4}}">
+                <scroll-view scroll-y="{{true}}" class="sort-content">
+                    <view class="list-item {{index===selectSort?'active':''}}" wx:for="{{HOUSE_SORT}}" wx:key="name" data-index="{{index}}" data-item="{{item}}" catchtap="sortHandleClickFun">
+                        {{item.name}}
+                    </view>
+                </scroll-view>
+            </view>
+        </view>
+        <view class="filter-content-bottom" wx:if="{{filterOne == 3 || filterOne == 0}}">
+            <view class="reset-btn" catchtap="resetHandleFun">重置</view>
+            <view class="submit-btn" catchtap="submitHandleFun">确定</view>
+        </view>
+        <view class="filter-content-bottom" wx:else>
+            <view class="submit-btn1" catchtap="submitHandleFun">确定</view>
+        </view>
+    </view>
+</view>
+<view class="tabs">
+    <view class="tab-item" wx:if="{{priceName}}">
+        {{priceName}}
+        <image class="close" src="/images/close2.png" data-type="1" bindtap="close"></image>
+    </view>
+    <block wx:for="{{paramsName}}" wx:for-item="val" wx:for-index="key" wx:key="{{val}}">
+        <view class="tab-item" wx:for="{{val}}" wx:key="{{key}}">
+            {{item}}
+            <image class="close" src="/images/close2.png" data-key="{{key}}" data-index="{{index}}" bindtap="close"></image>
+        </view>
+    </block>
+</view>
+<view class="mcp-filter-mask" wx:if="{{showFilter}}" catchtap="closeFilterFun"></view>

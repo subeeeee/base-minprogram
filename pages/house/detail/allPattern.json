@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText": "主力户型",
+    "usingComponents": {
+        "component-user":"/components/login/auth/index"
+    }
+}

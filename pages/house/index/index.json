@@ -1,0 +1,9 @@
+{
+    "usingComponents": {
+        "component-tab": "/components/tab/tab",
+        "filter-bar": "/components/house/filter-bar/index",
+         "project-item":"/components/house/projectItem/index",
+         "house-item":"/components/house/house-item/index"
+    },
+    "enablePullDownRefresh": true
+}

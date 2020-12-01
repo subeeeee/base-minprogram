@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText":"消息",
+  "usingComponents": {
+    "component-tab": "/components/tab/tab",
+    "swipe-delete": "../../comps/swipedelete/swipedelete"
+  }
+}

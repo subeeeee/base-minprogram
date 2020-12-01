@@ -1,0 +1,5 @@
+{
+	"usingComponents": {
+        "component-user":"/components/login/auth/index"
+    }
+}

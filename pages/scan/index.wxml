@@ -1,0 +1,3 @@
+<view class="scanCode" bindtap = "scanCode">
+扫码
+</view>

@@ -1,0 +1,20 @@
+<view>
+    <view>
+        <view class="topSteps">
+            <!-- 认购流程 填写信息 -->
+            <jzy-steps options="{{stepsOptions}}" active="5"></jzy-steps>
+        </view>
+        <view class="success_box">
+            <icon type="success" size="80" style="margin-bottom: 14px" />
+            <view style="font-size: 16px;margin-bottom: 54px;">
+                <text>认购成功</text>
+            </view>
+            <view style="margin: 0 auto;font-size: 16px;color: var(--dark-color);text-align: center;">
+                <view>您已经完成认购</view>
+                <view>请尽快到现场完成支付流程</view>
+                <view wx:if="{{subscribeLimitTime > 0}}">若{{subscribeLimitTime}}分钟内未完成支付</view>
+                <view wx:if="{{subscribeLimitTime > 0}}">该房源将被释放</view>
+            </view>
+        </view>
+    </view>
+</view>

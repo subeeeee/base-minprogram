@@ -1,0 +1,18 @@
+<view class="share-dialog-container">
+      <view class="share-info-container">
+        <view class="share-btn-container">
+          <view class="share-item-container">
+            <button open-type="share" class="share-btn">
+              <image class="share-image" src="/images/share_WeChat_friends.png"></image>
+              <text class="share-msg">转发好友</text>
+            </button>
+          </view>
+          <view class="share-item-container"  catchtap="downloadShareBg">
+              <image class="share-image" src="/images/share_WeChat_scope.png"></image>
+              <text class="share-msg">生成海报</text>
+          </view>
+        </view>
+
+        <view class="close-btn" catchtap="hideShareDialog" >取消</view>
+      </view>
+    </view>

@@ -1,0 +1,10 @@
+<view class="unLogin">
+  <view class="header">
+    <open-data type="userAvatarUrl"></open-data>
+  </view>
+  <view class="name">
+    <open-data type="userNickName"></open-data>
+  </view>
+  <button type="primary" lang="zh_CN" class="authorizeBtn" open-type="getUserInfo" bindgetuserinfo="getUserInfo">授权</button>
+</view>
+<component-tab count="{{count}}" />

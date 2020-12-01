@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText": "精彩咨询",
+    "usingComponents": {
+        "component-user":"/components/login/auth/index"
+    }
+}

@@ -1,0 +1,21 @@
+<view class="service">
+  <view class="title">全部服务</view>
+  <view class="tabs">
+    <button class="item-tab" open-type="getPhoneNumber" bindgetphonenumber="buyHouse" wx:if="{{!userPhone}}" style="box-sizing: content-box;background: none;">
+      <image src="/images/subscription.png"></image>
+      <view>我要认购</view>
+    </button>
+    <view class="item-tab" wx:if="{{userPhone}}" bindtap="jump" data-type="1" data-url="/pages/house/signStepIndex/index">
+      <image src="/images/subscription.png"></image>
+      <view>我要认购</view>
+    </view>
+    <button class="item-tab" open-type="getPhoneNumber" bindgetphonenumber="orderHouse" wx:if="{{!userPhone}}" style="box-sizing: content-box;background: none;">
+      <image src="/images/houseInspection.png"></image>
+      <view>预约看房</view>
+    </button>
+    <view class="item-tab" wx:if="{{userPhone}}" bindtap="jump" data-type="2">
+      <image src="/images/houseInspection.png"></image>
+      <view>预约看房</view>
+    </view>
+  </view>
+</view>

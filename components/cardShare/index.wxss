@@ -1,0 +1,119 @@
+  
+  .share-image{
+      width: 720rpx;
+      height: 860rpx;
+  }
+  /* 分享名片弹层 */
+  .mask{
+    position: fixed;
+    left: 0;
+    top:0;
+    right: 0;
+    bottom: 0;
+    background:rgba(0,0,0,0.5);
+    z-index: 999;
+}
+.mask-content{
+  margin:42rpx auto 0;
+  width: 720rpx;
+}
+.mask-white{
+    margin-bottom: 24rpx;
+    background:#fff url("https://yxf1.juzhouyun.com/xcx_images/business_card_bg.png") no-repeat left top /520rpx 240rpx;
+    border-radius: 8rpx;
+}
+.mask-btns{
+    display: flex;
+    justify-content: space-between;
+    width: 678rpx;
+    margin:0 auto;
+}
+.mask-btns .btn{
+    position: relative;
+    width: 320rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    font-size: 28rpx;
+    color: #4A4A4A;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.10);
+    border-radius: 8rpx;
+    background:#fff;
+   padding-left:126rpx;
+   box-sizing: border-box;
+   text-align:left;
+}
+.mask-btns .btn .save-img-before,.mask-btns .share-btn-before{
+    position: absolute;
+    left:84rpx;
+    top:0;
+    content:'';
+    width:32rpx;
+    height:80rpx;
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: 32rpx;
+    z-index: 9;
+}
+
+.qrcode-view{
+    overflow:hidden;
+    margin-top:52rpx;
+}
+.qrcode-view .qrcode-text{
+    margin-bottom:20rpx;
+    font-size: 20rpx;
+    color: #4A4A4A;
+    text-align: center;
+}
+.qrcode-img{
+   display: block;
+   margin:0 auto 4rpx;
+   width: 120rpx;
+   height:120rpx;
+
+}
+
+.mask .userInfo{
+   margin: 50rpx 10rpx 0 62rpx;
+   width: 160rpx;
+   height:159rpx;
+   flex: 0 0 160rpx;
+   background:url("https://yxf1.juzhouyun.com/xcx_images/userinfo-bg-white.png") no-repeat left top /100%;
+   display: flex;
+   justify-content: center;
+   align-content: center;
+}
+.mask .ul{
+    margin-top:82rpx;
+}
+
+.mask .ul .name{
+    font-size:36rpx;
+}
+.mask .ul .zhiwu,.mask .ul .text{
+    font-size: 24rpx;
+}
+.mask .ul .name,.mask .ul .zhiwu,.mask .ul .text{
+    color:#fff
+}
+.mask .userInfo:before{
+    width: 56rpx;
+    height:56rpx;
+}
+.mask  .userInfo .headImg{
+   width:132rpx;
+   height:132rpx;
+}
+.mask .li .text {
+    margin-left: 10rpx;
+}
+
+.share-canvas {
+    position: absolute;
+    left: 0;
+    top: -99999rpx;
+    width: 1040rpx;
+    height: 920rpx;
+    z-index: -1;
+    transform: translate3d(0, 0, -1000rpx);
+  }

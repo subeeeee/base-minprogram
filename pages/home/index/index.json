@@ -1,0 +1,11 @@
+{
+    "navigationBarBackgroundColor": "#fff",
+    "usingComponents": {
+        "component-tab": "/components/tab/tab",
+        "component-phone":"/components/login/phone/index",
+        "van-popup":"/components/vant/popup/index",
+        "project-item":"/components/house/projectItem/index",
+        "house-item":"/components/house/house-item/index",
+        "recommendProjectItem":"/components/house/recommendProjectItem/index"
+    }
+}

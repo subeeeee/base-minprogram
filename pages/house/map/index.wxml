@@ -1,0 +1,18 @@
+<view>
+	<map id="map" scale="{{scale}}" bindcallouttap = "bindcallouttap" markers="{{markers}}" bindmarkertap="markertap" 
+	bindregionchange="regionchange"
+	latitude="{{latitude}}"
+	longitude ="{{longitude}}"
+	controls="{{controls}}" show-scale style="width: 100%; height: {{view.Height}}px;">
+	</map>
+</view>
+<view class="houseDetailBox" wx:if="{{isShow}}" bindtap="closeDeatail">
+<view class="houseDetail {{'houseDetail'+globalProjectName}}" wx:if="{{isShow}}">
+	<view class="project">
+			<project-item project-data="{{houseDetail}}" />
+			 <!-- <project-item project-data="{{houseDetail}}" wx:if="{{globalProjectName=='yangguangjun'}}"/>
+        <house-item project-data="{{houseDetail}}"  wx:if="{{globalProjectName=='haikuotong'}}"/> -->
+	</view>
+</view>
+</view>
+

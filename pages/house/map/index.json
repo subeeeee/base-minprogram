@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "地图找房",
+  "usingComponents": {
+       "project-item":"/components/house/projectItem/index",
+       "house-item":"/components/house/house-item/index"
+  }
+}

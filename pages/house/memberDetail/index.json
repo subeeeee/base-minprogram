@@ -1,0 +1,11 @@
+{
+    "navigationBarTitleText": "优质顾问",
+    "usingComponents": {
+        "component-user":"/components/login/auth/index",
+        "project-item":"/components/house/projectItem/index",
+        "component-card-share":"/components/cardShare/index",
+        "van-popup":"/components/vant/popup/index",
+        "component-phone":"/components/login/phone/index",
+        "house-item":"/components/house/house-item/index"
+    }
+}

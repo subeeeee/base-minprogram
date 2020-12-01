@@ -1,0 +1,149 @@
+<view class="container bottom-bar {{isIPhoneX?'safe-wrap':''}}" >
+  <view style="background: #fff;padding-bottom: 16rpx; ">
+    <!-- background:url({{imgServerUrl+'/xcx_images/'+globalProjectName+'/home_bg.png'}}) no-repeat;background-size: 100% 50%;  -->
+    <!-- 搜索条 -->
+    <view class="top-bar-box">
+      <view class="top-bar">
+        <view class="city-wrap" bindtap="goCity">
+          <text>{{cityNames}}</text>
+          <image src="/assets/images/icon/arrow-down.png"></image>
+        </view>
+        <view class="city-input">
+          <image src="/images/queryIcon.png" class="query-icon"></image>
+          <input placeholder-class="place-holder" bindconfirm="inputChange" class="input-wrap" placeholder="请输入楼盘名称"></input>
+        </view>
+      </view>
+    </view>
+    <!-- banner -->
+    <view class="activity" wx:if="{{zixun.length > 0}}">
+      <swiper class='swiper' indicatorColor='#fff' indicator-dots autoplay="{{autoplay}}" indicatorActiveColor='{{darkColor}}' circular style="height: 340rpx;">
+        <swiper-item wx:for="{{zixun}}" catchtap="{{item.imgType !=2 ? 'goNexts' : ''}}" data-type="2" data-url="{{item.linkUrl}}"  data-title="新闻">
+          <video objectFit="fill" src="{{item.imgUrl}}" controls wx:if="{{item.imgType == 2}}" style="border-radius: 20rpx;" bindplay="endRolling" bindpause="startRolling" bindended="startRolling"></video>
+          <image wx:if="{{item.imgType == 1}}" src="{{item.imgUrl}}" mode="aspectFill" style="border-radius: 20rpx;"></image>
+        </swiper-item>
+      </swiper>
+    </view>
+    <!-- 工具栏 -->
+    <view class='headerModle'>
+      <view class="item" bindtap="goNexts" data-type="0" data-url="/pages/home/service/index">
+        <view class="img">
+          <image 
+          src="{{imgServerUrl+'/xcx_images/'+globalProjectName+'/service1.png'}}"
+          ></image>
+        </view>
+        <text>购房服务</text>
+      </view>
+      <view class="item" bindtap="goNexts" data-type="0" data-url="/pages/home/lookingForRoom/index">
+        <view class="img">
+          <image 
+           src="{{imgServerUrl+'/xcx_images/'+globalProjectName+'/lookingForRoom1.png'}}"
+          ></image>
+        </view>
+        <text>帮我找房</text>
+      </view>
+      <view class="item" bindtap="goMapFun" data-type="0" data-url="/pages/home/lookingForRoom/index">
+        <view class="img">
+          <image 
+          
+           src="{{imgServerUrl+'/xcx_images/'+globalProjectName+'/searchHouse.png'}}"
+          ></image>
+        </view>
+        <text>地图找房</text>
+      </view>
+      <view class="item" bindtap="goNexts" data-type="1" data-url="{{h5DoMain}}/online/mobile1/housecal/index.html" data-title="房贷计算">
+        <view class="img">
+          <image
+           src="{{imgServerUrl+'/xcx_images/'+globalProjectName+'/calculation1.png'}}"
+          ></image>
+        </view>
+        <text>房贷计算</text>
+      </view>
+	  <!-- http://crm.uni-hiku.com.cn/admin-channel/#/?tenantId=1254411626786029570&appId=wx9a069762294768de -->
+	  <!-- https://crm.chanfinecloud.com/admin-channel/#/ -->
+      <view class="item" data-title="全民营销" >
+        <!-- <button open-type="getUserInfo" class='get-user-info' bindgetuserinfo="getUserInfo"  wx:if="{{!nickName}}">
+          <view class="img">
+            <image src="{{imgServerUrl+'/xcx_images/'+globalProjectName+'/commission1.png'}}></image>
+          </view>
+          <text>全民营销</text>
+        </button> -->
+        <button  class="get-user-info"  open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" wx:if="{{!phoneNo}}">
+          <view class="img">
+            <image src="{{imgServerUrl+'/xcx_images/'+globalProjectName+'/commission1.png'}}"></image>
+          </view>
+          <text>全民营销</text>
+        </button>
+        <button  class='get-user-info' bindtap="showPhoneNumberMask"  wx:if="{{phoneNo}}">
+          <view class="img">
+            <image    src="{{imgServerUrl+'/xcx_images/'+globalProjectName+'/commission1.png'}}"></image>
+          </view>
+          <text>全民营销</text>
+        </button>
+      </view>
+      <!--<view class="item">-->
+        <!--<view class="img">-->
+          <!--<image src="/images/Unlimited.png"></image>-->
+        <!--</view>-->
+        <!--<text>不限购</text>-->
+      <!--</view>-->
+    </view>
+  </view>
+  <!-- 轮播 -->
+  <view class="activity1" wx:if="{{huodong.length > 0}}">
+    <view class="title">热门活动</view>
+    <view class="hotBanner">
+      <swiper class="imageContainer" indicator-dot="false" circular current="{{currentSwiper}}" bindchange="swiperChange">
+        <swiper-item class="item" wx:for="{{huodong}}" wx:key="index" catchtap="{{item.imgType !=2 ? 'goNexts' : ''}}" data-type="2" data-url="{{item.linkUrl}}" data-title="活动">
+          <video src="{{item.imgUrl}}" controls wx:if="{{item.imgType == 2}}" style="width: 100%;height: 100%;"></video>
+          <view>
+            <image class="itemImg" wx:if="{{item.imgType == 1}}" src="{{item.imgUrl}}"></image>
+            <view class="itemName">{{item.topicTitle}}</view>
+            <!--<view class="itemTime">活动时间：2020年5月31日</view>-->
+          </view>
+        </swiper-item>
+      </swiper>
+      <!-- 圆点 -->
+      <view class="dots"> 
+        <block wx:for="{{huodong}}"> 
+        <view class="dot{{index == currentSwiper ? ' active' : ''}}"></view> 
+        </block> 
+      </view>
+    </view>
+  </view>
+  <!-- 推荐项目 -->
+  <!-- <view class="recommend" wx:if="{{recommend.length > 0}}">
+    <view class="title">推荐项目</view>
+      <project-item project-data="{{houseList}}" wx:if="{{globalProjectName=='yangguangjun'}}"/>
+    <recommendProjectItem project-data="{{recommend}}" wx:if="{{globalProjectName=='haikuotong'}}"/>
+  </view> -->
+  <!-- 全部项目 -->
+  <!-- <view class="allProject" wx:if="{{houseList.length > 0}}">
+     <view class="title">
+          全部项目
+          <view>
+          <text style="color:var(--dark-color)" bindtap="goHouseList">全部<text class="icon-right-single"></text></text>
+        </view>
+    </view>
+    <project-item project-data="{{houseList}}" wx:if="{{globalProjectName=='yangguangjun'}}"/>
+    <house-item project-data="{{houseList}}"  wx:if="{{globalProjectName=='haikuotong'}}"/>
+    <view class="projectMore" bindtap="goHouseList" wx:if="{{showMore}}">更多好房</view>
+  </view> -->
+
+  <view class="recommend" wx:if="{{recommend.length > 0}}">
+    <view class="title">推荐项目</view>
+      <project-item project-data="{{recommend}}" />
+    <view class="projectMore" bindtap="goHouseList">更多好房</view>
+  </view>
+
+
+</view>
+<component-tab num-prop="1" count="{{count}}" />
+<!-- //插屏 -->
+<cover-view wx:for="{{chaping}}" wx:key='key' class="chapingcon" wx:if="{{chapingis==0}}">
+  <cover-view class='maskid' catchtap='chapShowNo' />
+  <cover-image class='chaping' src='{{item.imgUrl}}' bindtap='goChaping' data-url='{{item.linkUrl}}'/>
+</cover-view>
+
+    <view wx:if="{{isPhoneAuth==1}}">
+        <component-phone bind:parentEvent="closePhoneBox" bind:callback="showPhoneNumberMask" hasCallBack="true"></component-phone>
+    </view>

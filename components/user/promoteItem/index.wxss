@@ -1,0 +1,73 @@
+.item{
+  display: flex;
+  padding: 40rpx 0;
+  margin:0 40rpx;
+  overflow: hidden;
+  color: #4A4A4A;
+  position: relative;
+  border-bottom:1rpx solid #f5f5f5;
+}
+.item{
+  border-bottom:none;
+}
+.item .photo{
+  width: 80rpx;
+  height: 80rpx;
+  margin-right: 30rpx;
+  border-radius: 80rpx;
+}
+.item .content{
+
+  display: flex;
+  justify-content: space-between;
+  font-size: 24rpx;
+  line-height: 34rpx;
+  flex:1;
+}
+.content .title{
+  display: flex;
+  font-size: 36rpx;
+  line-height: 44rpx;
+  margin-bottom: 22rpx;
+}
+.content .time{
+  margin-bottom: 12rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.content .time:last-child{
+  margin-bottom: 0;
+}
+
+.telephone{
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.content .titile-detail,.content .titile-detail>view{
+  display: inline-block;
+}
+
+.phoneNo{
+  display: flex;
+    align-items: center;
+}
+.phoneNoText{
+  margin-left:15rpx;
+  font-size: 24rpx;
+
+}
+
+.status,.status-detail{
+  margin-left:15rpx;
+  font-size: 24rpx;
+  color : var(--dark-color);
+}
+
+.width100{
+  width: 100%;
+}
+.width100 .title{
+  justify-content: space-between;
+}

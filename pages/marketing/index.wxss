@@ -1,0 +1,166 @@
+.flex{
+  display: flex;
+}
+.flex-align-item-center{
+  align-items: center;
+}
+.dl{
+  display: flex;
+  margin:0 24rpx;
+  border-bottom: 1rpx solid #EEEEEE;
+  line-height: 100rpx;
+  font-size: 28rpx;
+}
+.dt{
+  color: #4A4A4A;
+}
+.dd-flex{
+  flex:1;
+}
+.dd input::placeholder{
+  color:#bdbdbd;
+}
+.dd input{
+  display: block;
+  padding:30rpx;
+}
+.radio-btn{
+  margin-left:30rpx;
+  width: 80rpx;
+  height: 48rpx;
+  line-height: 48rpx;
+  text-align:center;
+  background:#fff;
+  border-radius: 6px;
+  font-size: 24rpx;
+  color: var(--dark-color);
+  border:1rpx solid var(--dark-color);
+}
+.radio-btn.active{
+  background: var(--dark-color);
+  color: #FFFFFF;
+}
+
+.save-btn{
+  margin:400rpx auto 0;
+  width: 600rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  background-image: linear-gradient(270deg, var(--light-color) 2%, var(--dark-color) 100%);
+  border-radius: 10rpx;
+  color: #fff;
+  font-size: 28rpx;
+  text-align:center;
+}
+.h2{
+  /* font-size: 36rpx; */
+  color: #4A4A4A;
+}
+
+.down{
+  min-width:30rpx;
+  padding-right: 30rpx;
+  background-position: right center;
+  background-size: 24rpx 12rpx;
+  background-repeat: no-repeat;
+}
+
+.up{
+   
+  }
+
+
+   .project-popup {
+   
+  }
+  .ul{
+    max-height: 400rpx;
+    margin:0 38rpx;
+    overflow-y: auto;
+  }
+  .ul .li{
+    line-height: 100rpx;
+    text-align: center;
+    font-size: 28rpx;
+    color: #4A4A4A;
+    border-bottom:1rpx solid #f5f5f5;
+  }
+  .ul .li.active{
+    color:var(--dark-color)
+  }
+  .project-popup .save-btn{
+    margin:30px auto;
+  }
+  .iconfont{
+margin-left:40rpx;
+  }
+  .look-open{
+    width: 36rpx;
+    height:100rpx;
+    background-repeat:no-repeat;
+    background-position: right center; 
+    background-size: 36rpx 28rpx;
+  }
+  .look-close{
+    width: 36rpx;
+    height:100rpx;
+    background-repeat:no-repeat;
+    background-position: right center; 
+    background-size: 36rpx 14rpx;
+  }
+  .is-click{
+    width: 36rpx;
+    height:100rpx;
+    background:url("https://yxf1.juzhouyun.com/xcx_images/quotes_open.png") no-repeat right center /36rpx 28rpx!important;
+  }
+  .icon-zengjia1{
+    width: 32rpx;
+    height:100rpx;
+    background-repeat:no-repeat;
+    background-position: right center; 
+    background-size: 32rpx 32rpx;
+  }
+  .icon-jianshao{
+    margin-right: 76rpx;
+    width: 32rpx;
+    height:100rpx;
+    background-repeat:no-repeat;
+    background-position: right center; 
+    background-size: 32rpx 32rpx;
+  }
+
+
+  .splitMobiles{display:flex;justify-content:center;margin:20rpx 0;}
+
+   .splitMobiles .dt{letter-spacing:8rpx;}
+   .splitMobiles  .dd{
+     width:220rpx;margin:0 10rpx 40rpx;position: relative;
+    }
+   .splitMobiles  .dd .input{
+     position:absolute;
+     left:0;
+     top:0;
+     display: inline-block;
+     padding:0;
+     width:210rpx;
+     height:50rpx;
+     border:2rpx solid #efefef;
+     /* opacity: 0; */
+     vertical-align: hidden;
+    }
+
+    .basicDialogText{
+      padding:10rpx 30rpx;
+    }
+
+    /* .splitMobiles  .dd .span{
+      width:50rpx;
+      height:50rpx;
+      background:#fff;
+      border:2rpx solid #efefef; 
+      box-sizing: border-box; 
+      display:block;
+      float:left;
+      margin:0 2rpx;
+      text-align: center
+    } */

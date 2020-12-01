@@ -1,0 +1,9 @@
+<view class="unLogin">
+  <view class="header">
+    <open-data type="userAvatarUrl"></open-data>
+  </view>
+  <view class="name">
+    <open-data type="userNickName"></open-data>
+  </view>
+  <button type="primary" lang="zh_CN" class="authorizeBtn" open-type="getPhoneNumber" bindgetphonenumber="getUserPhone">授权手机号</button>
+</view>

@@ -1,0 +1,13 @@
+<!--推广详情-->
+<view wx-if="{{listData}}">
+  <view class="container bottom-bar {{isIPhoneX?'safe-wrap':''}}">
+      <view class="list" wx:if="{{listData.length > 0}}">
+        <Item wx:for="{{listData}}" item="{{item}}" bind:gotoDetail = "gotoDetail" wx:key="index"/>
+        
+      </view>
+      <view class='my-no-data' wx:else>
+          <image lazy-load="{{true}}" src="http://test-block.oss-cn-beijing.aliyuncs.com/applet/2020/05/13/360_288_2f75be9b79272fa2b1c165e45e7f4d29.png" />
+          <view class="text">页面空空如也，去逛逛别的~</view>
+      </view>
+  </view>
+</view>

@@ -1,0 +1,32 @@
+<view class="container">
+  <view class='top-bar-box' wx:if="{{limitedUrl != ''}}"> 
+      <image src="{{limitedUrl}}" mode='widthFix'></image>
+  </view>
+	  <!-- 全部项目 -->
+  <view class="allProject">
+        <view class="title" bindtap="goCity">
+          {{cityNames}}项目
+          <image src="/assets/images/icon/arrow-down.png"></image>
+        </view>
+                <project-item project-data="{{houseList}}"/>
+                     <!-- <project-item project-data="{{houseList}}" wx:if="{{globalProjectName=='yangguangjun'}}"/>
+      <house-item project-data="{{houseList}}"  wx:if="{{globalProjectName=='haikuotong'}}"/> -->
+        <!-- <view class="project-item" wx:for="{{houseList}}" wx:key="index" bindtap="goHouse" data-houseid="{{item.projectId}}">
+            <image src="{{item.projectFirstUrls ? cdnUrl+ item.projectFirstUrls + '?x-oss-process=image/resize,h_250' : ''}}" wx:if="{{item.projectFirstUrls }}"></image>
+          <image wx:else src="{{item.imageUrls ? 'https://cf-best-choice-bucket.oss-cn-hangzhou.aliyuncs.com/' + item.imageUrls[0] + '?x-oss-process=image/resize,h_250' : ''}}"></image>
+          <view class="content">
+            <view class="name">{{item.referred}}</view>
+            <view class="desc">{{item.city ? item.city + ' | ' : ''}}建面{{item.minArea && item.maxArea ? item.minArea +'-'+ item.maxArea + 'm²' : item.minArea ? item.minArea : item.maxArea ? item.maxArea + 'm²' : ''}}</view>
+            <view class="tabs">
+              <view class="status zanwu" wx:if="{{item.status === 0}}">暂无</view>
+              <view class="status waitFor" wx:if="{{item.status === 1}}">待售</view>
+              <view class="status" wx:if="{{item.status === 2}}">在售</view>
+              <view class="status shouqing" wx:if="{{item.status === 3}}">售罄</view>
+              <view class="status unlimit">不限购</view>
+              <view wx:for="{{item.sellPoint}}" wx:for-item="name">{{name}}</view>
+            </view>
+            <view class="price">{{!item.averagePrice || isNaN(item.averagePrice) ? '价格待定' : item.averagePrice + '元/m²'}}</view>
+          </view>
+        </view> -->
+  </view>
+</view>

@@ -1,0 +1,23 @@
+<!-- <chat-suit-emoji id="chat-suit-emoji" bind:newEmojiStr="emojiAction"></chat-suit-emoji> -->
+<form class="text-input">
+	<!-- <view class="f-row"> -->
+		<textarea
+			class="f news"
+			type="text"
+			value="{{ inputMessage }}"
+			cursor-spacing="65"
+			confirm-type="send"
+			bindconfirm="sendMessage"
+			bindinput="bindMessage"
+			bindtap="focus"
+			bindfocus="focus"
+			fixed="true"
+			bindblur="blur"
+			placeholder="输入新消息"
+			placeholder-style="color:#CFCFCF; padding-left:5px;"
+		></textarea>
+
+		<!-- <button class="send_btn" bind:tap="sendMessage">发送</button> -->
+
+<!-- 	</view> -->
+</form>

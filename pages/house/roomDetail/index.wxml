@@ -1,0 +1,39 @@
+<view class="container bottom-bar {{isIPhoneX?'safe-wrap':''}}">
+    <view class="top">
+        <image bindtap="showImg" mode="aspectFit" src="{{'https://yxf-bucket-01.oss-cn-beijing.aliyuncs.com/' + obj.imageSrc + '?x-oss-process=image/resize,h_250'}}"></image>
+        <view class="title">{{obj.buildingName + obj.viewUnitNumber + obj.roomName}}</view>
+        <view class="desc">{{name}}</view>
+        <view class="price">￥ {{obj.presentTotalPrice}}</view>
+    </view>
+    <view class="bottom">
+        <view class="item">
+            <view class="label">类型：</view>
+            <view class="text">{{obj.sourceType}}</view>
+        </view>
+        <view class="item">
+            <view class="label">户型：</view>
+            <view class="text">{{obj.roomPatternName}}</view>
+        </view>
+        <view class="item">
+            <view class="label">建筑面积：</view>
+            <view class="text">{{obj.outArea ? obj.outArea + '㎡' : '--'}}</view>
+        </view>
+        <view class="item">
+            <view class="label">建筑单价：</view>
+            <view class="text">{{obj.presentOutPrice ? obj.presentOutPrice + '元/㎡' : '--'}}</view>
+        </view>
+        <view class="item">
+            <view class="label">套内单价：</view>
+            <view class="text">{{obj.presentInnerPrice ? obj.presentInnerPrice + '元/㎡' : '--'}}</view>
+        </view><view class="item">
+            <view class="label">套内单价：</view>
+            <view class="text">{{obj.presentInnerPrice ? obj.presentInnerPrice + '元/㎡' : '--'}}</view>
+        </view>
+    </view>
+    <view class="btn">
+        <view bindtap="goBuy">我要认购</view>
+    </view>
+</view>
+<view wx:if="{{isUserAuth==1}}">
+      <component-user></component-user>
+  </view>

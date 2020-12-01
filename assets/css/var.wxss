@@ -1,0 +1,44 @@
+
+/*衡水  明月江南汇*/
+page{
+  --dark-color:#47A6FE;
+  /* 渐变颜色 */
+   --light-color:#4fa6fe;
+   --home-index-padding:35rpx;
+   --home-index-width:680rpx;
+   --logo-width:88rpx;
+    --home-background-color:#fff;
+    --recommend-item-width:330rpx;
+    --recommend-item-height:213rpx;
+}
+
+
+
+/* 阳光郡 阳光行  廊坊 */
+/*
+page{
+  --dark-color:#a32a29;
+   --light-color:#be6969;
+   --home-index-padding:35rpx;
+   --home-index-width:680rpx;
+   --logo-width:88rpx;
+    --home-background-color:#fff;
+    --recommend-item-width:330rpx;
+    --recommend-item-height:213rpx;
+}
+*/
+
+/*
+紫光之前的宽度，替换长房的样式后就不用了
+ --home-index-padding:25rpx;
+   --home-index-width:700rpx; */
+/* page{
+  --dark-color:#FD528D;
+   --light-color:#FF8282;
+   --home-index-padding:35rpx;
+   --home-index-width:680rpx;
+   --logo-width:100rpx;
+   --home-background-color:#f5f6f8;
+   --recommend-item-width:340rpx;
+    --recommend-item-height:220rpx;
+} */

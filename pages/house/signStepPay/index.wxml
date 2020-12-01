@@ -1,0 +1,27 @@
+<view>
+    <view class="topSteps">
+        <!-- 认购流程 填写信息 -->
+        <step options="{{stepsOptions}}" active="{{stepsNum}}"></step>
+    </view>
+    <view class="form_box">
+        <view class="form_title">
+            <text class="t">您需要支付以下费用</text>
+        </view>
+        <view class="form_item">
+            <text class="t">收款方</text>
+            <view class="control">
+                <text>{{developers}}</text>
+            </view>
+        </view>
+        <view class="form_item">
+            <text class="t">收款金额</text>
+            <view class="control">
+                <text>￥ {{payAmount}}元</text>
+            </view>
+        </view>
+    </view>
+    <view class="botBtnBox">
+        <text bindtap="prevPage">上一步</text>
+        <text bindtap="nextPage">确认支付</text>
+    </view>
+</view>

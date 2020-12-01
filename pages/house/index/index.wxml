@@ -1,0 +1,32 @@
+<view class="container bottom-bar {{isIPhoneX?'safe-wrap':''}}" style="overflow: hidden">
+    <!-- 搜索条 -->
+    <view class="top-bar-box">
+        <view class="top-bar">
+            <view class="city-wrap" bindtap="goCity">
+                <text>{{cityNames}}</text>
+                <image src="/assets/images/icon/arrow-down.png"></image>
+            </view>
+            <view class="city-input">
+                <image src="/images/queryIcon.png" class="query-icon"></image>
+                <input placeholder-class="place-holder" bindinput="inputChange" class="input-wrap" value="{{name}}" placeholder="请输入楼盘名称"></input>
+            </view>
+        </view>
+    </view>
+    <view class="house-list-content">
+        <filter-bar bindchange="filterHandleFun" codeC="{{cityid}}"></filter-bar>
+        <view class="house-list-wrap" wx:if="{{houseData && houseData.length > 0}}">
+            <scroll-view scroll-y="{{true}}" class="tab-scroll" bindscrolltolower="onReachBottom">
+                <view class="houst-list">
+                 <project-item project-data="{{houseData}}" />
+                    <!-- <project-item project-data="{{houseData}}" wx:if="{{globalProjectName=='yangguangjun'}}"/>
+                    <house-item project-data="{{houseData}}"  wx:if="{{globalProjectName=='haikuotong'}}" showTel="{{true}}"/> -->
+                </view>
+            </scroll-view>
+        </view>
+        <view class='my-no-data' wx:else>
+            <image lazy-load="{{true}}" src="http://test-block.oss-cn-beijing.aliyuncs.com/applet/2020/05/13/360_288_2f75be9b79272fa2b1c165e45e7f4d29.png" />
+            <view class="text" style="color: #9B9B9B;font-size: 24rpx;">无相关楼盘，请换个条件试试</view>
+        </view>
+    </view>
+    <component-tab num-prop="2" count="{{count}}"></component-tab>
+</view>
