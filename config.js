@@ -5,7 +5,7 @@ const PRO_LIST = [
 	'廊坊阳光行',
 	'明月江南',
 ]
-const CONFIG_PROJECT = '明月江南'
+const CONFIG_PROJECT = '原点云易'
 
 // 静态 新增项目不用配置
 const CONFIG_INFO = {
@@ -18,6 +18,7 @@ const CONFIG_INFO = {
 	imAppSecret: '2a9ad2a81cc737d0749533a8213956895e800b08f36560a560eba8b2c364d64e',
 }
 const CONFIG_PRO_INFO = {
+	
 	'原点云易': {
 		appId: 'wxc15d5e3ee45166b8',
 		proName: '云易售楼处',
@@ -26,7 +27,7 @@ const CONFIG_PRO_INFO = {
 		darkColor: '#FD528D',
 		lightColor: '#FF8282',
 		projectName:'haikuotong',
-		hostAddress: 'https://yxf1.juzhouyun.com/'
+		hostAddress: 'https://yxftest.juzhouyun.com/'
 	},
 	'紫光海阔': {
 		appId: 'wxdacc3a925a65bbb5',
@@ -75,7 +76,6 @@ function getProConfInfo(item){
 		hostAddress: CONFIG_PRO_INFO[item].hostAddress,// 后台项目的服务器地址
 	}
 	return confInfo
-
 }
 
 

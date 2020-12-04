@@ -3,19 +3,24 @@ import { getUserInfo } from "../../../utils/util.js";
 const app =  getApp();
 Page({
     data: {
-        isUserAuth:0,
+        isUserAuth: 0,
         pageType:'',
         cdnUrl:app.globalData.cdnUrl
     },
     onLoad(options) {
+        // 组建中拿到顾问id houseid pageType  pageType作用未知
+
         const { memberid, houseid='', pageType='' } = options;
         this.setData({
             memberid,
             houseid,
             pageType
         });
+        // 把顾问id放到session
         wx.setStorageSync("memberId", memberid);
+
         const id = wx.getStorageSync("userinfoLogin").id || "";
+        // 用户身份customerId
         const customerId = wx.getStorageSync("customerId") || "";
         
         // 如果本地有环信账户
@@ -30,10 +35,8 @@ Page({
                 if (hxAccount) {
                     // 如果有账户并且身份是顾问就要去取顾问身份的账户
                     if (data.userType === '1'||data.userType === '3') {
-                        
                         this.getdetailFun(data.memberId)
                     } else {
-                        
                         wx.setStorageSync("hxpassword", hxPassword);
                         wx.setStorageSync("hxaccount", hxAccount);
                         wx.setStorageSync("myUsername", hxAccount);
@@ -59,6 +62,7 @@ Page({
     onShow() {
         // const customerId = wx.getStorageSync("customerId") || "";
         const userinfoLogin = wx.getStorageSync("userinfoLogin") || {};
+        // 如果没有微信昵称 重新登陆 获取微信账号信息
         if (!userinfoLogin.nickName) {
             // wx.navigateTo({
             //     url: '/pages/login/auth/index'
@@ -69,9 +73,11 @@ Page({
             return false
         }else{
             // tabbar上的消息直接去  /packageIm/pages/chat/chat
+            //  如果有顾问id ? 直接进入聊天室 -> 继续
             if (this.data.memberid) {
                 this.getdetailFun()
             } else {
+                //-> 去聊天列表 
                 wx.redirectTo({
                     url: '/packageIm/pages/chat/chat'
                 });
@@ -120,17 +126,20 @@ Page({
         });
     },
     getdetailFun(id) {
+        // 有参数时  是从onload过来  没参数是是从onshow过来
         const { memberid = '' } = this.data;
         Api.fetch({
             method: 'get',
             url: '/applet/member/getDetail',
             showLoading: true,
             data: {
+                // 这个id从两个地方拿到 都是顾问id
                 memberId: id ? id : memberid
             }
         }).then(({ code, data }) => {
             if (code === 200) {
                 if (data.hxAccount) {
+                    // 从onload过来 没有参数 不用跳转到聊天室 
                     if (id) {
                         wx.setStorageSync("myUsername", data.hxAccount);
                         wx.setStorageSync("hxaccount", data.hxAccount);
@@ -138,6 +147,7 @@ Page({
                         wx.setStorageSync("userHeadImg", data.headImgUrl ? data.headImgUrl.indexOf('http') != -1 ? data.headImgUrl : (this.data.cdnUrl + data.headImgUrl + '?x-oss-process=image/resize,h_250') : '');
                         wx.setStorageSync("userName", data.name);
                     } else {
+                        // 从onshow过来  跳转到聊天室 houseid为过来时候带上的houseid
                         wx.setStorageSync("headImgUrl", data.headImgUrl ? data.headImgUrl.indexOf('http') != -1 ? data.headImgUrl : (this.data.cdnUrl + data.headImgUrl + '?x-oss-process=image/resize,h_250') : '');
                         wx.setStorageSync("hxyourname", data.name);
                         wx.setStorageSync("hxyouraccount", data.hxAccount);

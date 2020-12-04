@@ -8,17 +8,14 @@ Page({
     grant_type: "password",
   },
   onLoad(options) {
-    let me = this
       const { houseid } = options;
-      this.setData({
-          houseid
-      });
+      this.setData({ houseid });
     const hxaccount = wx.getStorageSync("hxaccount") || '';
     const hxpassword = wx.getStorageSync("hxpassword") || '';
 
     const hxyourname = wx.getStorageSync("hxyourname") || '';
     const hxyouraccount = wx.getStorageSync("hxyouraccount") || '';
-
+    // 给两个人加入到同一聊天室  我猜是这个样子
     Api.fetch({
         method: 'get',
         url: '/applet/member/addFriendSingle',
@@ -29,14 +26,14 @@ Page({
         }
     }).then((res) => {
         if (res.code === 200) {
-          console.log(res)
+          // console.log(res)
           app.globalData.state = true
         } else {
-            wx.showToast({
-                icon:'none',
-                title: res.message,
-                duration:3000
-            })
+          wx.showToast({
+              icon:'none',
+              title: res.message,
+              duration:3000
+          })
         }
     })
 

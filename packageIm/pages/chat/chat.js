@@ -4,7 +4,7 @@ let msgStorage = require("../../comps/chat/msgstorage");
 
 
 let msgType = require("../../comps/chat/msgtype");
-
+const app = getApp()
 function ack(receiveMsg) {
     // 处理未读消息回执
     var bodyId = receiveMsg.id; // 需要发送已读回执的消息id
@@ -49,21 +49,21 @@ Page({
 
     onLoad(){
         let me = this
-        getApp().watch('unReadMessageNum', function () {
+        app.watch('unReadMessageNum', function () {
             me.setData({
-                count: getApp().globalData.unReadMessageNum
+                count: app.globalData.unReadMessageNum
             })
         })
         const hxaccount = wx.getStorageSync("hxaccount") || '';
         const hxpassword = wx.getStorageSync("hxpassword") || '';
-        getApp().conn.open({
+        app.conn.open({
             apiUrl: WebIM.config.apiURL,
             user: hxaccount,
             pwd: hxpassword,
             grant_type: 'password',
             appKey: WebIM.config.appkey
         })
-       // getApp().globalData.unReadMessageNum = 0
+       // app.globalData.unReadMessageNum = 0
 
         this.setData({
             nickName: wx.getStorageSync("userinfoLogin").nickName
@@ -79,13 +79,13 @@ Page({
             me.getRoster();
             // me.setData({
             // 	arr: me.getChatList(),
-            // 	unReadSpotNum: getApp().globalData.unReadMessageNum > 99 ? '99+' : getApp().globalData.unReadMessageNum,
+            // 	unReadSpotNum: app.globalData.unReadMessageNum > 99 ? '99+' : app.globalData.unReadMessageNum,
             // });
         });
-        if (getApp().globalData.state) {
+        if (app.globalData.state) {
             me.getRoster();
         }
-        getApp().watch('state', function () {
+        app.watch('state', function () {
             me.getRoster();
         })
     },
@@ -93,7 +93,7 @@ Page({
         this.setData({
             arr: this.getChatList()
         })
-        if (getApp().globalData.isIPX) {
+        if (app.globalData.isIPX) {
             this.setData({
                 isIPX: true
             })
@@ -121,7 +121,7 @@ Page({
                 //}
                 me.setData({
                     arr: me.getChatList(),
-                    // unReadSpotNum: getApp().globalData.unReadMessageNum > 99 ? '99+' : getApp().globalData.unReadMessageNum,
+                    // unReadSpotNum: app.globalData.unReadMessageNum > 99 ? '99+' : app.globalData.unReadMessageNum,
                 });
             },
             error(err){

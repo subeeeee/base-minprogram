@@ -1,194 +1,194 @@
 {
-  "description": "项目配置文件",
-  "packOptions": {
-    "ignore": []
-  },
-  "setting": {
-    "urlCheck": true,
-    "es6": true,
-    "enhance": true,
-    "postcss": true,
-    "preloadBackgroundData": false,
-    "minified": true,
-    "newFeature": true,
-    "coverView": true,
-    "nodeModules": false,
-    "autoAudits": true,
-    "showShadowRootInWxmlPanel": true,
-    "scopeDataCheck": false,
-    "uglifyFileName": false,
-    "checkInvalidKey": true,
-    "checkSiteMap": true,
-    "uploadWithSourceMap": true,
-    "compileHotReLoad": false,
-    "useMultiFrameRuntime": false,
-    "useApiHook": true,
-    "babelSetting": {
-      "ignore": [],
-      "disablePlugins": [],
-      "outputPath": ""
-    },
-    "enableEngineNative": false,
-    "useIsolateContext": true,
-    "useCompilerModule": true,
-    "userConfirmedUseCompilerModuleSwitch": false,
-    "packNpmManually": false,
-    "packNpmRelationList": [],
-    "minifyWXSS": true
-  },
-  "compileType": "miniprogram",
-  "libVersion": "2.11.0",
-  "appid": "wx2132ac3ef1db679e",
-  "projectname": "online-applet-standard",
-  "debugOptions": {
-    "hidedInDevtools": []
-  },
-  "isGameTourist": false,
-  "simulatorType": "wechat",
-  "simulatorPluginLibVersion": {},
-  "condition": {
-    "plugin": {
-      "list": []
-    },
-    "game": {
-      "list": []
-    },
-    "gamePlugin": {
-      "list": []
-    },
-    "miniprogram": {
-      "list": [
-        {
-          "id": -1,
-          "name": "pages/house/index/index",
-          "pathName": "pages/house/index/index",
-          "query": "linkkey=ALLBROKERB84703AA9C81ABD5",
-          "scene": null
-        },
-        {
-          "id": 1,
-          "name": "我的",
-          "pathName": "pages/user/index/index",
-          "query": "linkkey=ALLBROKERB84703AA9C81ABD5",
-          "scene": null
-        },
-        {
-          "name": "pages/house/detail/index",
-          "pathName": "pages/house/detail/index",
-          "query": "houseid=1315822737275351042",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "pages/home/city/city",
-          "pathName": "pages/home/city/city",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "packageIm/pages/chatroom/chatroom",
-          "pathName": "packageIm/pages/chatroom/chatroom",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "packageIm/pages/main/index",
-          "pathName": "packageIm/pages/main/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "pages/house/detail/saveShareImg/saveShareImg",
-          "pathName": "pages/house/detail/saveShareImg/saveShareImg",
-          "query": "houseid=1177756493604577282",
-          "scene": null
-        },
-        {
-          "id": 7,
-          "name": "pages/house/memberDetail/index",
-          "pathName": "pages/house/memberDetail/index",
-          "query": "propertyid=1260479644406419458&&type=my",
-          "scene": null
-        },
-        {
-          "id": 8,
-          "name": "全民营销",
-          "pathName": "pages/marketing/index",
-          "query": "propertyid=1260479644406419458",
-          "scene": null
-        },
-        {
-          "id": 9,
-          "name": "顾问名片",
-          "pathName": "pages/user/card/index",
-          "query": "propertyid=1260479644406419458",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "我的推广",
-          "pathName": "pages/user/promote/list/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": 11,
-          "name": "推广详情",
-          "pathName": "pages/user/promote/detail/index",
-          "query": "customerId=1302837715803590657",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "转发好友",
-          "pathName": "pages/house/detail/index",
-          "query": "hid=1260445673517780994&shareCId=1302837715803590657&shareCType=1",
-          "scene": null
-        },
-        {
-          "id": 13,
-          "name": "扫码",
-          "pathName": "pages/scan/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": 14,
-          "name": "经纪人修改姓名",
-          "pathName": "pages/user/card/agent/index",
-          "query": "linkkey=ALLBROKERB84703AA9C81ABD5",
-          "scene": null
-        },
-        {
-          "id": 15,
-          "name": "渠道注册",
-          "pathName": "pages/marketing/channelRegister/index",
-          "query": "propertyid=1260479644406419458",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "pages/house/memberDetail/index",
-          "pathName": "pages/house/memberDetail/index",
-          "query": "?hid=1164706502560509953&shareCId=1310949437433253889&shareCType=1&propertyid=1286117826246221826&type=my",
-          "scene": null
-        },
-        {
-          "name": "我的客户",
-          "pathName": "pages/user/customer/list/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "客户详情",
-          "pathName": "pages/user/customer/detail/index",
-          "query": "registerId=1317021139413598210",
-          "scene": null
-        }
-      ]
-    }
-  }
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"enhance": true,
+		"postcss": true,
+		"preloadBackgroundData": false,
+		"minified": true,
+		"newFeature": true,
+		"coverView": true,
+		"nodeModules": false,
+		"autoAudits": true,
+		"showShadowRootInWxmlPanel": true,
+		"scopeDataCheck": false,
+		"uglifyFileName": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		},
+		"useCompilerModule": false,
+		"userConfirmedUseCompilerModuleSwitch": false,
+		"compileHotReLoad": false,
+		"useMultiFrameRuntime": false,
+		"useApiHook": true,
+		"enableEngineNative": false,
+		"useIsolateContext": true,
+		"packNpmManually": false,
+		"packNpmRelationList": [],
+		"minifyWXSS": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.11.0",
+	"appid": "wxc15d5e3ee45166b8",
+	"projectname": "online-applet-standard",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"plugin": {
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"gamePlugin": {
+			"list": []
+		},
+		"miniprogram": {
+			"list": [
+				{
+					"id": -1,
+					"name": "pages/house/index/index",
+					"pathName": "pages/house/index/index",
+					"query": "linkkey=ALLBROKERB84703AA9C81ABD5",
+					"scene": null
+				},
+				{
+					"id": 1,
+					"name": "我的",
+					"pathName": "pages/user/index/index",
+					"query": "linkkey=ALLBROKERB84703AA9C81ABD5",
+					"scene": null
+				},
+				{
+					"name": "pages/house/detail/index",
+					"pathName": "pages/house/detail/index",
+					"query": "houseid=1315822737275351042",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/home/city/city",
+					"pathName": "pages/home/city/city",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "packageIm/pages/chatroom/chatroom",
+					"pathName": "packageIm/pages/chatroom/chatroom",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "packageIm/pages/main/index",
+					"pathName": "packageIm/pages/main/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/house/detail/saveShareImg/saveShareImg",
+					"pathName": "pages/house/detail/saveShareImg/saveShareImg",
+					"query": "houseid=1177756493604577282",
+					"scene": null
+				},
+				{
+					"id": 7,
+					"name": "pages/house/memberDetail/index",
+					"pathName": "pages/house/memberDetail/index",
+					"query": "propertyid=1260479644406419458&&type=my",
+					"scene": null
+				},
+				{
+					"id": 8,
+					"name": "全民营销",
+					"pathName": "pages/marketing/index",
+					"query": "propertyid=1260479644406419458",
+					"scene": null
+				},
+				{
+					"id": 9,
+					"name": "顾问名片",
+					"pathName": "pages/user/card/index",
+					"query": "propertyid=1260479644406419458",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的推广",
+					"pathName": "pages/user/promote/list/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 11,
+					"name": "推广详情",
+					"pathName": "pages/user/promote/detail/index",
+					"query": "customerId=1302837715803590657",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "转发好友",
+					"pathName": "pages/house/detail/index",
+					"query": "hid=1260445673517780994&shareCId=1302837715803590657&shareCType=1",
+					"scene": null
+				},
+				{
+					"id": 13,
+					"name": "扫码",
+					"pathName": "pages/scan/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 14,
+					"name": "经纪人修改姓名",
+					"pathName": "pages/user/card/agent/index",
+					"query": "linkkey=ALLBROKERB84703AA9C81ABD5",
+					"scene": null
+				},
+				{
+					"id": 15,
+					"name": "渠道注册",
+					"pathName": "pages/marketing/channelRegister/index",
+					"query": "propertyid=1260479644406419458",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/house/memberDetail/index",
+					"pathName": "pages/house/memberDetail/index",
+					"query": "?hid=1164706502560509953&shareCId=1310949437433253889&shareCType=1&propertyid=1286117826246221826&type=my",
+					"scene": null
+				},
+				{
+					"name": "我的客户",
+					"pathName": "pages/user/customer/list/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"name": "客户详情",
+					"pathName": "pages/user/customer/detail/index",
+					"query": "registerId=1317021139413598210",
+					"scene": null
+				}
+			]
+		}
+	}
 }

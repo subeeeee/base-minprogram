@@ -105,7 +105,7 @@
       <!-- 圆点 -->
       <view class="dots"> 
         <block wx:for="{{huodong}}"> 
-        <view class="dot{{index == currentSwiper ? ' active' : ''}}"></view> 
+          <view class="dot{{index == currentSwiper ? ' active' : ''}}"></view> 
         </block> 
       </view>
     </view>
