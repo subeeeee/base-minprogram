@@ -291,17 +291,22 @@ Page({
        return wx.getStorageSync('customerId')
     },
     imClickfun(e) {
+        // 是否有customerId  ?  从微信登陆获取用户id  :   -> 继续
         if (!this.getCustomerId()) {
             this.setData({
                 isUserAuth:1
             })
             return false
         }
-        let id = e.currentTarget.dataset.id
+
+        // ->  可能是一个埋点  ->  继续 
         this.generalStatistical({
             statisticalName:'onlineConsulting',
             projectId: this.data.houseid,
         })
+        // ->拿到顾问id
+        let id = e.currentTarget.dataset.id
+        // ->  如果有顾问 跳转到main页面   具体干什么不知道参数需要houseid和顾问id
         if (id) {
             // wx.navigateTo({
             //     url: `/packageIm/pages/main/index?memberid=${id}&houseid=${this.data.houseid}`
