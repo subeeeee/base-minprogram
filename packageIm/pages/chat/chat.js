@@ -71,6 +71,22 @@ Page({
 
         //监听未读消息数
         disp.on("em.xmpp.unreadspot", function(message){
+            // 拿到当前用户的好友列表
+            const member = wx.getStorageSync('member')
+            // 查询所收消息发送的用户是不是列表好友
+            let hasCurrentFriend = member.find(item => item.name === message.from)
+            // 好友列表中找不到该用户   更新好友列表
+            if(!hasCurrentFriend) {
+                // 创建新好友信息
+                const newFriend = {"subscription":"both","jid":"","name": message.from,"groups":[]}
+                // 拿到临时好友列表
+                const temporaryFriendsList = wx.getStorageSync('temporaryFriendsList') || []
+                //  把新好友信息加入 到 临时好友列表
+                if(!(temporaryFriendsList.find(item => item.name === message.from))) {
+                    wx.setStorageSync('temporaryFriendsList',[ ...temporaryFriendsList, newFriend ])
+                }
+                // me.getRoster
+            }
             me.setData({
                 arr: me.getChatList()
             })
@@ -90,6 +106,7 @@ Page({
         })
     },
     onShow: function(){
+
         this.setData({
             arr: this.getChatList()
         })
@@ -102,7 +119,8 @@ Page({
     getRoster(){
         let me = this;
         let rosters = {
-            success(roster){
+            success(roster, ele){
+                console.log("好友名单", roster)
                 var member = [];
                 for(let i = 0; i < roster.length; i++){
                     if(roster[i].subscription == "both"){
@@ -132,10 +150,21 @@ Page({
         WebIM.conn.getRoster(rosters);
     },
 
-    getChatList(){
-        var array = [];
-        var member = wx.getStorageSync("member");
-        var myName = wx.getStorageSync("myUsername");
+    getChatList() {
+        const array = [];
+        let member = wx.getStorageSync("member");
+        const myName = wx.getStorageSync("myUsername");
+        // 拿到临时好友列表
+        const temporaryFriendsList = wx.getStorageSync('temporaryFriendsList') || [];
+        // 临时好友列表和member列表同步 删除临时列表中重复好友  并更新本地
+        temporaryFriendsList.forEach((item, i) => {
+            if (member.find(option => item.name === option.name)) {
+                temporaryFriendsList.splice(i, 1)
+            }
+        })
+        wx.setStorageSync('temporaryFriendsList', temporaryFriendsList);
+        // 在临时好友列表和member列表中查询聊天信息
+        member = [ ...member, ...temporaryFriendsList ]
       //  debugger
         for(let i = 0; i < member.length; i++){
             let newChatMsgs = wx.getStorageSync(member[i].name + myName) || [];

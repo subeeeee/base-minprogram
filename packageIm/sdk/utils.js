@@ -621,7 +621,6 @@
 				header: options.headers,
 				method: type,
 				success: function(res){
-					console.log("wx.request.success", arguments);
 					if(res.statusCode == "200"){
 						suc(res);
 					}

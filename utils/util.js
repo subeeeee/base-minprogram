@@ -542,7 +542,6 @@ const generalStatistical=async (data)=>{
        method: "get",
    })
    if (res.code == 200) {
-     console.log(res)
    }
 }
 

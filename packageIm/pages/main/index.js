@@ -95,14 +95,15 @@ Page({
             }
         }).then(({ code, data }) => {
             if (code === 200) {
-                if (type === 0) {
+                // TODO err  不知道为什么开发时候需要区分状态
+                // if (type === 0) {
                     wx.setStorageSync("hxpassword", data.hxPassword);
                     wx.setStorageSync("hxaccount", data.hxAccount);
                     wx.setStorageSync("myUsername", data.hxAccount);
-                } else {
+                // } else {
                     wx.setStorageSync("hxyourname", data.nickName);
                     wx.setStorageSync("hxyouraccount", data.hxAccount);
-                }
+                // }
                 //  this.data.memberid  如果是详情页里面的有对于顾问的会有这个值
                 if (!this.data.memberid) {
                     if(this.data.pageType!=='tabBar'){

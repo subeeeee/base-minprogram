@@ -530,7 +530,6 @@ function _login(options, conn) {
 	}
 
 	function callback(status, msg) {
-		console.log("connection stat change", status, msg);
 		_loginCallback(status, msg, conn);
 	}
 }
@@ -737,7 +736,6 @@ connection.prototype.cacheReceiptsMessage = function (options) {
 };
 connection.prototype.open = function (options) {
 	let me = this;
-	console.log("open", this.isOpening());
 	// 防止重复初始化
 	if (this.isOpening() || this.isOpened()) {
 		console.log("can't open [1]");

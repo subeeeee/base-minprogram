@@ -15,7 +15,7 @@ Page({
 
     const hxyourname = wx.getStorageSync("hxyourname") || '';
     const hxyouraccount = wx.getStorageSync("hxyouraccount") || '';
-    // 给两个人加入到同一聊天室  我猜是这个样子
+    // 给两个人添加好友  我猜是这个样子
     Api.fetch({
         method: 'get',
         url: '/applet/member/addFriendSingle',

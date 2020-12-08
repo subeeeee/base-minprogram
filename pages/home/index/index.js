@@ -55,7 +55,6 @@ Page({
         })
       },
     onLoad(option) {
-        console.log(option)
         wx.showShareMenu({
             withShareTicket: true
         })
@@ -150,7 +149,6 @@ Page({
                 count: getApp().globalData.unReadMessageNum
             })
         })
-        console.log(555)
         this.setData({
             chaping: wx.getStorageSync('chaping') || 0,
             cityNames: wx.getStorageSync('cityName'),
