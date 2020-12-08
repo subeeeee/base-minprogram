@@ -5,6 +5,9 @@ import {showPhoneNumberMask,closePhoneBox,channelRegister,closeChannelLoginPopup
  const app =  getApp();
 Page({
     onReady: function (res) {
+    wx.setNavigationBarTitle({
+        title: app.globalData.miniprogramTitle
+      });
         this.videoContext = wx.createVideoContext('myVideo')
     },
     data: {

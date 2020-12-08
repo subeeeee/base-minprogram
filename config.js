@@ -5,7 +5,7 @@ const PRO_LIST = [
 	'廊坊阳光行',
 	'明月江南',
 ]
-const CONFIG_PROJECT = '原点云易'
+const CONFIG_PROJECT = '明月江南'
 
 // 静态 新增项目不用配置
 const CONFIG_INFO = {
@@ -27,7 +27,9 @@ const CONFIG_PRO_INFO = {
 		darkColor: '#FD528D',
 		lightColor: '#FF8282',
 		projectName:'haikuotong',
-		hostAddress: 'https://yxftest.juzhouyun.com/'
+		hostAddress: 'https://yxftest.juzhouyun.com/',
+		version: '1.1.0',
+		discription: '修改实时聊天'
 	},
 	'紫光海阔': {
 		appId: 'wxdacc3a925a65bbb5',
@@ -57,7 +59,9 @@ const CONFIG_PRO_INFO = {
 		darkColor: '#47A6FE',
 		lightColor: '#4fa6fe',
 		projectName:'mingYueJiangNan',
-		hostAddress: 'https://yxf1.juzhouyun.com/'
+		hostAddress: 'https://yxf1.juzhouyun.com/',
+		version: '1.1.0',
+		discription: '修改实时聊天'
 	}
 }
 
