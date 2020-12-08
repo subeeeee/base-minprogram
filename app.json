@@ -82,7 +82,7 @@
     "window": {
         "backgroundTextStyle": "light",
         "navigationBarBackgroundColor": "#fff",
-        "navigationBarTitleText": "云易售楼处",
+        "navigationBarTitleText": "",
         "navigationBarTextStyle": "black"
     },
     "sitemapLocation": "sitemap.json",
