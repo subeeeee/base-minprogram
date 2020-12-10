@@ -5,7 +5,7 @@ const PRO_LIST = [
 	'廊坊阳光行',
 	'明月江南',
 ]
-const CONFIG_PROJECT = '明月江南'
+const CONFIG_PROJECT = '原点云易'
 
 // 静态 新增项目不用配置
 const CONFIG_INFO = {

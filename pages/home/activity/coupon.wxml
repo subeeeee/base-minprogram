@@ -1,0 +1,30 @@
+ <view class="form_box">
+    <!-- <view class="form_item">
+       <view class="form_title"><span class="red">*</span>券码信息</view>
+       <view class="control">
+           <input type="text" placeholder="券码信息" value="{{obj.coupon}}" bindinput="couponChange" />
+       </view>
+   </view> -->
+    <view class="form_item">
+       <view class="form_title"><span class="red">*</span>姓名</view>
+       <view class="control">
+           <input type="text" placeholder="姓名" value="{{obj.userName}}" bindinput="nameChange" />
+       </view>
+   </view>
+    <view class="form_item">
+       <view class="form_title"><span class="red">*</span>身份证号</view>
+       <view class="control">
+           <input type="text" placeholder="身份证号" value="{{obj.idNumber}}" bindinput="IDChange" />
+       </view>
+   </view>
+     <view class="form_item">
+       <view class="form_title"><span class="red">*</span>意向项目</view>
+       <view class="control">
+           <picker bindchange="bindPickerProjectChange" range-key="referred" range="{{projectList}}">
+                <view class="picker">{{projectName}}</view>
+            </picker>
+            <image src="/images/icon_arrow_right_blue.png" class="arrowAddr"></image>
+       </view>
+   </view>
+	<view class="btn" bindtap="activitySubmit">立即领取</view>
+</view>

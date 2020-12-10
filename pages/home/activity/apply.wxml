@@ -1,0 +1,74 @@
+ <view class="form_box">
+    <view class="label">活动报名</view>
+     <view class="form_item" wx:if="{{!isGroup}}">
+       <view class="form_title"><span class="red">*</span>所属项目</view>
+       <view class="control">
+           <picker bindchange="bindPickerProjectChange" range-key="referred" range="{{projectList}}">
+                <view class="picker">{{projectName}}</view>
+            </picker>
+            <image src="/images/icon_arrow_right_blue.png" class="arrowAddr"></image>
+       </view>
+   </view>
+    <view class="form_item">
+       <view class="form_title"><span class="red">*</span>姓名</view>
+       <view class="control">
+           <input type="text" placeholder="姓名" value="{{obj.userName}}" bindinput="nameChange" />
+       </view>
+   </view>
+    <view class="form_item">
+       <view class="form_title"><span class="red">*</span>手机号码</view>
+       <view class="control">
+           <input type="text" placeholder="手机号码" value="{{obj.userPhone}}" bindinput="mobileChange" />
+       </view>
+   </view>
+   <view class="form_item" wx:if="{{isGroup}}">
+       <view class="form_title"><span class="red">*</span>身份类型</view>
+       <view class="control">
+           <picker bindchange="bindPickerChange" value="{{selctIndex}}" range="{{array}}">
+		    <view class="picker">
+		      {{array[selctIndex]}}
+		    </view>
+		  </picker>
+      <image src="/images/icon_arrow_right_blue.png" class="arrowAddr"></image>
+       </view>
+   </view>
+   <view class="form_item" wx:if="{{selctIndex==0 && isGroup}}">
+       <view class="form_title"><span class="red">*</span>所在小区</view>
+       <view class="control">
+           <input type="text" placeholder="请填写您的所在小区" value="{{obj.extension}}" bindinput="infoChange" />
+       </view>
+   </view>
+   <view class="form_item" wx:if="{{selctIndex==1 && isGroup}}">
+       <view class="form_title"><span class="red">*</span>所在单位</view>
+       <view class="control">
+           <input type="text" placeholder="请填写您的所在单位" value="{{obj.extension}}" bindinput="infoChange" />
+       </view>
+   </view>
+   <view class="form_item"  wx:if="{{selctIndex==2 && isGroup}}">
+       <view class="form_title"><span class="red">*</span>意向项目</view>
+       <view class="control">
+           <input type="text" placeholder="请填写您的意向项目" value="{{obj.extension}}" bindinput="infoChange" />
+       </view>
+   </view>
+   <view class="form_item"  wx:if="{{selctIndex==3 && isGroup}}">
+       <view class="form_title"><span class="red">*</span>获取渠道</view>
+       <view class="control">
+           <input type="text" placeholder="请填写您的获取渠道" value="{{obj.extension}}" bindinput="infoChange" />
+       </view>
+   </view>
+   <view class="item" wx:if="{{isGroup}}">
+        <view class="lTitle"><span class="red">*</span>附件</view>
+        <view class="division"></view>
+        <view class="rText">请上传朋友圈分享截图</view>
+    </view>
+    <view class="uploadList" wx:if="{{isGroup}}">
+        <view wx:for="{{imgs}}" wx:key="{{index}}">
+            <image src="{{item}}" class="upload" style="border: 2rpx solid #ccc;"></image>
+            <image bindtap="removeImg" data-index="{{index}}" src="/images/removeIcon.png" class="removeIcon" data-key="imgs"></image>
+        </view>
+        <view bindtap="upload" data-key="imgs">
+            <image src="/images/uploadIcon.png" class="upload"></image>
+        </view>
+    </view>
+	<view class="btn" bindtap="activitySubmit">提交报名</view>
+</view>

@@ -1,0 +1,16 @@
+<view class="uploadPic">
+    <view class="item">
+            <view class="lTitle"><span class="red" wx:if="{{required}}">*</span>{{key}}</view>
+            <view class="division"></view>
+            <view class="rText">请上传附件</view>
+        </view>
+        <view class="uploadList">
+            <view wx:for="{{imgs}}">
+                <image src="{{item}}" class="upload" style="border: 2rpx solid #ccc;"></image>
+                <image bindtap="removeImg" data-index="{{index}}" src="/images/removeIcon.png" class="removeIcon" data-key="imgs"></image>
+            </view>
+            <view bindtap="upload" data-key="imgs">
+                <image src="/images/uploadIcon.png" class="upload"></image>
+            </view>
+        </view>
+</view>

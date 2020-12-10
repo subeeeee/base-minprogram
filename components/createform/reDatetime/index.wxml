@@ -1,0 +1,18 @@
+
+   <view class="form_item">
+       <view class="form_title"><span class="red" wx:if="{{required}}">*</span>{{fieldName}}</view>
+       <view class="control">
+           <picker wx:if="{{dateFormat==0}}" mode="date" value="{{appointmentDate}}" start="{{start}}" bindchange="bindDateChange">
+               <view class="picker">
+                   {{appointmentDate}}
+               </view>
+           </picker>
+           <picker wx:if="{{dateFormat==1}}" mode="multiSelector" value="{{dateTime}}" bindchange="changeDateTime" bindcolumnchange="changeDateTimeColumn" range="{{dateTimeArray}}">
+                <view class="picker">
+                 {{appointmentDate1}}
+                </view>
+            </picker>
+            <image src="/images/date_icon.png" style="width:18px;height: 18px;right: 0;top: 20px;"></image>
+       </view>
+   </view>
+   

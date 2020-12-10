@@ -1,0 +1,19 @@
+
+<view class="form_item">
+    <view class="form_title"><span class="red" wx:if="{{required}}">*</span>{{fieldName}}</view>
+    <view class="control">
+        <view class="pd-r-20" bindtap="openSelect">{{name}}</view>
+        <image src="/images/icon_arrow_right_blue.png" class="arrowAddr"></image>
+    </view>
+</view>
+<view class="quantumBg" bindtap="cancelQtu" wx:if="{{isQuantum}}">
+        <view  style="position:fixed;top:0;bottom:0;left:0;right:0;" catchtouchmove="true"></view> 
+    <view class="dateQuantum">
+        <view class="qBtn"><span class="cancel" bindtap="cancelQtu">取消</span><span class="save"  catchtap="saveQtu">确定</span></view>
+        <view class="projectView">
+        <view wx:for="{{dataList}}" wx:key="{{index}}" catchtap="selectQtu" data-value="{{item.fieldName}}" data-index="{{index}}" class="singleView {{item.checked?'selected':''}}" >
+            {{item.fieldName}}
+        </view> 
+        </view> 
+    </view>
+</view>

@@ -344,6 +344,7 @@ Page({
                     url: '/pages/h5/index/index?webUrl=' + webUrllist[0] + '&' + webUrllist[1] + '&title=' + title + '&color=blue' + '&customerId=' + wx.getStorageSync('customerId') + '&appId=' + appid + '&tenantId=' + this.data.tenantId+ '&primaryColor='+this.data.darkColor.slice(1) + '&secondaryColor='+this.data.lightColor.slice(1) 
                 })
             } else {
+                console.log(type)
                 wx.navigateTo({
                     url: '/pages/h5/index/index?webUrl=' + url + '&title=' + title + '&color=blue' + '&customerId=' + wx.getStorageSync('customerId') + '&appId=' + appid + '&tenantId=' + this.data.tenantId+ '&primaryColor='+this.data.darkColor.slice(1) + '&secondaryColor='+this.data.lightColor.slice(1) 
                 })
@@ -353,7 +354,7 @@ Page({
             if (webUrllist.length > 1) {
                 var topicId = webUrllist[1].split('=')[1]
                 wx.navigateTo({
-                    url: '/pages/activity/index?topicId=' + topicId
+                    url: '/pages/home/activity/index?topicId=' + topicId
                 })
             }
         } else {

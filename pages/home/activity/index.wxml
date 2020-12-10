@@ -1,0 +1,26 @@
+<import src="../../../html-view/index.wxml" />
+<view class="container">
+  <view class="nTitle"> 
+  	  {{ntitle}}
+  </view>
+  <view class="nMain">
+  	<template is="html-view" data="{{data: html}}" />
+    <view class="signCount" wx:if="{{signCount>0}}"><view class="blue">{{signCount}}</view>人{{signName}}</view>
+  </view>
+  <view class="nBottom" wx:if="{{isShow}}">
+    <view class="shareBtn tabBtn" bindtap="shareFun"><image class='image' src="/images/shareIcon.png" mode=""></image>分享</view>
+    <view class="followBtn tabBtn" bindtap="setFollowData" wx:if="{{userPhone}}"><image class='image' src="/images/followIcon.png" wx:if="{{!isfollow}}"></image><image class='image' src="/images/followIconA.png" wx:if="{{isfollow}}"></image>关注</view>
+    <button class="followBtn tabBtn" open-type="getPhoneNumber" bindgetphonenumber="followFunNum" wx:if="{{!userPhone}}" style="box-sizing: content-box;"><image class='image' src="/images/followIcon.png" wx:if="{{!isfollow}}"></image><image class='image' src="/images/followIconA.png" wx:if="{{isfollow}}"></image>关注</button>
+    <view class="tabSaveBtn" wx:if="{{activityType==1}}">
+      <view class="tabSaveBtn {{isSigned==1 ? 'greybg' : ''}}" bindtap="submitFun" wx:if="{{isSigned || userPhone}}"><a class="ljbmBtn">{{activityBtnName}}</a></view>
+      <button class="tabSaveBtn" open-type="getPhoneNumber" bindgetphonenumber="submitFunNum" wx:if="{{!isSigned && !userPhone}}" style="box-sizing: content-box;"><a class="ljbmBtn">立即领取</a></button>
+    </view>
+    <view class="tabSaveBtn" wx:else>
+      <view class="tabSaveBtn {{isSigned==1 ? 'greybg' : ''}}" bindtap="submitFun" wx:if="{{isSigned || userPhone}}"><a class="ljbmBtn">{{activityBtnName}}</a></view>
+      <button class="tabSaveBtn" open-type="getPhoneNumber" bindgetphonenumber="submitFunNum" wx:if="{{!isSigned && !userPhone}}" style="box-sizing: content-box;"><a class="ljbmBtn">立即报名</a></button>
+    </view>
+  </view>
+  <view class="shareBox" wx:if="{{isShare}}" bindtap="hideShare">
+  	<view class="zzcFx"><image class='image' src="/images/zzc-fx.png" mode="widthFix"></image></view>
+  </view>
+</view>

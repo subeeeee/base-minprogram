@@ -1,0 +1,16 @@
+<view class="form_item">
+    <view class="form_title"><span class="red" wx:if="{{required}}">*</span>{{fieldName}}</view>
+    <view class="control">
+        <picker bindchange="bindPickerProjectChange" range-key="fieldName" range="{{list}}">
+            <view class="picker">{{selectName}}</view>
+        </picker>
+        <image src="/images/icon_arrow_right_blue.png" class="arrowAddr"></image>
+    </view>
+</view>
+<view wx:for="{{sList}}" wx:key="{{index}}" wx:if="{{correlationCustomizeId}}">
+    <component-input bindmyevent="myevent" input-data="{{item}}" wx:if="{{item.fieldType==0 && correlationCustomizeId==item.customizeId}}"></component-input>
+    <component-radio bindmyevent="myevent" radio-data="{{item}}" wx:if="{{item.fieldType==1 && correlationCustomizeId==item.customizeId}}"></component-radio>
+    <component-checkBox bindmyevent="myevent" checkbox-data="{{item}}" wx:if="{{item.fieldType==2 && correlationCustomizeId==item.customizeId}}"></component-checkBox>
+    <component-datetime bindmyevent="myevent" date-data="{{item}}" wx:if="{{item.fieldType==3 && correlationCustomizeId==item.customizeId}}"></component-datetime>
+    <component-upload bindmyevent="myevent" upload-data="{{item}}"  wx:if="{{item.fieldType==4 && correlationCustomizeId==item.customizeId}}"></component-upload>
+</view>

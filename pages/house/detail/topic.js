@@ -67,7 +67,7 @@ Page({
         if (webUrllist.length > 1) {
             var topicId = webUrllist[1].split('=')[1]
             wx.navigateTo({
-                url: '/pages/activity/index?topicId=' + topicId
+                url: '/pages/home/activity/index?topicId=' + topicId
             })
         }
     },

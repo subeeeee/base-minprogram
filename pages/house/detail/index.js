@@ -1028,7 +1028,7 @@ Page({
             // wx.navigateTo({
             //     url: '/pages/activity/index?topicId=' + topicId
             // })
-            this.reNavigateTo('/pages/activity/index?topicId=' + topicId)
+            this.reNavigateTo('/pages/home/activity/index?topicId=' + topicId)
         }
     },
     // 前往其他页面

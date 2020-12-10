@@ -1,0 +1,257 @@
+@import '/assets/css/common.wxss';
+page{
+  background: #fff;
+}
+.form_box {
+  padding: 10px 12px 0 12px;
+  background: #fff;
+  margin-bottom: 40rpx;
+}
+.label{
+  font-size: 36rpx;
+  margin: 30rpx 20rpx;
+}
+.form_item{
+  height: 60px;
+  box-sizing: border-box;
+  border-bottom: 1px solid #F5F5F5;
+  line-height: 60px;
+  padding: 0 10px;
+  display: flex;
+}
+.form_item:last-child{
+  border-bottom: 0;
+}
+.form_item .form_title{
+  width: 95px;
+  text-align: left;
+  color: #9B9B9B;
+  font-size: 16px;
+}
+.form_item .control{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  flex: 1;
+}
+picker,input,.picker{
+  width: 100%;
+  height: 100%;
+}
+.control image{
+  position: absolute;
+}
+.btn{
+  color: #fff;
+  width: 90%;
+  height: 80rpx;
+  background:linear-gradient(270deg,rgba(51,184,249,1) 0%,rgba(23,130,240,1) 100%);
+  border-radius:5px;
+  margin: 100rpx auto 0 auto;
+  text-align: center;
+  line-height: 80rpx;
+  font-size: 28rpx;
+}
+.item{
+  overflow: hidden;
+  margin-left: 20rpx;
+  padding-top: 33rpx;
+  border-top: 2rpx solid #f5f5f5;
+  margin-bottom: 30rpx;
+}
+.item .division {
+  width: 2rpx;
+  height: 24rpx;
+  background: #D8D8D8;
+  margin-right: 30rpx;
+  margin-top: 14rpx;
+
+}
+.item view{
+  float: left;
+  font-size: 31rpx;
+  line-height: 44rpx;
+  height: 44rpx;
+}
+.lTitle{
+  color: #4a4a4a;
+  margin-right: 28rpx;
+}
+.rText {
+  color: #9B9B9B;
+}
+.radio{
+  margin-bottom: 32rpx;
+  overflow: hidden;
+  margin-left: 100rpx;
+}
+.radio image{
+  width: 32rpx;
+  height: 32rpx;
+  margin-right: 92rpx;
+  margin-top: 6rpx;
+}
+.radio view, .radio image{
+  float: left;
+  line-height: 44rpx;
+  font-size: 32rpx;
+  color: #4a4a4a;
+}
+.uploadList{
+  text-align: center;
+  margin-top:30rpx;
+}
+.uploadList > view{
+  position: relative;
+  width: 100rpx;
+  height: 100rpx;
+  display: inline-block;
+  margin: 0 auto;
+  padding-right: 60rpx;
+}
+.upload{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 12rpx;
+}
+.removeIcon{
+  width: 32rpx;
+  height: 32rpx;
+  position: absolute;
+  right: 44rpx;
+  top: -16rpx;
+}
+.msg{
+  width: 600rpx;
+  font-size: 24rpx;
+  line-height: 34rpx;
+  color: #9B9B9B;
+  margin: 50rpx auto 40rpx auto;
+}
+.mask{
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: .5;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 10;
+}
+.modal{
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 640rpx;
+  height: 680rpx;
+  z-index: 20;
+  padding: 60rpx 34rpx 0 34rpx;
+  box-sizing: border-box;
+  color: #4A4A4A;
+  background: #fff;
+  border-radius: 12rpx;
+}
+
+.modal > .title{
+  text-align: center;
+  font-size: 36rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  margin-bottom: 30rpx;
+}
+.desc{
+  font-size: 32rpx;
+  line-height: 60rpx;
+}
+.modal .bottom{
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 120rpx;
+  border-top: 2rpx solid #9B9B9B;
+  box-sizing: border-box;
+  overflow: hidden;
+  width: 100%;
+}
+.bottom view{
+  width: 50%;
+  float: left;
+  text-align: center;
+  line-height: 120rpx;
+  font-size: 36rpx;
+}
+.bottom .l{
+  color: #9B9B9B;
+  border-right: 2rpx solid #9B9B9B;
+  box-sizing: border-box;
+}
+.bottom .r{
+  color: #1586EE;
+}
+.notice{
+  font-size: 24rpx;
+  color: #d30d25;
+  margin-left: 20rpx;
+  border-bottom: 2rpx solid #f5f5f5;
+  padding-bottom: 20rpx;
+
+}
+.noborder{border:0}
+.despText{
+  font-size:24rpx;
+  color:#9b9b9b;
+  margin:10rpx 20rpx;
+}
+.dateQuantum{
+  width: 100%;
+  height: 38%;
+  position: fixed;
+  z-index: 1;
+  bottom: 0;
+  left: 0;
+  background: #fff;
+  text-align: center;
+  line-height: 60rpx;
+  overflow: auto;
+}
+.dateQuantum .qBtn{
+  width:100%;
+  height:70rpx;
+  background:#fff;
+  position:fixed;
+}
+.dateQuantum .tiemView .time:hover{
+  color:#1586ee;
+}
+.dateQuantum .qBtn span{
+  font-size:32rpx;
+  color:#666;
+  padding:20rpx 30rpx;
+}
+.dateQuantum .qBtn span.cancel{
+  float:left;
+}
+.dateQuantum .qBtn span.save{
+  float:right;
+  color:#1586ee;
+}
+.quantumBg{
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+.red{
+  color:red;
+}
+.arrowAddr{
+  position:absolute;
+  width:20rpx;
+  height:28rpx;
+  top:44rpx;
+  right:0;
+}

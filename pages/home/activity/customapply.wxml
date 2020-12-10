@@ -1,0 +1,14 @@
+ <view class="form_box">
+    <view class="label" wx:if="{{type==2}}">活动报名</view>
+    <view class="label" wx:if="{{type==3}}">优惠券领取</view>
+    <view wx:for="{{list}}" wx:key="{{index}}">
+      <component-input bindmyevent="myevent" input-data="{{item}}" wx:if="{{item.fieldType==0}}"></component-input>
+      <component-radio bindmyevent="myevent" radio-data="{{item}}" wx:if="{{item.fieldType==1}}">
+      </component-radio>
+      <component-checkBox bindmyevent="myevent" checkbox-data="{{item}}" wx:if="{{item.fieldType==2}}"></component-checkBox>
+      <component-datetime bindmyevent="myevent" date-data="{{item}}" wx:if="{{item.fieldType==3}}"></component-datetime>
+      <component-upload bindmyevent="myevent" upload-data="{{item}}"  wx:if="{{item.fieldType==4}}"></component-upload>
+    </view>
+	<view class="btn" bindtap="activitySubmit"  wx:if="{{type==2}}">提交报名</view>
+  <view class="btn" bindtap="activitySubmit"  wx:if="{{type==3}}">立即领取</view>
+</view>

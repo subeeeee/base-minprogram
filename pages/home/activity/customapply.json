@@ -1,0 +1,9 @@
+{
+    "usingComponents": {
+        "component-input": "/components/createform/reInput/index",
+        "component-radio": "/components/createform/reRadio/index",
+        "component-checkBox": "/components/createform/reCheckBox/index",
+        "component-datetime": "/components/createform/reDatetime/index",
+        "component-upload": "/components/createform/reUpload/index"
+    }
+}
