@@ -6,13 +6,20 @@ Page({
       fieldName: '推荐项目',
       radioList: [],
       required: true,
-
-    }
+    },
+    formData: [
+      {
+        type: 'input',
+        data: {
+          fieldName: '客户姓名',
+          required: true,
+        }
+      }
+    ]
   },
   onLoad: function (options) {
       this.getProList()
   },
-
   async getProList() {
     const res = await Api.fetchChannelManager({
       method: 'get',
@@ -31,6 +38,19 @@ Page({
     })
   },
   handleChange({ detail }) {
-    console.log(detail)
+    this.getCostomForm(detail.data.projectId)
+
+  },
+  async getCostomForm(projectId) {
+    //fetchChannelManager
+    const res = await Api.fetchChannelManager({
+      method: 'get',
+      url: '/applet/customizeForm',
+      data: {
+        userId:'213',
+        projectId
+      }
+    })
+    console.log(res)
   }
 });

@@ -1,7 +1,7 @@
 {
   "navigationBarTitleText": "全民营销",
   "usingComponents": {
-    "component-input": "/components/createform/reInput/index",
+    "component-input": "/components/customForm/input/index",
     "component-selector": "/components/customForm/selector/index",
     "component-checkBox": "/components/createform/reCheckBox/index",
     "component-datetime": "/components/createform/reDatetime/index",

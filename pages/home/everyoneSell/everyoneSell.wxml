@@ -1,6 +1,7 @@
 <view class="form_box">
   <component-selector bind:handleChange="handleChange" radio-data="{{recommendPro}}" ></component-selector>
+  <block wx:for="{{formData}}" wx:for-index="index" wx:for-item="item">
+    <component-input bindmyevent="myevent" input-data="{{item.data}}"></component-input>
+  </block>
 
-  <view class="btn" bindtap="activitySubmit"  wx:if="{{type==2}}">提交报名</view>
-  <view class="btn" bindtap="activitySubmit"  wx:if="{{type==3}}">立即领取</view>
 </view>

@@ -12,7 +12,6 @@ export const showPhoneNumberMask = function(type = "marketing") {
       //查询渠道管家里面是否已经有此用户的信息了
       this.queryUserFromChannel(mobile,type)
     }
-
     this.setData({
       mobile:mobile.replace(/(\d{3})(\d{4})(\d{4})/,'$1****$3')
     })
@@ -24,6 +23,7 @@ export const showPhoneNumberMask = function(type = "marketing") {
 }
 
 export const queryUserFromChannel = async function(mobile,type){
+  console.log(mobile,type)
   const result = await Api.fetchChannelManager({
     method: 'get',
     url: '/customersForThird/accounts/find',
@@ -33,10 +33,13 @@ export const queryUserFromChannel = async function(mobile,type){
     }
   })
   if (result.data) {
+
     wx.setStorageSync('agentId',result.data.userId)
 
-    this.gotoNext('/pages/marketing/index')
+
   }else{
+    this.gotoNext('/pages/marketing/index')
+    return
     //  开始一版的一键注册
     // this.setData({
     //   channelLoginPopupShow:true
