@@ -1,0 +1,17 @@
+<view class="form_item">
+  <view class="form_title"><span class="red" wx:if="{{required}}">*</span>{{fieldName}}</view>
+  <view class="control">
+    <picker
+      mode="selector"
+      bindchange="handleChange"
+      range-key="{{rangeKey}}"
+      range="{{radioList}}"
+    >
+      <view class="picker">
+        <view class="select-content">{{selectContent}}</view>
+<!--        <view class="placeholder">asdf</view>-->
+      </view>
+    </picker>
+    <image src="/images/icon_arrow_right_blue.png" class="arrowAddr"></image>
+  </view>
+</view>

@@ -7,7 +7,8 @@
     "pages/home/projectSelect/index",
     "pages/home/Unlimited/index",
     "pages/h5/index/index",
-    "pages/scan/index"
+    "pages/scan/index",
+    "pages/home/everyoneSell/everyoneSell"
   ],
   "subpackages": [
     {

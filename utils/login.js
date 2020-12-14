@@ -42,7 +42,13 @@ export const queryUserFromChannel = async function(mobile,type){
     //   channelLoginPopupShow:true
     // })
     // 后来一版的注册页面
-    this.gotoNext('/pages/marketing/channelRegister/index?type='+type)
+    let address = ''
+    if(typeof type === 'string') {
+      address = '/pages/home/everyoneSell/everyoneSell'
+    } else {
+      address = '/pages/home/everyoneSell/everyoneSell?type='+type
+    }
+    this.gotoNext(address)
     this.getUserInfoCanClick=true
   }
 
