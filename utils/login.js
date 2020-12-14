@@ -1,7 +1,6 @@
 import Api from './api.js';
 
 export const showPhoneNumberMask = function(type = "marketing") {
-  console.log(type)
   this.closePhoneBox()
   let userPhone = wx.getStorageSync('userPhone')
   let userinfoLogin = wx.getStorageSync('userinfoLogin') || {}
