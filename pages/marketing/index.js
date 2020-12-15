@@ -5,6 +5,7 @@ Page({
   data:{
     ManagerForm: {
       name: '', // 客户姓名
+      
       sex: '0', // 性别
       mobiles: [''], // 客户手机
       projectId: '', // 推荐项目选中ID 数组

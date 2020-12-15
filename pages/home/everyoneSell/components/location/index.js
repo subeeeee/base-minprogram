@@ -1,14 +1,13 @@
-import Api from "../../../utils/api.js";
 Component({
   properties: {
-    radioData: {
+    selectorData: {
       type: Object,
       value: null,
       observer(val) {
         const data = {
           placeholder:val.placeholder || '请选择',
           fieldName: val.fieldName,
-          radioList: val.radioList,
+          selectList: val.selectList,
           required: val.required,
         }
         if(val.rangeKey) {
@@ -21,7 +20,7 @@ Component({
   data: {
     placeholder: '',
     fieldName: '',
-    radioList: [],
+    selectList: [],
     required: false,
     rangeKey: '',
     selectContent: '请选择'
@@ -29,7 +28,7 @@ Component({
   methods: {
     handleChange({ detail }) {
       let selectContent = null
-      const selectItem = this.data.radioList[+detail.value]
+      const selectItem = this.data.selectList[+detail.value]
       if(this.data.rangeKey) {
         selectContent =selectItem[this.data.rangeKey]
       } else {
@@ -38,10 +37,11 @@ Component({
       this.setData({
         selectContent
       })
-      this.triggerEvent('handleChange', {
+      this.triggerEvent('onChange', {
         fieldName: this.data.fieldName,
         required: this.data.required,
         data: selectItem,
+        isOk: !!selectItem
       })
     }
   }

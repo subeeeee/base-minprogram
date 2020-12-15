@@ -5,7 +5,7 @@
       mode="selector"
       bindchange="handleChange"
       range-key="{{rangeKey}}"
-      range="{{radioList}}"
+      range="{{selectList}}"
     >
       <view class="picker">
         <view class="select-content">{{selectContent}}</view>

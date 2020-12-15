@@ -4,18 +4,10 @@ Page({
   data: {
     recommendPro: {
       fieldName: '推荐项目',
-      radioList: [],
+      selectList: [],
       required: true,
     },
-    formData: [
-      {
-        type: 'input',
-        data: {
-          fieldName: '客户姓名',
-          required: true,
-        }
-      }
-    ]
+    formData: []
   },
   onLoad: function (options) {
       this.getProList()
@@ -31,26 +23,41 @@ Page({
     this.setData({
       recommendPro: {
         fieldName: '推荐项目',
-        radioList: res.data,
+        selectList: res.data,
         required: true,
         rangeKey: 'projectName'
       }
     })
+    // TODO reset data
+    this.getCostomForm(res.data[7].projectId)
   },
-  handleChange({ detail }) {
+  handleChangeProject({ detail }) {
+    console.log(detail)
     this.getCostomForm(detail.data.projectId)
-
   },
   async getCostomForm(projectId) {
-    //fetchChannelManager
     const res = await Api.fetchChannelManager({
       method: 'get',
       url: '/applet/customizeForm',
       data: {
-        userId:'213',
+        userId: wx.getStorageSync('agentId'),
         projectId
       }
     })
-    console.log(res)
+    res.data.forEach(item => {
+      if(item.fieldCode === 'sex') {
+        item.selectList = [
+          {label: '男', value: '01'},
+          {label: '女', value: '02'},
+        ]
+        item.rangeKey = 'label'
+      }
+    })
+    this.setData({
+      formData: res.data
+    })
+  },
+  handleChange({ detail }) {
+    console.log(detail)
   }
 });

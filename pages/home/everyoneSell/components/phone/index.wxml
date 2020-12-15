@@ -1,0 +1,31 @@
+<view >
+    <view wx:for="{{phoneList}}" wx:for-index="index" wx:for-item="item" wx:key="key" class="form_item">
+        <view class="form_title"><span class="red" wx:if="{{required}}">*</span>{{fieldName}}</view>
+        <view class="control">
+            <input
+              class="input"
+              type="text"
+              placeholder="请输入{{fieldName}}"
+              name="{{fieldName}}"
+              value="{{item}}"
+              bindinput="onInput"
+              maxlength="{{100}}"
+              data-index="{{index}}"
+            />
+            <view class="menu">
+                <view class="addOrSub  icon-zengjia1" bind:tap="add" wx:if="{{!index}}" style="background-image:url({{imgServerUrl}}/xcx_images/{{styleProjectName}}/add_tel.png)"></view>
+                <view class="addOrSub  icon-jianshao" bind:tap="sub" data-index="{{index}}" wx:else  style="background-image:url({{imgServerUrl}}/xcx_images/{{styleProjectName}}/minus_tel.png)"></view>
+<!--                <view-->
+<!--                  wx:if="{{!index}}"-->
+<!--                  class="showOrHidden  look-ico look-open {{canHideMobile === 0}}"-->
+<!--                  style="background-image:url({{imgServerUrl}}/xcx_images/{{styleProjectName}}/quotes_open_c.png)"-->
+<!--                ></view>-->
+                <view
+                  wx:if="{{!index}}"
+                  class="showOrHidden  look-ico look-close"
+                  style="background-image:url({{imgServerUrl}}/xcx_images/{{styleProjectName}}/quotes_close_c.png)"
+                ></view>
+            </view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,13 @@
+<view class="form_item">
+    <view class="form_title"><span class="red" wx:if="{{required}}">*</span>{{fieldName}}</view>
+    <view class="control">
+        <input
+          type="text"
+          placeholder="请输入{{fieldName}}"
+          name="{{fieldName}}"
+          value="{{name}}"
+          bindinput="onInput"
+          maxlength="{{100}}"
+        />
+    </view>
+</view>

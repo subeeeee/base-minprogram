@@ -1,0 +1,22 @@
+<view class="form_item">
+  <view class="form_title"><span class="red" wx:if="{{required}}">*</span>{{fieldName}}</view>
+  <view class="control">
+    <picker
+      mode="multiSelector"
+      bindchange="handleChange"
+      bindcolumnchange="handlecolumnChange"
+      value="{{multiIndex}}"
+      range="{{multiArray}}"
+      range-key="{{sdsdf}}"
+    >
+      <view class="picker">
+
+        <text class="picker-text" wx:if="{{region[0] && region[1] && region[2]}}">
+          {{region[0]}} {{region[1]}} {{region[2]}}
+        </text>
+        <text wx:else>请选择</text>
+      </view>
+    </picker>
+    <image src="/images/icon_arrow_right_blue.png" class="arrowAddr"></image>
+  </view>
+</view>

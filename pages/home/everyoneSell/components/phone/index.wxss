@@ -1,0 +1,75 @@
+@import '/assets/css/common.wxss';
+page {
+    background: #fff;
+}
+
+.form_box {
+    padding: 10px 12px 0 12px;
+    background: #fff;
+    margin-bottom: 40rpx;
+}
+
+.label {
+    font-size: 36rpx;
+    margin: 30rpx 20rpx;
+}
+
+.form_item {
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    box-sizing: border-box;
+    border-bottom: 1px solid #F5F5F5;
+    line-height: 30px;
+    padding: 0 15px 0 10px;
+}
+
+
+.form_item .form_title {
+    width: 95px;
+    text-align: left;
+    color: #9B9B9B;
+    font-size: 16px;
+}
+
+.form_item .control {
+    height: 60px;
+    position: relative;
+    flex: 1;
+    display: flex;
+}
+
+.input{
+    flex: 1;
+}
+.menu {
+    width: 60px;
+    height: 60px;
+    padding-top: 25px;
+}
+.addOrSub{
+    float: left;
+    margin-right: 24rpx;
+    width: 32rpx;
+    height:32rpx;
+    background-repeat:no-repeat;
+    background-position: right center; 
+    background-size: 32rpx 32rpx;
+}
+.look-open{
+    float: left;
+    width: 36rpx;
+    height:30rpx;
+    background-repeat:no-repeat;
+    background-position: right center; 
+    background-size: 36rpx 28rpx;
+}
+.look-close{
+    float: left;
+    width: 36rpx;
+    height:36rpx;
+    background-repeat:no-repeat;
+    background-position: right center; 
+    background-size: 36rpx 14rpx;
+}

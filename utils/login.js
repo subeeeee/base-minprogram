@@ -1,17 +1,19 @@
 import Api from './api.js';
 
-export const showPhoneNumberMask = function(type = "marketing") {
+export const showPhoneNumberMask=function(type="marketing"){
   this.closePhoneBox()
   let userPhone = wx.getStorageSync('userPhone')
   let userinfoLogin = wx.getStorageSync('userinfoLogin') || {}
   const mobile = userinfoLogin.phoneNo || userPhone
   if(mobile){
     if(wx.getStorageSync('agentId')){
-      this.gotoNext('/pages/home/everyoneSell/index')
+      // this.gotoNext('/pages/marketing/index')
+      this.gotoNext('/pages/home/everyoneSell/everyoneSell')
     }else{
       //查询渠道管家里面是否已经有此用户的信息了
       this.queryUserFromChannel(mobile,type)
     }
+
     this.setData({
       mobile:mobile.replace(/(\d{3})(\d{4})(\d{4})/,'$1****$3')
     })
@@ -23,7 +25,6 @@ export const showPhoneNumberMask = function(type = "marketing") {
 }
 
 export const queryUserFromChannel = async function(mobile,type){
-  console.log(mobile,type)
   const result = await Api.fetchChannelManager({
     method: 'get',
     url: '/customersForThird/accounts/find',
@@ -33,25 +34,17 @@ export const queryUserFromChannel = async function(mobile,type){
     }
   })
   if (result.data) {
-
     wx.setStorageSync('agentId',result.data.userId)
+    // this.gotoNext('/pages/marketing/index')
 
-
+    this.gotoNext('/pages/home/everyoneSell/everyoneSell')
   }else{
-    this.gotoNext('/pages/marketing/index')
-    return
     //  开始一版的一键注册
     // this.setData({
     //   channelLoginPopupShow:true
     // })
     // 后来一版的注册页面
-    let address = ''
-    if(typeof type === 'string') {
-      address = '/pages/home/everyoneSell/everyoneSell'
-    } else {
-      address = '/pages/home/everyoneSell/everyoneSell?type='+type
-    }
-    this.gotoNext(address)
+    this.gotoNext('/pages/marketing/channelRegister/index?type='+type)
     this.getUserInfoCanClick=true
   }
 

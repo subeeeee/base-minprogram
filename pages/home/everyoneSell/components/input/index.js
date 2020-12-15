@@ -3,10 +3,11 @@ Component({
     inputData: {
       type: Object,
       value: null,
-      observer(newVal) {
+      observer(val) {
         this.setData({
-          fieldName: newVal.fieldName,
-          required: newVal.required,
+          fieldCode: val.fieldCode,
+          fieldName: val.fieldName,
+          required: val.required,
         })
       }
     }
@@ -20,14 +21,16 @@ Component({
     trim(str) {
       return str.replace(/^(\s|\u00A0)+/, '').replace(/(\s|\u00A0)+$/, '');
     },
-    nameChange: function(e) {
+    onInput: function({ detail }) {
       this.setData({
-        name: e.detail.value
+        name: detail.value
       });
-      this.triggerEvent('myevent', {
+      this.triggerEvent('onInput', {
+        fieldCode: this.data.fieldCode,
         fieldName: this.data.fieldName,
-        fieldValue: this.trim(e.detail.value),
-        fieldType: this.data.fieldType,
+        data: this.trim(detail.value),
+        required: this.data.required,
+        isOK: !!this.trim(detail.value),
       })
     }
   }
