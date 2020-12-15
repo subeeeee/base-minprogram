@@ -31,11 +31,11 @@
     ></component-location>
 
     <!--时间-->
-<!--    <component-location-->
-<!--      bind:onChange="handleChange"-->
-<!--      selector-data="{{item}}"-->
-<!--      wx:if="{{item.fieldType === 1 && item.fieldCode === 'location'}}"-->
-<!--    ></component-location>-->
+    <component-pickerYMDHM
+      bind:onChange="handleChange"
+      picker-time-data="{{ item }}"
+      wx:if="{{item.fieldType === 3 && item.fieldCode === 'extend1'}}"
+    ></component-pickerYMDHM>
 
   </block>
 

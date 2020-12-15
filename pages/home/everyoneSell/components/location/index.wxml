@@ -6,10 +6,7 @@
       bindchange="handleChange"
     >
       <view class="picker">
-        <text class="picker-text" wx:if="{{region[0] && region[1] && region[2]}}">
-          {{region[0]}} {{region[1]}} {{region[2]}}
-        </text>
-        <text wx:else>{{selectContent}}</text>
+        <text>{{selectContent}}</text>
       </view>
     </picker>
     <image src="/images/icon_arrow_right_blue.png" class="arrowAddr"></image>

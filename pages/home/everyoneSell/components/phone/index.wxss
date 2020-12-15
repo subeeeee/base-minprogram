@@ -73,3 +73,7 @@ page {
     background-position: right center; 
     background-size: 36rpx 14rpx;
 }
+
+.red {
+    color: red;
+}

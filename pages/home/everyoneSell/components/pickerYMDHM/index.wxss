@@ -1,7 +1,18 @@
-/* pages/component/pickerYMDHM/pickerYMDHM.wxss */
-.showFont{
-  font-size: 28rpx;
-  width:490rpx;
-  height:110rpx;
-  line-height:110rpx!important;
+.time-content{
+  width: 100%;
+  height: 100%;
+  font-size: 16px;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+.picker{
+  position: relative;
+}
+.arrowAddr{
+  position:absolute;
+  width:20rpx;
+  height:28rpx;
+  top:44rpx;
+  right:0;
 }

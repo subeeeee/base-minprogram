@@ -5,7 +5,7 @@ Component({
       value: null,
       observer(val) {
         const data = {
-          placeholder:val.placeholder || '请选择',
+          fieldCode: val.fieldCode,
           fieldName: val.fieldName,
           selectList: val.selectList,
           required: val.required,
@@ -18,7 +18,6 @@ Component({
     }
   },
   data: {
-    placeholder: '',
     fieldName: '',
     selectList: [],
     required: false,
@@ -36,10 +35,11 @@ Component({
     },
     emit() {
       this.triggerEvent('onChange', {
+        fieldCode: this.data.fieldCode,
         fieldName: this.data.fieldName,
         required: this.data.required,
-        data: selectItem,
-        isOk: !!selectItem
+        data: this.data.selectContent,
+        isOk: this.data.selectContent === '请选择'
       })
     }
   }
