@@ -12,23 +12,30 @@
     <!--手机-->
     <component-phone
       bind:onChage="handleChange"
-      phone-data="{{item}}"
+      phone-data="{{ item }}"
       wx:if="{{item.fieldType === 0 && item.fieldCode === 'mobile'}}"
     ></component-phone>
 
     <!--性别-->
     <component-selector
       bind:onChange="handleChange"
-      selector-data="{{item}}"
+      selector-data="{{ item }}"
       wx:if="{{item.fieldType === 1 && item.fieldCode === 'sex'}}"
     ></component-selector>
 
     <!--报备区域-->
     <component-location
       bind:onChange="handleChange"
-      selector-data="{{item}}"
+      selector-data="{{ item }}"
       wx:if="{{item.fieldType === 1 && item.fieldCode === 'location'}}"
     ></component-location>
+
+    <!--时间-->
+<!--    <component-location-->
+<!--      bind:onChange="handleChange"-->
+<!--      selector-data="{{item}}"-->
+<!--      wx:if="{{item.fieldType === 1 && item.fieldCode === 'location'}}"-->
+<!--    ></component-location>-->
 
   </block>
 

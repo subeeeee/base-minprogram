@@ -27,16 +27,14 @@ Component({
   },
   methods: {
     handleChange({ detail }) {
-      let selectContent = null
-      const selectItem = this.data.selectList[+detail.value]
-      if(this.data.rangeKey) {
-        selectContent =selectItem[this.data.rangeKey]
-      } else {
-        selectContent = selectItem
-      }
       this.setData({
-        selectContent
+        data: detail.value,
+        selectContent: detail.value.join('/'),
       })
+
+
+    },
+    emit() {
       this.triggerEvent('onChange', {
         fieldName: this.data.fieldName,
         required: this.data.required,

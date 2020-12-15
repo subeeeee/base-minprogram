@@ -55,7 +55,7 @@ Component({
       let isOK = true
       this.data.phoneList.forEach(item => {
         if(!item) {
-          isOk = false
+          isOK = false
         }
       })
 

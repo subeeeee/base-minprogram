@@ -10,7 +10,7 @@ Page({
     formData: []
   },
   onLoad: function (options) {
-      this.getProList()
+    this.getProList()
   },
   async getProList() {
     const res = await Api.fetchChannelManager({
@@ -52,6 +52,7 @@ Page({
         ]
         item.rangeKey = 'label'
       }
+
     })
     this.setData({
       formData: res.data
