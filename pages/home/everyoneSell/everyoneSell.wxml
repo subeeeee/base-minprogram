@@ -51,6 +51,19 @@
       wx:if="{{item.fieldType === 2 && item.fieldCode === 'extend3'}}"
     ></component-checkbox>
 
+    <!--置业顾问-->
+    <component-checkbox
+      bind:handleCheck="handleChange"
+      checkbox-data="{{ item }}"
+      wx:if="{{item.fieldType === 2 && item.fieldCode === 'extend3'}}"
+    ></component-checkbox>
+
+    <!--置业顾问-->
+    <component-tips
+      checkbox-data="{{ item }}"
+      wx:if="{{item.fieldType === 5 && item.fieldCode === 'tips'}}"
+    ></component-tips>
+
   </block>
 
 </view>

@@ -18,9 +18,10 @@ page {
     /* height: 60px; */
     box-sizing: border-box;
     border-bottom: 1rpx solid #F5F5F5;
-    line-height: 60px;
+    min-height: 120rpx;
     padding: 0 15px 0 10px;
     display: flex;
+    
 }
 
 
@@ -29,13 +30,18 @@ page {
     text-align: left;
     color: #9B9B9B;
     font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .form_item .control {
     width: 100%;
-    height: 60px;
     position: relative;
     flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 picker,

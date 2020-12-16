@@ -1,7 +1,7 @@
 <view class="form_item">
     <view class="form_title"><span class="red" wx:if="{{required}}">*</span>{{fieldName}}</view>
     <view class="control" bindtap="openPopup">
-        <view>{{activeNameStr || placeholder + fieldName}} dafsdfasdfasdf</view>
+        <view>{{activeNameStr || placeholder + fieldName}} </view>
         <image src="/images/icon_arrow_right_blue.png" class="arrowAddr"></image>
 
     </view>
