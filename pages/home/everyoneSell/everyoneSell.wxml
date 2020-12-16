@@ -1,7 +1,7 @@
 <view class="form_box">
+  <view>
   <component-selector bind:onChange="handleChangeProject" selector-data="{{recommendPro}}" ></component-selector>
   <block wx:for="{{formData}}" wx:for-index="index" wx:for-item="item" wx:key="key" wx:if="{{item.fieldName !== '推荐项目'}}">
-
     <!--text-->
     <component-input
       bind:onInput="handleChange"
@@ -51,19 +51,12 @@
       wx:if="{{item.fieldType === 2 && item.fieldCode === 'extend3'}}"
     ></component-checkbox>
 
-    <!--置业顾问-->
-    <component-checkbox
-      bind:handleCheck="handleChange"
-      checkbox-data="{{ item }}"
-      wx:if="{{item.fieldType === 2 && item.fieldCode === 'extend3'}}"
-    ></component-checkbox>
-
-    <!--置业顾问-->
     <component-tips
-      checkbox-data="{{ item }}"
+      tips-data="{{ item }}"
       wx:if="{{item.fieldType === 5 && item.fieldCode === 'tips'}}"
     ></component-tips>
-
   </block>
 
+
+  </view>
 </view>

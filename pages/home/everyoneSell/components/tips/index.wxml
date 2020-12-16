@@ -1,0 +1,6 @@
+<view class="tips">
+  <view class="tips-title">
+    <mp-icon icon="info" color="var(--dark-color)" size="{{20}}"></mp-icon><text class="tips-title-text">温馨提示</text>
+  </view>
+  <view class="tips-content">{{tips}}</view>
+</view>

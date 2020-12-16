@@ -1,0 +1,15 @@
+@import '/assets/css/common.wxss';
+page {
+    background: #fff;
+}
+.tips-title{
+    padding: 20rpx 10rpx  0 ;
+    color: var(--dark-color) ;
+    font-size: 30rpx;
+}
+.tips-content{
+    text-indent: 2em;
+    font-size: 24rpx;
+    padding:0 10rpx;
+}
+

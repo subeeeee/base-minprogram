@@ -96,5 +96,9 @@
     "request": 20000,
     "uploadFile": 100000,
     "downloadFile": 200000
+  },
+  "useExtendedLib": {
+    "weui": true
   }
+
 }

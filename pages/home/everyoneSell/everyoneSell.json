@@ -7,6 +7,7 @@
     "component-location": "/pages/home/everyoneSell/components/location/index",
     "component-pickerYMDHM": "/pages/home/everyoneSell/components/time/index",
     "component-pickerTime": "/pages/home/everyoneSell/components/pickerTime/index",
-    "component-checkbox": "/pages/home/everyoneSell/components/checkbox/index"
+    "component-checkbox": "/pages/home/everyoneSell/components/checkbox/index",
+    "component-tips": "/pages/home/everyoneSell/components/tips/index"
   }
 }
