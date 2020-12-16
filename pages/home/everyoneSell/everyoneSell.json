@@ -5,6 +5,8 @@
     "component-selector": "/pages/home/everyoneSell/components/selector/index",
     "component-phone": "/pages/home/everyoneSell/components/phone/index",
     "component-location": "/pages/home/everyoneSell/components/location/index",
-    "component-pickerYMDHM": "/pages/home/everyoneSell/components/time/index"
+    "component-pickerYMDHM": "/pages/home/everyoneSell/components/time/index",
+    "component-pickerTime": "/pages/home/everyoneSell/components/pickerTime/index",
+    "component-checkbox": "/pages/home/everyoneSell/components/checkbox/index"
   }
 }

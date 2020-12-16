@@ -12,7 +12,7 @@
   padding-bottom: 20px;
   font-size: 16px;
   color: #4A4A4A;
-  border-bottom: 1px solid #ebebeb;
+  border-bottom: 1rpx solid #ebebeb;
   margin: 0 15px 15px;
 }
 
@@ -55,7 +55,7 @@
   height: 40px;
   line-height: 40px;
   text-align: center;
-  border: 1px solid var(--dark-color);
+  border: 1rpx solid var(--dark-color);
   border-radius: 40px;
 }
 .botBtnBox > text:first-child {

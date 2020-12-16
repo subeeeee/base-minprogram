@@ -21,7 +21,7 @@
   font-size: 18px;
   color: var(--dark-color);
   padding-bottom: 30px;
-  border-bottom: 1px solid #ebebeb;
+  border-bottom: 1rpx solid #ebebeb;
 }
 
 
@@ -79,7 +79,7 @@
   height: 40px;
   line-height: 40px;
   text-align: center;
-  border: 1px solid var(--dark-color);
+  border: 1rpx solid var(--dark-color);
   border-radius: 40px;
 }
 .botBtnBox > text:first-child {

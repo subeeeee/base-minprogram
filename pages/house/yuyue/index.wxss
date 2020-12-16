@@ -14,7 +14,7 @@ page{
 .form_item{
   height: 60px;
   box-sizing: border-box;
-  border-top: 1px solid #F5F5F5;
+  border-top: 1rpx solid #F5F5F5;
   line-height: 60px;
   padding: 0 10px;
   display: flex;

@@ -21,9 +21,9 @@
   line-height: 40px;
   text-align: center;
   font-size: 14px;
-  border-right: 1px solid #D8D8D8;
+  border-right: 1rpx solid #D8D8D8;
   box-sizing: border-box;
-  border-top: 1px solid #D8D8D8;
+  border-top: 1rpx solid #D8D8D8;
 }
 .room > text:nth-child(1),
 .room > text:nth-child(2),
@@ -51,7 +51,7 @@
   font-size: 14px;
   height: 50px;
   line-height: 50px;
-  border-bottom: 1px solid #ebebeb;
+  border-bottom: 1rpx solid #ebebeb;
 }
 .building > text {
   display: inline-block;
@@ -73,7 +73,7 @@
   height: 18px;
   line-height: 18px;
   padding: 0 4px;
-  border: 1px solid #9B9B9B;
+  border: 1rpx solid #9B9B9B;
   color: #4A4A4A;
   border-radius: 4px;
   margin: 0 12px;
@@ -106,7 +106,7 @@
 .ctrl > .btn {
   display: inline-block;
   padding: 2px 13px;
-  border: 1px solid #9B9B9B;
+  border: 1rpx solid #9B9B9B;
   border-radius: 4px;
   margin-left: 10px;
   color: #9B9B9B;

@@ -13,7 +13,7 @@
 .closeDetail{
 	width: 60rpx;
 height: 60rpx;
-border: 1px solid #ccc;
+border: 1rpx solid #ccc;
 font-size: 24rpx;
 position: absolute;
 right: 0;

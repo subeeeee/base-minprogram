@@ -58,13 +58,13 @@
   </view>
 </view>
 
-<van-popup show="{{ projectListShow }}" bind:close="closeProjectListShowPopup" custom-class="project-popup" z-index="1000" position="top">
+<van-popup show="{{ projectListShow }}" bind:close="closeProjectListShowPopup" custom-class="project-popup" z-index="1000" position="bottom">
   <view class="dl" bindtap="closeProjectListShowPopup">
       <view class="dt h2">推荐项目</view>
       <view class="dd dd-flex"></view>
-      <view class="dd down up" style="background-image:url({{imgServerUrl}}/xcx_images/{{styleProjectName}}/up.png)">
+      <!-- <view class="dd down up" style="background-image:url({{imgServerUrl}}/xcx_images/{{styleProjectName}}/up.png)"> -->
 
-      </view>
+      <!-- </view> -->
   </view>
 
    <view class="ul">

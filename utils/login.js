@@ -7,8 +7,8 @@ export const showPhoneNumberMask=function(type="marketing"){
   const mobile = userinfoLogin.phoneNo || userPhone
   if(mobile){
     if(wx.getStorageSync('agentId')){
-      // this.gotoNext('/pages/marketing/index')
-      this.gotoNext('/pages/home/everyoneSell/everyoneSell')
+      this.gotoNext('/pages/marketing/index')
+      // this.gotoNext('/pages/home/everyoneSell/everyoneSell')
     }else{
       //查询渠道管家里面是否已经有此用户的信息了
       this.queryUserFromChannel(mobile,type)

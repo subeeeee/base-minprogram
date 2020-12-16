@@ -39,7 +39,7 @@
   left : 0;
   height : 28rpx;
   content : '';
-  border-left : 1px solid #eaeaea;
+  border-left : 1rpx solid #eaeaea;
 }
 /* 遮罩 */
 

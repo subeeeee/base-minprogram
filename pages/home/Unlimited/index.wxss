@@ -122,6 +122,6 @@
 
 .content .tabs .unlimit{
   background:#fff;
-  border:1px solid var(--dark-color);
+  border:1rpx solid var(--dark-color);
   color:var(--dark-color);
 }

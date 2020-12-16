@@ -1,7 +1,7 @@
 .room_bar {
 	width: 100%;
 	height: auto;
-	border-top: 1px solid #CFCFCF;
+	border-top: 1rpx solid #CFCFCF;
 	position: fixed;
 	bottom: 0;
 	right: 0;

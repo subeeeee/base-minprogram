@@ -219,7 +219,7 @@
 .my-button-whitebg {
   font-size : 26rpx;
   color : #f7650f;
-  border : 1px solid #f3f3f3;
+  border : 1rpx solid #f3f3f3;
   background : #fff;
   box-shadow : 0 0 16px 0 rgba(216, 223, 230, .40);
 }

@@ -37,6 +37,20 @@
       wx:if="{{item.fieldType === 3 && item.fieldCode === 'extend1'}}"
     ></component-pickerYMDHM>
 
+    <!--时间-->
+    <component-pickerTime
+      bind:onChange="handleChange"
+      picker-time-data="{{ item }}"
+      wx:if="{{item.fieldType === 3 && item.fieldCode === 'extend2'}}"
+    ></component-pickerTime>
+
+    <!--多选-->
+    <component-checkbox
+      bind:handleCheck="handleChange"
+      checkbox-data="{{ item }}"
+      wx:if="{{item.fieldType === 2 && item.fieldCode === 'extend3'}}"
+    ></component-checkbox>
+
   </block>
 
 </view>

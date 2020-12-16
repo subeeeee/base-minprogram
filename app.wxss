@@ -102,7 +102,7 @@ button::after {
 .goBtns {
   width : 60rpx;
   padding : 41rpx 17rpx;
-  border : 1px solid #EAEAEA;
+  border : 1rpx solid #EAEAEA;
   border-radius : 48px;
   background : #FFF;
   box-shadow : 0 0 15px 0 rgba(0, 0, 0, .12);
