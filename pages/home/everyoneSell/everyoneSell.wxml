@@ -1,62 +1,65 @@
-<view class="form_box">
-  <view>
-  <component-selector bind:onChange="handleChangeProject" selector-data="{{recommendPro}}" ></component-selector>
-  <block wx:for="{{formData}}" wx:for-index="index" wx:for-item="item" wx:key="key" wx:if="{{item.fieldName !== '推荐项目'}}">
-    <!--text-->
-    <component-input
-      bind:onInput="handleChange"
-      input-data="{{item}}"
-      wx:if="{{item.fieldType === 0 && item.fieldCode !== 'mobile'}}"
-    ></component-input>
+<view>
+  <view class="form_box">
+    <component-selector bind:onChange="handleChangeProject" selector-data="{{recommendPro}}" ></component-selector>
+    <block wx:for="{{formData}}" wx:for-index="index" wx:for-item="item" wx:key="key" wx:if="{{item.fieldName !== '推荐项目'}}">
+      <!--text-->
+      <component-input
+        bind:onInput="handleChange"
+        input-data="{{item}}"
+        wx:if="{{item.fieldType === 0 && item.fieldCode !== 'mobile'}}"
+      ></component-input>
 
-    <!--手机-->
-    <component-phone
-      bind:onChage="handleChange"
-      phone-data="{{ item }}"
-      wx:if="{{item.fieldType === 0 && item.fieldCode === 'mobile'}}"
-    ></component-phone>
+      <!--手机-->
+      <component-phone
+        bind:onChage="handleChange"
+        phone-data="{{ item }}"
+        wx:if="{{item.fieldType === 0 && item.fieldCode === 'mobile'}}"
+      ></component-phone>
 
-    <!--性别-->
-    <component-selector
-      bind:onChange="handleChange"
-      selector-data="{{ item }}"
-      wx:if="{{item.fieldType === 1 && item.fieldCode === 'sex'}}"
-    ></component-selector>
+      <!--性别-->
+      <component-selector
+        bind:onChange="handleChange"
+        selector-data="{{ item }}"
+        wx:if="{{item.fieldType === 1 && item.fieldCode === 'sex'}}"
+      ></component-selector>
 
-    <!--报备区域-->
-    <component-location
-      bind:onChange="handleChange"
-      selector-data="{{ item }}"
-      wx:if="{{item.fieldType === 1 && item.fieldCode === 'location'}}"
-    ></component-location>
+      <!--报备区域-->
+      <component-location
+        bind:onChange="handleChange"
+        selector-data="{{ item }}"
+        wx:if="{{item.fieldType === 1 && item.fieldCode === 'location'}}"
+      ></component-location>
 
-    <!--时间-->
-    <component-pickerYMDHM
-      bind:onChange="handleChange"
-      picker-time-data="{{ item }}"
-      wx:if="{{item.fieldType === 3 && item.fieldCode === 'extend1'}}"
-    ></component-pickerYMDHM>
+      <!--时间-->
+      <component-pickerYMDHM
+        bind:onChange="handleChange"
+        picker-time-data="{{ item }}"
+        wx:if="{{item.fieldType === 3 && item.fieldCode === 'extend1'}}"
+      ></component-pickerYMDHM>
 
-    <!--时间-->
-    <component-pickerTime
-      bind:onChange="handleChange"
-      picker-time-data="{{ item }}"
-      wx:if="{{item.fieldType === 3 && item.fieldCode === 'extend2'}}"
-    ></component-pickerTime>
+      <!--时间-->
+      <component-pickerTime
+        bind:onChange="handleChange"
+        picker-time-data="{{ item }}"
+        wx:if="{{item.fieldType === 3 && item.fieldCode === 'extend2'}}"
+      ></component-pickerTime>
 
-    <!--多选-->
-    <component-checkbox
-      bind:handleCheck="handleChange"
-      checkbox-data="{{ item }}"
-      wx:if="{{item.fieldType === 2 && item.fieldCode === 'extend3'}}"
-    ></component-checkbox>
+      <!--多选-->
+      <component-checkbox
+        bind:handleCheck="handleChange"
+        checkbox-data="{{ item }}"
+        wx:if="{{item.fieldType === 2 && item.fieldCode === 'extend3'}}"
+      ></component-checkbox>
 
-    <component-tips
-      tips-data="{{ item }}"
-      wx:if="{{item.fieldType === 5 && item.fieldCode === 'tips'}}"
-    ></component-tips>
-  </block>
-
-
+      <component-tips
+        tips-data="{{ item }}"
+        wx:if="{{item.fieldType === 5 && item.fieldCode === 'tips'}}"
+      ></component-tips>
+    </block>
+  </view>
+  <view class="form-btn-warp">
+    <view class="form-btn">
+        推荐客户
+    </view>
   </view>
 </view>

@@ -7,6 +7,9 @@ page {
     color: var(--dark-color) ;
     font-size: 30rpx;
 }
+.tips-title-text{
+    padding-top: 1rpx;
+}
 .tips-content{
     text-indent: 2em;
     font-size: 24rpx;
