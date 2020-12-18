@@ -6,10 +6,10 @@
       bindchange="handleChange"
       range-key="{{rangeKey}}"
       range="{{selectList}}"
+      disabled="{{isHide}}"
     >
       <view class="picker">
-        <view class="select-content">{{selectContent}}</view>
-<!--        <view class="placeholder">asdf</view>-->
+        <view class="select-content">{{placeholder || selectContent}}</view>
       </view>
     </picker>
     <image src="/images/icon_arrow_right_blue.png" class="arrowAddr"></image>

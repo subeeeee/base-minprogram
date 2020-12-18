@@ -57,3 +57,19 @@ export function isPhone(phone) {
   }
   return false
 }
+
+/**
+ * 隐藏电话号码的中间四位
+ */
+export function hidePhone(phoneNo) {
+  var reg=/(\d{3})\d{4}(\d{4})/;
+  var newPhoneNo = phoneNo.replace(reg, "$1****$2")
+  return newPhoneNo
+}
+function asdf(tel) {
+  tel = "" + tel;
+  var ary = tel.split("");
+  ary.splice(3,4,"****");
+  var tel1=ary.join("");
+  return tel1
+}

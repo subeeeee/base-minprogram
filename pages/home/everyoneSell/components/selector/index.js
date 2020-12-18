@@ -5,7 +5,6 @@ Component({
       value: null,
       observer(val) {
         const data = {
-          placeholder:val.placeholder || '请选择',
           fieldCode: val.fieldCode,
           fieldName: val.fieldName,
           selectList: val.optionList,
@@ -16,7 +15,15 @@ Component({
         }
         this.setData(data)
       }
-    }
+    },
+    isHide: {
+      type: Boolean,
+      value: false,
+      observer(isHide) {
+        this.changeIsHide(isHide)
+
+      }
+    },
   },
   data: {
     placeholder: '',
@@ -48,6 +55,25 @@ Component({
         required: this.data.required || '',
         data: selectItem,
         isOk,
+      })
+    },
+    changeIsHide(isHide) {
+      let placeholder = ''
+      if(this.data.fieldName === '置业顾问') {
+        placeholder = isHide ? '不支持指定置业顾问' : ''
+      }
+      this.setData({
+        isHide,
+        placeholder,
+        selectContent: '请选择'
+      })
+      // 手动触发更改
+      this.triggerEvent('onChange', {
+        fieldCode: this.data.fieldCode || '',
+        fieldName: this.data.fieldName || '',
+        required: this.data.required || '',
+        data: '',
+        isOk: false,
       })
     }
   }

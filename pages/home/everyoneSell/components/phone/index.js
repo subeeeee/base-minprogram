@@ -15,16 +15,44 @@ Component({
           phoneList: [''],
         })
       }
+    },
+    canHideMobile: {
+      type: Number,
+      value: null,
+      observer(canHideMobile) {
+        console.log(canHideMobile)
+        this.setData({ canHideMobile })
+      }
     }
   },
   data: {
     phoneList: [''],
     fieldName: '',
     name: '',
+    isHide: false,
     styleProjectName:app.globalData.projectName,
     imgServerUrl:app.globalData.imgServerUrl,
   },
   methods: {
+    handleHide() {
+      if(this.data.canHideMobile) {
+        wx.showToast({
+          title: '该项目暂不支持隐号报备'
+        })
+        return
+      }
+
+      this.setData({
+        isHide: !this.data.isHide
+      })
+      // 重置电话列表
+      this.setData({
+        phoneList: [''],
+      })
+      this.triggerEvent('changeIsHide', {
+        isHide: this.data.isHide
+      })
+    },
     trim(str) {
       return str.replace(/^(\s|\u00A0)+/, '').replace(/(\s|\u00A0)+$/, '');
     },
@@ -50,7 +78,9 @@ Component({
       this.emit()
     },
     onInput({ detail, currentTarget }) {
-      console.log(detail, currentTarget)
+      if(this.data.isHide) {
+        detail.value = detail.value.length === 3 ? detail.value + '****' : detail.value
+      }
       this.data.phoneList[currentTarget.dataset.index] = detail.value
       this.setData({ phoneList: this.data.phoneList });
       this.emit()
@@ -65,7 +95,7 @@ Component({
             toastContent = `请填写第${index + 1}个客户手机`
             throw new Error(toastContent)
           } else {
-            if(!isPhone(item)) {
+            if(!isPhone(item) && !this.data.isHide) {
               isOK = false
               toastContent = `请核查第${index + 1}个客户手机格式`
               throw new Error(toastContent)

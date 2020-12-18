@@ -9,21 +9,23 @@
               name="{{fieldName}}"
               value="{{item}}"
               bindinput="onInput"
-              maxlength="{{100}}"
+              maxlength="{{11}}"
               data-index="{{index}}"
             />
             <view class="menu">
-                <view class="addOrSub  icon-zengjia1" bind:tap="add" wx:if="{{!index}}" style="background-image:url({{imgServerUrl}}/xcx_images/{{styleProjectName}}/add_tel.png)"></view>
-                <view class="addOrSub  icon-jianshao" bind:tap="sub" data-index="{{index}}" wx:else  style="background-image:url({{imgServerUrl}}/xcx_images/{{styleProjectName}}/minus_tel.png)"></view>
-<!--                <view-->
-<!--                  wx:if="{{!index}}"-->
-<!--                  class="showOrHidden  look-ico look-open {{canHideMobile === 0}}"-->
-<!--                  style="background-image:url({{imgServerUrl}}/xcx_images/{{styleProjectName}}/quotes_open_c.png)"-->
-<!--                ></view>-->
+                <view class="addOrSub  icon-zengjia1" bind:tap="add" wx:if="{{!isHide && !index}}" style="background-image:url({{imgServerUrl}}/xcx_images/{{styleProjectName}}/add_tel.png)"></view>
+                <view class="addOrSub  icon-jianshao" bind:tap="sub" data-index="{{index}}" wx:if="{{!isHide && index}}" style="background-image:url({{imgServerUrl}}/xcx_images/{{styleProjectName}}/minus_tel.png)"></view>
                 <view
-                  wx:if="{{!index}}"
+                  wx:if="{{ !isHide }}"
+                  class="showOrHidden  look-ico look-open {{canHideMobile === 0}}"
+                  style="background-image:url({{imgServerUrl}}/xcx_images/{{styleProjectName}}/quotes_open_c.png)"
+                  bindtap="handleHide"
+                ></view>
+                <view
+                  wx:if="{{ isHide }}"
                   class="showOrHidden  look-ico look-close"
                   style="background-image:url({{imgServerUrl}}/xcx_images/{{styleProjectName}}/quotes_close_c.png)"
+                  bindtap="handleHide"
                 ></view>
             </view>
         </view>

@@ -17,7 +17,11 @@ Page({
     },
     // 选中的推荐项目
     currentProInfo: {},
-    formData: []
+    // 在template中遍历的表单数据
+    formData: [],
+    // 是否隐号报备
+
+    isHide: false
   },
   onLoad: function (options) {
     this.getProList()
@@ -165,6 +169,12 @@ Page({
     this.setData({
       subList: this.data.subList
     })
+  },
+  /**
+   * 是否隐号报备
+   */
+  changeIsHide({ detail }) {
+    this.setData(detail)
   },
   /**
    * 点击推荐客户提交

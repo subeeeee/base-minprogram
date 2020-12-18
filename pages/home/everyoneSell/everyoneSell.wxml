@@ -12,7 +12,9 @@
       <!--手机-->
       <component-phone
         bind:onChage="handleChange"
+        bind:changeIsHide="changeIsHide"
         phone-data="{{ item }}"
+        can-hide-mobile="{{ canHideMobile }}"
         wx:if="{{item.fieldType === 0 && item.fieldCode === 'mobiles'}}"
       ></component-phone>
 
@@ -56,6 +58,7 @@
       wx:if="{{currentProInfo.projectId}}"
       selector-data="{{ memberCellOption }}"
       bind:onChange="handleMemberChange"
+      is-hide="{{ isHide }}"
     ></component-selector>
     <block wx:for="{{formData}}" wx:for-index="index" wx:for-item="item" wx:key="key" wx:if="{{item.fieldCode === 'tips'}}">
       <component-tips
