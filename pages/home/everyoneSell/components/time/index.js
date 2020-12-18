@@ -6,7 +6,6 @@ Component({
       type: Object,
       value: null,
       observer(val) {
-        console.log(val)
         this.setData({
           fieldCode: val.fieldCode,
           fieldName: val.fieldName,
@@ -28,10 +27,17 @@ Component({
      * 点击日期返回
      */
     onPickerChange: function ({ detail }) {
-      console.log(detail);
       this.setData({
         date: detail.dateString
       })
-    },
+      this.triggerEvent('handleChange', {
+        fieldCode: this.data.fieldCode,
+        fieldName: this.data.fieldName,
+        required: this.data.required,
+        isOK: !!detail.dateString,
+        data: detail.dateString,
+      })
+
+      },
   }
 })

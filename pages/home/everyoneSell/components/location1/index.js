@@ -8,7 +8,6 @@ Component({
       type: Object,
       value: null,
       observer(val) {
-        console.log(val)
         const data = {
           fieldCode: val.fieldCode,
           fieldName: val.fieldName,

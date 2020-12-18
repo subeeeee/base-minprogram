@@ -3,8 +3,7 @@
 
 
 .form_box{
-  height: calc(100% - 500rpx);
-  overflow: auto;
+  padding-bottom: 120rpx;
 }
 .form-btn-warp{
   border-top: 1px solid #F5F5F5;

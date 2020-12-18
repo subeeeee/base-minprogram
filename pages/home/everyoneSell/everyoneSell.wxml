@@ -6,14 +6,14 @@
       <component-input
         bind:onInput="handleChange"
         input-data="{{item}}"
-        wx:if="{{item.fieldType === 0 && item.fieldCode !== 'mobile'}}"
+        wx:if="{{item.fieldType === 0 && item.fieldCode !== 'mobiles'}}"
       ></component-input>
 
       <!--手机-->
       <component-phone
         bind:onChage="handleChange"
         phone-data="{{ item }}"
-        wx:if="{{item.fieldType === 0 && item.fieldCode === 'mobile'}}"
+        wx:if="{{item.fieldType === 0 && item.fieldCode === 'mobiles'}}"
       ></component-phone>
 
       <!--性别-->
@@ -50,15 +50,23 @@
         checkbox-data="{{ item }}"
         wx:if="{{item.fieldType === 2 && item.fieldCode === 'extend3'}}"
       ></component-checkbox>
+    </block>
 
+    <component-selector
+      wx:if="{{currentProInfo.projectId}}"
+      selector-data="{{ memberCellOption }}"
+      bind:onChange="handleMemberChange"
+    ></component-selector>
+    <block wx:for="{{formData}}" wx:for-index="index" wx:for-item="item" wx:key="key" wx:if="{{item.fieldCode === 'tips'}}">
       <component-tips
         tips-data="{{ item }}"
         wx:if="{{item.fieldType === 5 && item.fieldCode === 'tips'}}"
       ></component-tips>
     </block>
+
   </view>
   <view class="form-btn-warp">
-    <view class="form-btn">
+    <view class="form-btn" bindtap="handleSubmit">
         推荐客户
     </view>
   </view>

@@ -26,12 +26,14 @@ Component({
   },
   methods: {
     handleChange({ detail }) {
+      console.log(detail)
+      return
       this.setData({
         data: detail.value,
         selectContent: detail.value.join('/'),
+        code: detail.code.join(','),
       })
-
-
+      this.emit()
     },
     emit() {
       this.triggerEvent('onChange', {
@@ -39,7 +41,8 @@ Component({
         fieldName: this.data.fieldName,
         required: this.data.required,
         data: this.data.selectContent,
-        isOk: this.data.selectContent === '请选择'
+        code: this.data.code,
+        isOk: this.data.selectContent !== '请选择'
       })
     }
   }

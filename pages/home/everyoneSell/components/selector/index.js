@@ -6,8 +6,9 @@ Component({
       observer(val) {
         const data = {
           placeholder:val.placeholder || '请选择',
+          fieldCode: val.fieldCode,
           fieldName: val.fieldName,
-          selectList: val.selectList,
+          selectList: val.optionList,
           required: val.required,
         }
         if(val.rangeKey) {
@@ -27,21 +28,26 @@ Component({
   },
   methods: {
     handleChange({ detail }) {
+      console.log(detail)
       let selectContent = null
+      let isOk = false
       const selectItem = this.data.selectList[+detail.value]
       if(this.data.rangeKey) {
-        selectContent =selectItem[this.data.rangeKey]
+        selectContent = selectItem[this.data.rangeKey]
+        isOk = true
       } else {
         selectContent = selectItem
+        isOk = true
       }
       this.setData({
         selectContent
       })
       this.triggerEvent('onChange', {
-        fieldName: this.data.fieldName,
-        required: this.data.required,
+        fieldCode: this.data.fieldCode || '',
+        fieldName: this.data.fieldName || '',
+        required: this.data.required || '',
         data: selectItem,
-        isOk: !!selectItem
+        isOk,
       })
     }
   }

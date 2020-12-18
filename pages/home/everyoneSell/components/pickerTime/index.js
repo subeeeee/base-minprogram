@@ -24,6 +24,7 @@ Component({
   },
   methods: {
     handleChange({ detail }) {
+      console.log(detail)
       this.setData({
         selectDate: detail.value
       })
@@ -32,7 +33,7 @@ Component({
         fieldName: this.data.fieldName,
         required: this.data.required,
         data: detail.value,
-        isOk: !!detail.value
+        isOK: !!detail.value
       })
     }
   }

@@ -48,3 +48,12 @@ export function parseTime(time, cFormat) {
   })
   return time_str
 }
+
+export function isPhone(phone) {
+  if (phone && typeof phone === 'string') {
+    const reg = /^1[3|4|5|7|8|9][0-9]{9}$/
+    const bol = reg.test(phone)
+    return bol
+  }
+  return false
+}

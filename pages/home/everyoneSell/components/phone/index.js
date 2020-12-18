@@ -1,4 +1,7 @@
+import { isPhone } from '../../../../../utils/utils.js'
+
 const app = getApp()
+
 Component({
   properties: {
     phoneData: {
@@ -8,6 +11,7 @@ Component({
         this.setData({
           fieldCode: val.fieldCode,
           fieldName: val.fieldName,
+          required: val.required,
           phoneList: [''],
         })
       }
@@ -53,15 +57,26 @@ Component({
     },
     emit() {
       let isOK = true
-      this.data.phoneList.forEach(item => {
-        if(!item) {
-          isOK = false
-        }
-      })
-
+      let toastContent = ''
+      try {
+        this.data.phoneList.forEach((item, index) => {
+          if(!item) {
+            isOK = false
+            toastContent = `请填写第${index + 1}个客户手机`
+            throw new Error(toastContent)
+          } else {
+            if(!isPhone(item)) {
+              isOK = false
+              toastContent = `请核查第${index + 1}个客户手机格式`
+              throw new Error(toastContent)
+            }
+          }
+        })
+      } catch(err) {}
       this.triggerEvent('onChage', {
         fieldCode: this.data.fieldCode,
         fieldName: this.data.fieldName,
+        toastContent,
         isOK,
         data: this.data.phoneList,
         required: this.data.required,

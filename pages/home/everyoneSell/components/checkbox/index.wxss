@@ -94,7 +94,6 @@ input,
     text-align: center;
     border: 1rpx solid #858585;
     color: #858585;
-    transition: all .2s linear;
     border-radius: 10rpx;
 }
 .active{
