@@ -146,8 +146,9 @@ Page({
     activitySubmit() {
         var isGo = 1;
         var obj = {};
+        console.log(this.data.obj)
         this.data.obj.forEach(function(item) {
-            if (item.fieldValue == '') {
+            if (item.fieldValue == '' && item.required) {
                 wx.showToast({
                     title: '必填项不能为空',
                     icon: 'none',
