@@ -6,7 +6,7 @@
       <component-input
         bind:onInput="handleChange"
         input-data="{{item}}"
-        wx:if="{{item.fieldType === 0 && item.fieldCode !== 'mobiles'}}"
+        wx:if="{{item.fieldType === 0 && item.fieldCode !== 'mobiles' }}"
       ></component-input>
 
       <!--手机-->
@@ -18,11 +18,11 @@
         wx:if="{{item.fieldType === 0 && item.fieldCode === 'mobiles'}}"
       ></component-phone>
 
-      <!--性别-->
+      <!--性别 及其他多选-->
       <component-selector
         bind:onChange="handleChange"
         selector-data="{{ item }}"
-        wx:if="{{item.fieldType === 1 && item.fieldCode === 'sex'}}"
+        wx:if="{{item.fieldType === 1 && item.fieldCode !== 'location'}}"
       ></component-selector>
 
       <!--报备区域-->
@@ -32,25 +32,25 @@
         wx:if="{{item.fieldType === 1 && item.fieldCode === 'location'}}"
       ></component-location>
 
-      <!--时间-->
+      <!--时间 年月日时分-->
       <component-pickerYMDHM
         bind:onChange="handleChange"
         picker-time-data="{{ item }}"
-        wx:if="{{item.fieldType === 3 && item.fieldCode === 'extend1'}}"
+        wx:if="{{item.fieldType === 3 && (item.dateFormat === 2 || item.dateFormat === 1)}}"
       ></component-pickerYMDHM>
 
-      <!--时间-->
+      <!--时间 年月日-->
       <component-pickerTime
         bind:onChange="handleChange"
         picker-time-data="{{ item }}"
-        wx:if="{{item.fieldType === 3 && item.fieldCode === 'extend2'}}"
+        wx:if="{{item.fieldType === 3 && (item.dateFormat === 0)}}"
       ></component-pickerTime>
 
       <!--多选-->
       <component-checkbox
         bind:handleCheck="handleChange"
         checkbox-data="{{ item }}"
-        wx:if="{{item.fieldType === 2 && item.fieldCode === 'extend3'}}"
+        wx:if="{{item.fieldType === 2 }}"
       ></component-checkbox>
     </block>
 
