@@ -37,7 +37,7 @@ Page({
             data: {
                 ...this.data.params,
                 projectIds: this.data.houseid,
-                type: 1
+                types: [1, 2]
             }
         }).then((res) => {
             if (res.code === 200) {

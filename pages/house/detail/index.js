@@ -23,6 +23,7 @@ Page({
         memberList: [],
         topicList: [],
         roomList: [],
+        topicListShow: [],
         patternList: [],
         onlookersList: [],
         likelist: [],

@@ -1,7 +1,7 @@
 <view class="container {{isIPhoneX?'safe-wrap':''}}">
   <scroll-view scroll-y="{{true}}" class="tab-scroll" bindscrolltolower="onReachBottom">
     <view class="list">
-      <view class="topic-item" wx:for="{{topicList}}" wx:key="index" bindtap="goNexts" data-id="{{item.id}}"  data-url="{{item.linkUrl}}" data-type="2">
+      <view class="topic-item" wx:for="{{topicListShow}}" wx:key="index" bindtap="goNexts" data-id="{{item.id}}"  data-url="{{item.linkUrl}}" data-type="2">
         <view class="left">
           <view class="title">{{item.title}}</view>
           <view class="desc">{{item.topicDesc}}</view>
