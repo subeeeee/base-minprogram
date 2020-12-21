@@ -79,12 +79,27 @@ Page({
     wx.showToast({
       icon:'none',
       title,
+
       duration:3000
+    })
+  },
+  async getExtendInfo({ registerId }) {
+    wx.showLoading({
+      title: '数据加载中...',
+    })
+    const res = await Api.fetchChannelManager({
+      method: 'get',
+      url: '/customersForThird/customers/extendInfo/'+(registerId||this.data.customerRegister.registerId||''),
+    })
+    wx.hideLoading()
+    this.setData({
+      extendInfoList: res.data
     })
   },
   onLoad(option){
     this.getCustomers(option)
     this.getCustomersReportHistory(option)
+    this.getExtendInfo(option)
     this.setData({
       registerId:option.registerId
     })

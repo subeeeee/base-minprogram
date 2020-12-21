@@ -109,6 +109,9 @@ Page({
       if(item.fieldCode !== 'tips') {
         subList.push(item)
       }
+      if(item.fieldType === 1) {
+        item.rangeKey = 'fieldName'
+      }
 
     })
     this.setData({

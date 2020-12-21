@@ -32,6 +32,7 @@
           <van-cell title="到访保护期"  value="{{customers.effectiveReportTime }}" custom-class="height100" center></van-cell>
           <van-cell title="成交保护期"  value="{{customers.dealProtectTime }}" custom-class="height100" center></van-cell>
           <van-cell title="其他号码"  value="{{customers.otherMobiles }}" custom-class="height100" center></van-cell>
+          <van-cell wx:for="{{extendInfoList}}" wx:key="index" title="{{item.name}}"  value="{{item.value || '暂无' }}" custom-class="height100" center></van-cell>
 <view class="height60"></view>
           <van-cell title="成交进度" border="{{ false }}" custom-class="font-big">
             <!-- <view class="subscribeMessages" bindtap = "subscribeMessages">
@@ -39,7 +40,7 @@
             </view> -->
            </van-cell>
 
-           <van-cell wx:for="{{customersReportHistory}}" title="{{item.operateName}}"   wx:key="index" title-class="title-class" value-class="value-width" custom-class="height100 {{index==0?'reportStatusHis':''}}" center>
+           <van-cell wx:for="{{customersReportHistory}}" title="{{item.operateName}}"    title-class="title-class" value-class="value-width" custom-class="height100 {{index==0?'reportStatusHis':''}}" center>
            {{item.operateTimeName}}:<text class="margin-left-20">{{item.operateTime}}</text>
            </van-cell>
 
