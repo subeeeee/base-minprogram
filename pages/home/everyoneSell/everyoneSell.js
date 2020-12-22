@@ -184,6 +184,7 @@ Page({
       modeType: this.data.modeType,
       memberId: this.data.memberId,
       reporterId: wx.getStorageSync('agentId'),
+      userId: wx.getStorageSync('agentId'),
     }
     console.log(JSON.parse(JSON.stringify(this.data.subList)))
 
