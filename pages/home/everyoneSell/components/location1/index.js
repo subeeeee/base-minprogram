@@ -59,7 +59,7 @@ Component({
         fieldName: this.data.fieldName,
         required: this.data.required,
         data: selectItem,
-        isOk: !!selectItem
+        isOK: !!selectItem
       })
     },
 

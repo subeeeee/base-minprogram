@@ -26,8 +26,6 @@ Component({
   },
   methods: {
     handleChange({ detail }) {
-      console.log(detail)
-      return
       this.setData({
         data: detail.value,
         selectContent: detail.value.join('/'),
@@ -42,7 +40,7 @@ Component({
         required: this.data.required,
         data: this.data.selectContent,
         code: this.data.code,
-        isOk: this.data.selectContent !== '请选择'
+        isOK: this.data.selectContent !== '请选择'
       })
     }
   }

@@ -38,6 +38,6 @@ Component({
         data: detail.dateString,
       })
 
-      },
+    },
   }
 })

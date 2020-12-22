@@ -13,6 +13,9 @@ Component({
         if(val.rangeKey) {
           data.rangeKey = val.rangeKey
         }
+        if(val.rangeCode) {
+          data.rangeCode = val.rangeCode
+        }
         this.setData(data)
       }
     },
@@ -37,25 +40,30 @@ Component({
     handleChange({ detail }) {
       console.log(detail)
       let selectContent = null
-      let isOk = false
+      let data = null
+      let isOK = false
       const selectItem = this.data.selectList[+detail.value]
       if(this.data.rangeKey) {
         selectContent = selectItem[this.data.rangeKey]
-        isOk = true
+        data = selectItem[this.data.rangeCode || this.data.rangeKey]
+        isOK = true
       } else {
         selectContent = selectItem
-        isOk = true
+        isOK = true
       }
       this.setData({
         selectContent
       })
-      this.triggerEvent('onChange', {
+      const params = {
         fieldCode: this.data.fieldCode || '',
         fieldName: this.data.fieldName || '',
         required: this.data.required || '',
-        data: selectItem,
-        isOk,
-      })
+        data,
+        dataDesc: selectItem,
+        isOK,
+      }
+      console.log(params)
+      this.triggerEvent('onChange', params)
     },
     changeIsHide(isHide) {
       let placeholder = ''
@@ -73,7 +81,7 @@ Component({
         fieldName: this.data.fieldName || '',
         required: this.data.required || '',
         data: '',
-        isOk: false,
+        isOK: false,
       })
     }
   }

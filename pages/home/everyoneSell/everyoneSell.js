@@ -73,14 +73,14 @@ Page({
    */
   handleChangeProject({ detail }) {
     this.setData({
-      currentProInfo: detail.data,
-      canHideMobile: detail.data.canHideMobile,
-      autoChooseMember: detail.data.autoChooseMember,
-      canChooseMember: detail.data.canChooseMember,
-      modeType: detail.data.modeType,
+      currentProInfo: detail.dataDesc,
+      canHideMobile: detail.dataDesc.canHideMobile,
+      autoChooseMember: detail.dataDesc.autoChooseMember,
+      canChooseMember: detail.dataDesc.canChooseMember,
+      modeType: detail.dataDesc.modeType,
     })
-    this.getCostomForm(detail.data.projectId)
-    this.getMemberList(detail.data.projectId)
+    this.getCostomForm(detail.dataDesc.projectId)
+    this.getMemberList(detail.dataDesc.projectId)
   },
   /**
    * 选择置业顾问
@@ -111,6 +111,7 @@ Page({
       }
       if(item.fieldType === 1) {
         item.rangeKey = 'fieldName'
+        item.rangeCode = 'fieldCode'
       }
 
     })
@@ -146,7 +147,7 @@ Page({
             item.toastContent = toastContent
             break;
           case 'sex':
-            item.data = data.fieldCode
+            item.data = data
             item.isOK = isOK
             break;
           case 'location':
@@ -154,14 +155,9 @@ Page({
             item.code = detail.code
             item.isOK = isOK
             break;
-          case 'extend1':
+          default:
             item.data = data
             item.isOK = isOK
-            break;
-          case 'extend2':
-            item.data = data
-            item.isOK = isOK
-            break;
 
         }
       }
@@ -182,7 +178,6 @@ Page({
   async handleSubmit() {
     const flag = this.hasUnfinished();
     if(flag) return
-    console.log(this.data.subList)
     const params = {
       changeModeType: this.data.changeModeType,
       projectId: this.data.currentProInfo.projectId,
@@ -190,8 +185,9 @@ Page({
       memberId: this.data.memberId,
       reporterId: wx.getStorageSync('agentId'),
     }
+    console.log(JSON.parse(JSON.stringify(this.data.subList)))
+
     this.data.subList.forEach(item => {
-      console.log(item)
       if(item.data || item.data === 0) {
         if(item.fieldCode === 'location') {
           params['location'] = item.code
@@ -201,7 +197,7 @@ Page({
 
       }
     })
-    console.log(params)
+    console.log(JSON.parse(JSON.stringify(params)))
     const res = await Api.fetchChannelManager({
       method: 'post',
       url: '/customersForThird/reportCustomer',
@@ -209,10 +205,16 @@ Page({
     })
     if(res.code === 200) {
       wx.showToast({
-        title: '推荐客户成功',
-        icon: 'none',
-        duration: 3000
-      })
+        title: '报备成功',
+        duration: 3000,
+        success:()=>{
+          setTimeout(() => {
+            wx.navigateTo({
+              url: '/pages/home/index/index'
+            });
+          }, 3000);
+        }
+      });
     } else {
       wx.showToast({
         title: res.message,
@@ -243,9 +245,7 @@ Page({
     try{
       this.data.subList.forEach(item => {
         if(item.required) {
-          console.log(item.data, !item.isOK)
           if (!item.data && item.data !== 0 && item.data !== 1 && !item.isOK) {
-            console.log(item)
             wx.showToast({
               title: '请填写' + item.fieldName,
               icon: 'none',
@@ -254,7 +254,6 @@ Page({
             throw new Error(errString(1, `${item.fieldName}  ${item.fieldCode}`))
           } else if (item.data && item.data !== 0 && item.data !== 1 && !item.isOK) {
 
-            console.log(item)
             wx.showToast({
               title: item.toastContent,
               icon: 'none',
@@ -264,7 +263,6 @@ Page({
           }
         } else {
           if (item.data && item.data !== 0 && item.data !== 1 && !item.isOK) {
-            console.log(item)
             wx.showToast({
               title: item.toastContent,
               icon: 'none',
