@@ -42,6 +42,7 @@ Page({
       memberCellOption: {
         fieldName: '置业顾问',
         optionList: res.data,
+        canChooseMember: this.data.canChooseMember,
         rangeKey: 'memberInfo',
         required: false,
       }
@@ -56,6 +57,7 @@ Page({
       url: '/projects/options',
       data: {
         tenantId:app.globalData.tenantId,
+        userId: wx.getStorageSync('agentId'),
       }
     })
     this.setData({
@@ -87,7 +89,7 @@ Page({
    */
   handleMemberChange({ detail }) {
     this.setData({
-      memberId: detail.data.memberId
+      memberId: detail.data
     })
   },
   /**
@@ -184,9 +186,7 @@ Page({
       modeType: this.data.modeType,
       memberId: this.data.memberId,
       reporterId: wx.getStorageSync('agentId'),
-      userId: wx.getStorageSync('agentId'),
     }
-    console.log(JSON.parse(JSON.stringify(this.data.subList)))
 
     this.data.subList.forEach(item => {
       if(item.data || item.data === 0) {
@@ -198,7 +198,7 @@ Page({
 
       }
     })
-    console.log(JSON.parse(JSON.stringify(params)))
+    return
     const res = await Api.fetchChannelManager({
       method: 'post',
       url: '/customersForThird/reportCustomer',

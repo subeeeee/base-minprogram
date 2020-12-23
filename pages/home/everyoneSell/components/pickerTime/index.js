@@ -24,7 +24,6 @@ Component({
   },
   methods: {
     handleChange({ detail }) {
-      console.log(detail)
       this.setData({
         selectDate: detail.value
       })

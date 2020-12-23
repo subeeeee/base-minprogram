@@ -41,7 +41,6 @@ Component({
           item.isChecked = !item.isChecked
         }
       })
-      console.log(currentTarget)
       this.setData({
         dataList: this.data.dataList
       })

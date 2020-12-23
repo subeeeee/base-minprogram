@@ -80,7 +80,6 @@ Component({
       });
     },
     myevent({detail}) {
-      console.log(detail)
       this.triggerEvent('myevent', detail)
     }
   }

@@ -20,7 +20,6 @@ Component({
       type: Number,
       value: null,
       observer(canHideMobile) {
-        console.log(canHideMobile)
         this.setData({ canHideMobile })
       }
     }

@@ -50,7 +50,6 @@ Component({
         date = new Date(str);
       }
       let pickerArray = this.data.pickerArray;
-      // console.log(date.getFullYear());
       //默认选择3年内
       let year = [];
       let month = [];
@@ -77,7 +76,6 @@ Component({
         endDate = this._getDefaultDate(this.data.endDate);
         tpData = this._getModify(date, startDate, endDate);
       }
-      // console.log(year);
       if (this.data.startDate == null && this.data.endDate == null) {
         startDate = this._getDefaultDate("1901-01-01 00:00");
         endDate = this._getDefaultDate("2099-12-31 23:59");
@@ -90,7 +88,6 @@ Component({
         })
         return;
       }
-      // console.log(division);
       pickerArray[0] = tpData.year;
       pickerArray[1] = tpData.month;
       pickerArray[2] = tpData.day;

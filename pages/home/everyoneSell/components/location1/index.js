@@ -41,7 +41,6 @@ Component({
       this.setData({
         addressData: res.data
       })
-      console.log(this.data.addressData)
 
     },
     handleChange({ detail }) {
@@ -64,7 +63,6 @@ Component({
     },
 
     handleColumnChange(e) {
-      console.log(e)
     }
   }
 })

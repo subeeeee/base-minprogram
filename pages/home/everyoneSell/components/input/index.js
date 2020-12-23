@@ -8,6 +8,8 @@ Component({
           fieldCode: val.fieldCode,
           fieldName: val.fieldName,
           required: val.required,
+          name: ''
+
         })
       }
     }

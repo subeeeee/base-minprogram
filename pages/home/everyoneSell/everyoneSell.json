@@ -3,6 +3,7 @@
   "usingComponents": {
     "component-input": "/pages/home/everyoneSell/components/input/index",
     "component-selector": "/pages/home/everyoneSell/components/selector/index",
+    "component-selector-member": "/pages/home/everyoneSell/components/selector-member/index",
     "component-phone": "/pages/home/everyoneSell/components/phone/index",
     "component-location": "/pages/home/everyoneSell/components/location/index",
     "component-pickerYMDHM": "/pages/home/everyoneSell/components/time/index",

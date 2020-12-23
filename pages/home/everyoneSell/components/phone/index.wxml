@@ -16,13 +16,13 @@
                 <view class="addOrSub  icon-zengjia1" bind:tap="add" wx:if="{{!isHide && !index}}" style="background-image:url({{imgServerUrl}}/xcx_images/{{styleProjectName}}/add_tel.png)"></view>
                 <view class="addOrSub  icon-jianshao" bind:tap="sub" data-index="{{index}}" wx:if="{{!isHide && index}}" style="background-image:url({{imgServerUrl}}/xcx_images/{{styleProjectName}}/minus_tel.png)"></view>
                 <view
-                  wx:if="{{ !isHide }}"
+                  wx:if="{{ !isHide && index === 0 }}"
                   class="showOrHidden  look-ico look-open {{canHideMobile === 0}}"
                   style="background-image:url({{imgServerUrl}}/xcx_images/{{styleProjectName}}/quotes_open_c.png)"
                   bindtap="handleHide"
                 ></view>
                 <view
-                  wx:if="{{ isHide }}"
+                  wx:if="{{ isHide &&  index === 0}}"
                   class="showOrHidden  look-ico look-close"
                   style="background-image:url({{imgServerUrl}}/xcx_images/{{styleProjectName}}/quotes_close_c.png)"
                   bindtap="handleHide"
