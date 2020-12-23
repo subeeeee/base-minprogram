@@ -198,7 +198,6 @@ Page({
 
       }
     })
-    return
     const res = await Api.fetchChannelManager({
       method: 'post',
       url: '/customersForThird/reportCustomer',
