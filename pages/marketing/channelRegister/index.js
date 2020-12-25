@@ -202,8 +202,9 @@ Page({
         url: '/pages/user/customer/list/index'
       })
     }else{
-       wx.redirectTo({
-          url:"/pages/marketing/index"
+
+      wx.redirectTo({
+          url:'/pages/home/everyoneSell/everyoneSell'
         })
     }
   },

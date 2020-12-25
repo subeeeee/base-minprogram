@@ -67,13 +67,13 @@
           </view>
           <text>全民营销</text>
         </button> -->
-        <button  class="get-user-info"  open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" wx:if="{{!phoneNo}}">
+        <button  class="get-user-info"  open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" wx:if="{{phoneNo}}">
           <view class="img">
             <image src="{{imgServerUrl+'/xcx_images/'+globalProjectName+'/commission1.png'}}"></image>
           </view>
           <text>全民营销</text>
         </button>
-        <button  class='get-user-info' bindtap="showPhoneNumberMask"  wx:if="{{phoneNo}}">
+        <button  class='get-user-info' bindtap="showPhoneNumberMask"  wx:if="{{!phoneNo}}">
           <view class="img">
             <image    src="{{imgServerUrl+'/xcx_images/'+globalProjectName+'/commission1.png'}}"></image>
           </view>
