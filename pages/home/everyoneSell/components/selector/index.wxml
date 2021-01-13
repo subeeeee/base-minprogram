@@ -12,6 +12,6 @@
         <view class="select-content">{{placeholder || selectContent}}</view>
       </view>
     </picker>
-    <image src="/images/icon_arrow_right_blue.png" class="arrowAddr"></image>
+    <image src="{{imgServerUrl+'/xcx_images/'+globalProjectName+'/icon_arrow_right_blue.png'}}" class="arrowAddr"></image>
   </view>
 </view>

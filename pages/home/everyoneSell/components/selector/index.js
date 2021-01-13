@@ -1,3 +1,4 @@
+const app = getApp()
 Component({
   properties: {
     selectorData: {
@@ -34,7 +35,12 @@ Component({
     selectList: [],
     required: false,
     rangeKey: '',
-    selectContent: '请选择'
+    selectContent: '请选择',
+    imgServerUrl:app.globalData.imgServerUrl,
+    globalProjectName:app.globalData.projectName,
+    cdnUrl:app.globalData.cdnUrl,
+    darkColor:app.globalData.darkColor,
+    lightColor:app.globalData.lightColor
   },
   methods: {
     handleChange({ detail }) {
