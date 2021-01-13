@@ -5,7 +5,7 @@ const PRO_LIST = [
 	'廊坊阳光行',
 	'明月江南',
 ]
-const CONFIG_PROJECT = '明月江南'
+const CONFIG_PROJECT = '原点云易'
 
 // 静态 新增项目不用配置
 const CONFIG_INFO = {
@@ -39,7 +39,9 @@ const CONFIG_PRO_INFO = {
 		darkColor: '#FD528D',
 		lightColor: '#FF8282',
 		projectName:'haikuotong',
-		hostAddress: 'https://crm.uni-hiku.com.cn/'
+		hostAddress: 'https://crm.uni-hiku.com.cn/',
+		version: '1.1.0',
+		discription: '自定义报表'
 	},
 	'廊坊阳光行': {
 		appId: 'wx563bb6a2dd9ca56c',
@@ -81,9 +83,6 @@ function getProConfInfo(item){
 	}
 	return confInfo
 }
-
-
-
 
 export default({
 	CONFIG_INFO,
